@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haibao.dao.StudentCollegeInfoDao">
+  <resultMap id="BaseResultMap" type="com.haibao.model.po.StudentCollegeInfo">
+    <constructor>
+      <idArg column="sid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="stu_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="stu_no" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="regdate" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="sstatus" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="major_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="minor_id1" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="minor_id2" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="grade" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="class_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="apartment" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="room" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    sid, stu_name, stu_no, regdate, sstatus, dept_id, major_id, minor_id1, minor_id2, 
+    grade, class_id, apartment, room, creator, create_time, updater, update_time
+  </sql>
+  <insert id="insertSelective" parameterType="com.haibao.model.po.StudentCollegeInfo">
+    insert into t_student_college_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="stuName != null">
+        stu_name,
+      </if>
+      <if test="stuNo != null">
+        stu_no,
+      </if>
+      <if test="regdate != null">
+        regdate,
+      </if>
+      <if test="sstatus != null">
+        sstatus,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="majorId != null">
+        major_id,
+      </if>
+      <if test="minorId1 != null">
+        minor_id1,
+      </if>
+      <if test="minorId2 != null">
+        minor_id2,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="classId != null">
+        class_id,
+      </if>
+      <if test="apartment != null">
+        apartment,
+      </if>
+      <if test="room != null">
+        room,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="stuName != null">
+        #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNo != null">
+        #{stuNo,jdbcType=CHAR},
+      </if>
+      <if test="regdate != null">
+        #{regdate,jdbcType=DATE},
+      </if>
+      <if test="sstatus != null">
+        #{sstatus,jdbcType=TINYINT},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="majorId != null">
+        #{majorId,jdbcType=INTEGER},
+      </if>
+      <if test="minorId1 != null">
+        #{minorId1,jdbcType=INTEGER},
+      </if>
+      <if test="minorId2 != null">
+        #{minorId2,jdbcType=INTEGER},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=DATE},
+      </if>
+      <if test="classId != null">
+        #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="apartment != null">
+        #{apartment,jdbcType=INTEGER},
+      </if>
+      <if test="room != null">
+        #{room,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.model.po.StudentCollegeInfo">
+    update t_student_college_info
+    <set>
+      <if test="stuName != null">
+        stu_name = #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNo != null">
+        stu_no = #{stuNo,jdbcType=CHAR},
+      </if>
+      <if test="regdate != null">
+        regdate = #{regdate,jdbcType=DATE},
+      </if>
+      <if test="sstatus != null">
+        sstatus = #{sstatus,jdbcType=TINYINT},
+      </if>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="majorId != null">
+        major_id = #{majorId,jdbcType=INTEGER},
+      </if>
+      <if test="minorId1 != null">
+        minor_id1 = #{minorId1,jdbcType=INTEGER},
+      </if>
+      <if test="minorId2 != null">
+        minor_id2 = #{minorId2,jdbcType=INTEGER},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=DATE},
+      </if>
+      <if test="classId != null">
+        class_id = #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="apartment != null">
+        apartment = #{apartment,jdbcType=INTEGER},
+      </if>
+      <if test="room != null">
+        room = #{room,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where sid = #{sid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haibao.dao.SubjectDao">
+  <resultMap id="BaseResultMap" type="com.haibao.model.po.Subject">
+    <constructor>
+      <idArg column="sid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="ssubject" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="stype1" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="stype2" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="belong" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    sid, ssubject, stype1, stype2, belong, creator, create_time, updater, update_time
+  </sql>
+  <insert id="insertSelective" parameterType="com.haibao.model.po.Subject">
+    insert into t_subject
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="ssubject != null">
+        ssubject,
+      </if>
+      <if test="stype1 != null">
+        stype1,
+      </if>
+      <if test="stype2 != null">
+        stype2,
+      </if>
+      <if test="belong != null">
+        belong,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="ssubject != null">
+        #{ssubject,jdbcType=VARCHAR},
+      </if>
+      <if test="stype1 != null">
+        #{stype1,jdbcType=TINYINT},
+      </if>
+      <if test="stype2 != null">
+        #{stype2,jdbcType=TINYINT},
+      </if>
+      <if test="belong != null">
+        #{belong,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.model.po.Subject">
+    update t_subject
+    <set>
+      <if test="ssubject != null">
+        ssubject = #{ssubject,jdbcType=VARCHAR},
+      </if>
+      <if test="stype1 != null">
+        stype1 = #{stype1,jdbcType=TINYINT},
+      </if>
+      <if test="stype2 != null">
+        stype2 = #{stype2,jdbcType=TINYINT},
+      </if>
+      <if test="belong != null">
+        belong = #{belong,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where sid = #{sid,jdbcType=INTEGER}
+  </update>
+</mapper>

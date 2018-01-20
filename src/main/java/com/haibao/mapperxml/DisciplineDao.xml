@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haibao.dao.DisciplineDao">
+  <resultMap id="BaseResultMap" type="com.haibao.model.po.Discipline">
+    <constructor>
+      <idArg column="did" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="identity" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="fk_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="dlevel" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="ddesc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    did, identity, fk_id, dlevel, ddesc, creator, create_time, updater, update_time
+  </sql>
+  <insert id="insertSelective" parameterType="com.haibao.model.po.Discipline">
+    insert into t_discipline
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="did != null">
+        did,
+      </if>
+      <if test="identity != null">
+        identity,
+      </if>
+      <if test="fkId != null">
+        fk_id,
+      </if>
+      <if test="dlevel != null">
+        dlevel,
+      </if>
+      <if test="ddesc != null">
+        ddesc,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="did != null">
+        #{did,jdbcType=INTEGER},
+      </if>
+      <if test="identity != null">
+        #{identity,jdbcType=TINYINT},
+      </if>
+      <if test="fkId != null">
+        #{fkId,jdbcType=INTEGER},
+      </if>
+      <if test="dlevel != null">
+        #{dlevel,jdbcType=TINYINT},
+      </if>
+      <if test="ddesc != null">
+        #{ddesc,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.model.po.Discipline">
+    update t_discipline
+    <set>
+      <if test="identity != null">
+        identity = #{identity,jdbcType=TINYINT},
+      </if>
+      <if test="fkId != null">
+        fk_id = #{fkId,jdbcType=INTEGER},
+      </if>
+      <if test="dlevel != null">
+        dlevel = #{dlevel,jdbcType=TINYINT},
+      </if>
+      <if test="ddesc != null">
+        ddesc = #{ddesc,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where did = #{did,jdbcType=INTEGER}
+  </update>
+</mapper>
