@@ -6,7 +6,7 @@
       <idArg column="sid" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="stu_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="ayear" javaType="java.lang.String" jdbcType="CHAR" />
-      <arg column="term" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="semester" javaType="java.lang.Byte" jdbcType="TINYINT" />
       <arg column="score" javaType="java.lang.Float" jdbcType="REAL" />
       <arg column="subject_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -16,7 +16,7 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    sid, stu_id, ayear, term, score, subject_id, creator, create_time, updater, update_time
+    sid, stu_id, ayear, semester, score, subject_id, creator, create_time, updater, update_time
   </sql>
   <insert id="insertSelective" parameterType="com.haibao.model.po.Score">
     insert into t_score
@@ -30,8 +30,8 @@
       <if test="ayear != null">
         ayear,
       </if>
-      <if test="term != null">
-        term,
+      <if test="semester != null">
+        semester,
       </if>
       <if test="score != null">
         score,
@@ -62,8 +62,8 @@
       <if test="ayear != null">
         #{ayear,jdbcType=CHAR},
       </if>
-      <if test="term != null">
-        #{term,jdbcType=TINYINT},
+      <if test="semester != null">
+        #{semester,jdbcType=TINYINT},
       </if>
       <if test="score != null">
         #{score,jdbcType=REAL},
@@ -94,8 +94,8 @@
       <if test="ayear != null">
         ayear = #{ayear,jdbcType=CHAR},
       </if>
-      <if test="term != null">
-        term = #{term,jdbcType=TINYINT},
+      <if test="semester != null">
+        semester = #{semester,jdbcType=TINYINT},
       </if>
       <if test="score != null">
         score = #{score,jdbcType=REAL},

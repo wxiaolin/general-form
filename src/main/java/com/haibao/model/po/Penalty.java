@@ -2,16 +2,16 @@ package com.haibao.model.po;
 
 import java.util.Date;
 
-public class Discipline {
-    private Integer did;
+public class Penalty {
+    private Integer pid;
 
     private Byte identity;
 
     private Integer fkId;
 
-    private Byte dlevel;
+    private Byte plevel;
 
-    private String ddesc;
+    private String pdesc;
 
     private Integer creator;
 
@@ -21,28 +21,28 @@ public class Discipline {
 
     private Date updateTime;
 
-    public Discipline(Integer did, Byte identity, Integer fkId, Byte dlevel, String ddesc, Integer creator, Date createTime, Integer updater, Date updateTime) {
-        this.did = did;
+    public Penalty(Integer pid, Byte identity, Integer fkId, Byte plevel, String pdesc, Integer creator, Date createTime, Integer updater, Date updateTime) {
+        this.pid = pid;
         this.identity = identity;
         this.fkId = fkId;
-        this.dlevel = dlevel;
-        this.ddesc = ddesc;
+        this.plevel = plevel;
+        this.pdesc = pdesc;
         this.creator = creator;
         this.createTime = createTime;
         this.updater = updater;
         this.updateTime = updateTime;
     }
 
-    public Discipline() {
+    public Penalty() {
         super();
     }
 
-    public Integer getDid() {
-        return did;
+    public Integer getPid() {
+        return pid;
     }
 
-    public void setDid(Integer did) {
-        this.did = did;
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
     public Byte getIdentity() {
@@ -61,20 +61,20 @@ public class Discipline {
         this.fkId = fkId;
     }
 
-    public Byte getDlevel() {
-        return dlevel;
+    public Byte getPlevel() {
+        return plevel;
     }
 
-    public void setDlevel(Byte dlevel) {
-        this.dlevel = dlevel;
+    public void setPlevel(Byte plevel) {
+        this.plevel = plevel;
     }
 
-    public String getDdesc() {
-        return ddesc;
+    public String getPdesc() {
+        return pdesc;
     }
 
-    public void setDdesc(String ddesc) {
-        this.ddesc = ddesc == null ? null : ddesc.trim();
+    public void setPdesc(String pdesc) {
+        this.pdesc = pdesc == null ? null : pdesc.trim();
     }
 
     public Integer getCreator() {

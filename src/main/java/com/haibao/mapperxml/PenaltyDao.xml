@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.haibao.dao.DisciplineDao">
-  <resultMap id="BaseResultMap" type="com.haibao.model.po.Discipline">
+<mapper namespace="com.haibao.dao.PenaltyDao">
+  <resultMap id="BaseResultMap" type="com.haibao.model.po.Penalty">
     <constructor>
-      <idArg column="did" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <idArg column="pid" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="identity" javaType="java.lang.Byte" jdbcType="TINYINT" />
       <arg column="fk_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="dlevel" javaType="java.lang.Byte" jdbcType="TINYINT" />
-      <arg column="ddesc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="plevel" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="pdesc" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -15,13 +15,13 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    did, identity, fk_id, dlevel, ddesc, creator, create_time, updater, update_time
+    pid, identity, fk_id, plevel, pdesc, creator, create_time, updater, update_time
   </sql>
-  <insert id="insertSelective" parameterType="com.haibao.model.po.Discipline">
-    insert into t_discipline
+  <insert id="insertSelective" parameterType="com.haibao.model.po.Penalty">
+    insert into t_penalty
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="did != null">
-        did,
+      <if test="pid != null">
+        pid,
       </if>
       <if test="identity != null">
         identity,
@@ -29,11 +29,11 @@
       <if test="fkId != null">
         fk_id,
       </if>
-      <if test="dlevel != null">
-        dlevel,
+      <if test="plevel != null">
+        plevel,
       </if>
-      <if test="ddesc != null">
-        ddesc,
+      <if test="pdesc != null">
+        pdesc,
       </if>
       <if test="creator != null">
         creator,
@@ -49,8 +49,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="did != null">
-        #{did,jdbcType=INTEGER},
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
       </if>
       <if test="identity != null">
         #{identity,jdbcType=TINYINT},
@@ -58,11 +58,11 @@
       <if test="fkId != null">
         #{fkId,jdbcType=INTEGER},
       </if>
-      <if test="dlevel != null">
-        #{dlevel,jdbcType=TINYINT},
+      <if test="plevel != null">
+        #{plevel,jdbcType=TINYINT},
       </if>
-      <if test="ddesc != null">
-        #{ddesc,jdbcType=VARCHAR},
+      <if test="pdesc != null">
+        #{pdesc,jdbcType=VARCHAR},
       </if>
       <if test="creator != null">
         #{creator,jdbcType=INTEGER},
@@ -78,8 +78,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.model.po.Discipline">
-    update t_discipline
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.model.po.Penalty">
+    update t_penalty
     <set>
       <if test="identity != null">
         identity = #{identity,jdbcType=TINYINT},
@@ -87,11 +87,11 @@
       <if test="fkId != null">
         fk_id = #{fkId,jdbcType=INTEGER},
       </if>
-      <if test="dlevel != null">
-        dlevel = #{dlevel,jdbcType=TINYINT},
+      <if test="plevel != null">
+        plevel = #{plevel,jdbcType=TINYINT},
       </if>
-      <if test="ddesc != null">
-        ddesc = #{ddesc,jdbcType=VARCHAR},
+      <if test="pdesc != null">
+        pdesc = #{pdesc,jdbcType=VARCHAR},
       </if>
       <if test="creator != null">
         creator = #{creator,jdbcType=INTEGER},
@@ -106,6 +106,6 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where did = #{did,jdbcType=INTEGER}
+    where pid = #{pid,jdbcType=INTEGER}
   </update>
 </mapper>

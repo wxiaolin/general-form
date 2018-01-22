@@ -63,29 +63,29 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
         <!--<table tableName="t_administrator" domainObjectName="Administrator" mapperName="AdministratorDao"-->
-        <!--enableCountByExample="false" enableUpdateByExample="false"-->
-        <!--enableDeleteByExample="false" enableSelectByExample="false"-->
-        <!--selectByExampleQueryId="false">-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false">-->
         <!--</table>-->
         <!--<table tableName="t_building" domainObjectName="Building" mapperName="BuildingDao"-->
-        <!--enableCountByExample="false" enableUpdateByExample="false"-->
-        <!--enableDeleteByExample="false" enableSelectByExample="false"-->
-        <!--selectByExampleQueryId="false">-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false">-->
         <!--</table>-->
         <!--<table tableName="t_class" domainObjectName="Class" mapperName="ClassDao"-->
-        <!--enableCountByExample="false" enableUpdateByExample="false"-->
-        <!--enableDeleteByExample="false" enableSelectByExample="false"-->
-        <!--selectByExampleQueryId="false">-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false">-->
         <!--</table>-->
-        <table tableName="t_classroom" domainObjectName="Classroom" mapperName="ClassroomDao"
-        enableCountByExample="false" enableUpdateByExample="false"
-        enableDeleteByExample="false" enableSelectByExample="false"
-        selectByExampleQueryId="false">
+        <!--<table tableName="t_classroom" domainObjectName="Classroom" mapperName="ClassroomDao"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false">-->
         <!--</table>-->
         <!--<table tableName="t_college_area" domainObjectName="CollegeArea" mapperName="CollegeAreaDao"-->
-        <!--enableCountByExample="false" enableUpdateByExample="false"-->
-        <!--enableDeleteByExample="false" enableSelectByExample="false"-->
-        <!--selectByExampleQueryId="false">-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false">-->
         <!--</table>-->
 
         <!--<table tableName="t_dept" domainObjectName="Dept" mapperName="DeptDao"-->
@@ -93,7 +93,7 @@
                <!--enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--selectByExampleQueryId="false">-->
         <!--</table>-->
-        <!--<table tableName="t_discipline" domainObjectName="Discipline" mapperName="DisciplineDao"-->
+        <!--<table tableName="t_penalty" domainObjectName="Penalty" mapperName="PenaltyDao"-->
                <!--enableCountByExample="false" enableUpdateByExample="false"-->
                <!--enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--selectByExampleQueryId="false">-->
@@ -108,7 +108,12 @@
                <!--enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--selectByExampleQueryId="false">-->
         <!--</table>-->
-        <!--<table tableName="-->
+        <!--<table tableName="t_employee_college_info" domainObjectName="EmployeeCollegeInfo"-->
+               <!--mapperName="EmployeeCollegeInfoDao"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false">-->
+        <!--</table>-->
         <!--<table tableName="t_employee_info" domainObjectName="EmployeeInfo" mapperName="EmployeeInfoDao"-->
                <!--enableCountByExample="false" enableUpdateByExample="false"-->
                <!--enableDeleteByExample="false" enableSelectByExample="false"-->
@@ -118,7 +123,7 @@
                <!--enableCountByExample="false" enableUpdateByExample="false"-->
                <!--enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--selectByExampleQueryId="false">-->
-        </table>
+        <!--</table>-->
         <!--<table tableName="t_glory" domainObjectName="Glory" mapperName="GloryDao"-->
                <!--enableCountByExample="false" enableUpdateByExample="false"-->
                <!--enableDeleteByExample="false" enableSelectByExample="false"-->
@@ -160,7 +165,8 @@
                <!--enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--selectByExampleQueryId="false">-->
         <!--</table>-->
-        <!--<table tableName="t_student_college_info" domainObjectName="StudentCollegeInfo" mapperName="StudentCollegeInfoDao"-->
+        <!--<table tableName="t_student_college_info" domainObjectName="StudentCollegeInfo"-->
+               <!--mapperName="StudentCollegeInfoDao"-->
                <!--enableCountByExample="false" enableUpdateByExample="false"-->
                <!--enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--selectByExampleQueryId="false">-->
@@ -180,7 +186,8 @@
                <!--enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--selectByExampleQueryId="false">-->
         <!--</table>-->
-        <!--<table tableName="t_teacher_college_info" domainObjectName="TeacherCollegeInfo" mapperName="TeacherCollegeInfoDao"-->
+        <!--<table tableName="t_teacher_college_info" domainObjectName="TeacherCollegeInfo"-->
+               <!--mapperName="TeacherCollegeInfoDao"-->
                <!--enableCountByExample="false" enableUpdateByExample="false"-->
                <!--enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--selectByExampleQueryId="false">-->
