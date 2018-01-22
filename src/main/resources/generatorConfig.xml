@@ -77,10 +77,10 @@
         <!--enableDeleteByExample="false" enableSelectByExample="false"-->
         <!--selectByExampleQueryId="false">-->
         <!--</table>-->
-        <!--<table tableName="t_classroom" domainObjectName="Classroom" mapperName="ClassroomDao"-->
-        <!--enableCountByExample="false" enableUpdateByExample="false"-->
-        <!--enableDeleteByExample="false" enableSelectByExample="false"-->
-        <!--selectByExampleQueryId="false">-->
+        <table tableName="t_classroom" domainObjectName="Classroom" mapperName="ClassroomDao"
+        enableCountByExample="false" enableUpdateByExample="false"
+        enableDeleteByExample="false" enableSelectByExample="false"
+        selectByExampleQueryId="false">
         <!--</table>-->
         <!--<table tableName="t_college_area" domainObjectName="CollegeArea" mapperName="CollegeAreaDao"-->
         <!--enableCountByExample="false" enableUpdateByExample="false"-->
@@ -114,10 +114,10 @@
                <!--enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--selectByExampleQueryId="false">-->
         <!--</table>-->
-        <table tableName="t_form" domainObjectName="Form" mapperName="FormDao"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
+        <!--<table tableName="t_form" domainObjectName="Form" mapperName="FormDao"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false">-->
         </table>
         <!--<table tableName="t_glory" domainObjectName="Glory" mapperName="GloryDao"-->
                <!--enableCountByExample="false" enableUpdateByExample="false"-->

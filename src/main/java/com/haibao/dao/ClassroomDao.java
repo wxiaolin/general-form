@@ -20,7 +20,7 @@ public interface ClassroomDao {
         "create_time, updater, ",
         "update_time)",
         "values (#{cid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR}, ",
-        "#{belong,jdbcType=TINYINT}, #{creator,jdbcType=INTEGER}, ",
+        "#{belong,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, ",
         "#{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, ",
         "#{updateTime,jdbcType=TIMESTAMP})"
     })
@@ -42,7 +42,7 @@ public interface ClassroomDao {
     @Update({
         "update t_classroom",
         "set cname = #{cname,jdbcType=VARCHAR},",
-          "belong = #{belong,jdbcType=TINYINT},",
+          "belong = #{belong,jdbcType=INTEGER},",
           "creator = #{creator,jdbcType=INTEGER},",
           "create_time = #{createTime,jdbcType=TIMESTAMP},",
           "updater = #{updater,jdbcType=INTEGER},",
