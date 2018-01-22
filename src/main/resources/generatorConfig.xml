@@ -154,11 +154,11 @@
                <!--enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--selectByExampleQueryId="false">-->
         <!--</table>-->
-        <!--<table tableName="t_score" domainObjectName="Score" mapperName="ScoreDao"-->
-               <!--enableCountByExample="false" enableUpdateByExample="false"-->
-               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
-               <!--selectByExampleQueryId="false">-->
-        <!--</table>-->
+        <table tableName="t_score" domainObjectName="Score" mapperName="ScoreDao"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
 
         <!--<table tableName="t_student_account" domainObjectName="StudentAccount" mapperName="StudentAccountDao"-->
                <!--enableCountByExample="false" enableUpdateByExample="false"-->

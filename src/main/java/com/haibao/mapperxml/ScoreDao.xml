@@ -7,7 +7,8 @@
       <arg column="stu_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="ayear" javaType="java.lang.String" jdbcType="CHAR" />
       <arg column="semester" javaType="java.lang.Byte" jdbcType="TINYINT" />
-      <arg column="score" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="score1" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="score2" javaType="java.lang.Float" jdbcType="REAL" />
       <arg column="subject_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
@@ -16,7 +17,8 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    sid, stu_id, ayear, semester, score, subject_id, creator, create_time, updater, update_time
+    sid, stu_id, ayear, semester, score1, score2, subject_id, creator, create_time, updater, 
+    update_time
   </sql>
   <insert id="insertSelective" parameterType="com.haibao.model.po.Score">
     insert into t_score
@@ -33,8 +35,11 @@
       <if test="semester != null">
         semester,
       </if>
-      <if test="score != null">
-        score,
+      <if test="score1 != null">
+        score1,
+      </if>
+      <if test="score2 != null">
+        score2,
       </if>
       <if test="subjectId != null">
         subject_id,
@@ -65,8 +70,11 @@
       <if test="semester != null">
         #{semester,jdbcType=TINYINT},
       </if>
-      <if test="score != null">
-        #{score,jdbcType=REAL},
+      <if test="score1 != null">
+        #{score1,jdbcType=REAL},
+      </if>
+      <if test="score2 != null">
+        #{score2,jdbcType=REAL},
       </if>
       <if test="subjectId != null">
         #{subjectId,jdbcType=INTEGER},
@@ -97,8 +105,11 @@
       <if test="semester != null">
         semester = #{semester,jdbcType=TINYINT},
       </if>
-      <if test="score != null">
-        score = #{score,jdbcType=REAL},
+      <if test="score1 != null">
+        score1 = #{score1,jdbcType=REAL},
+      </if>
+      <if test="score2 != null">
+        score2 = #{score2,jdbcType=REAL},
       </if>
       <if test="subjectId != null">
         subject_id = #{subjectId,jdbcType=INTEGER},

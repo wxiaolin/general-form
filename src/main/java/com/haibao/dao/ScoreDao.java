@@ -16,15 +16,15 @@ public interface ScoreDao {
 
     @Insert({
         "insert into t_score (sid, stu_id, ",
-        "ayear, semester, score, ",
-        "subject_id, creator, ",
-        "create_time, updater, ",
-        "update_time)",
+        "ayear, semester, score1, ",
+        "score2, subject_id, ",
+        "creator, create_time, ",
+        "updater, update_time)",
         "values (#{sid,jdbcType=INTEGER}, #{stuId,jdbcType=INTEGER}, ",
-        "#{ayear,jdbcType=CHAR}, #{semester,jdbcType=TINYINT}, #{score,jdbcType=REAL}, ",
-        "#{subjectId,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, ",
-        "#{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, ",
-        "#{updateTime,jdbcType=TIMESTAMP})"
+        "#{ayear,jdbcType=CHAR}, #{semester,jdbcType=TINYINT}, #{score1,jdbcType=REAL}, ",
+        "#{score2,jdbcType=REAL}, #{subjectId,jdbcType=INTEGER}, ",
+        "#{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, ",
+        "#{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})"
     })
     int insert(Score record);
 
@@ -32,8 +32,8 @@ public interface ScoreDao {
 
     @Select({
         "select",
-        "sid, stu_id, ayear, semester, score, subject_id, creator, create_time, updater, ",
-        "update_time",
+        "sid, stu_id, ayear, semester, score1, score2, subject_id, creator, create_time, ",
+        "updater, update_time",
         "from t_score",
         "where sid = #{sid,jdbcType=INTEGER}"
     })
@@ -47,7 +47,8 @@ public interface ScoreDao {
         "set stu_id = #{stuId,jdbcType=INTEGER},",
           "ayear = #{ayear,jdbcType=CHAR},",
           "semester = #{semester,jdbcType=TINYINT},",
-          "score = #{score,jdbcType=REAL},",
+          "score1 = #{score1,jdbcType=REAL},",
+          "score2 = #{score2,jdbcType=REAL},",
           "subject_id = #{subjectId,jdbcType=INTEGER},",
           "creator = #{creator,jdbcType=INTEGER},",
           "create_time = #{createTime,jdbcType=TIMESTAMP},",

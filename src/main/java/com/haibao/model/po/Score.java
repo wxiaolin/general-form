@@ -11,7 +11,9 @@ public class Score {
 
     private Byte semester;
 
-    private Float score;
+    private Float score1;
+
+    private Float score2;
 
     private Integer subjectId;
 
@@ -23,12 +25,13 @@ public class Score {
 
     private Date updateTime;
 
-    public Score(Integer sid, Integer stuId, String ayear, Byte semester, Float score, Integer subjectId, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public Score(Integer sid, Integer stuId, String ayear, Byte semester, Float score1, Float score2, Integer subjectId, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.sid = sid;
         this.stuId = stuId;
         this.ayear = ayear;
         this.semester = semester;
-        this.score = score;
+        this.score1 = score1;
+        this.score2 = score2;
         this.subjectId = subjectId;
         this.creator = creator;
         this.createTime = createTime;
@@ -72,12 +75,20 @@ public class Score {
         this.semester = semester;
     }
 
-    public Float getScore() {
-        return score;
+    public Float getScore1() {
+        return score1;
     }
 
-    public void setScore(Float score) {
-        this.score = score;
+    public void setScore1(Float score1) {
+        this.score1 = score1;
+    }
+
+    public Float getScore2() {
+        return score2;
+    }
+
+    public void setScore2(Float score2) {
+        this.score2 = score2;
     }
 
     public Integer getSubjectId() {
