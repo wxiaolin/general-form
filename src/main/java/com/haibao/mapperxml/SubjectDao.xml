@@ -7,7 +7,7 @@
       <arg column="ssubject" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="stype1" javaType="java.lang.Byte" jdbcType="TINYINT" />
       <arg column="stype2" javaType="java.lang.Byte" jdbcType="TINYINT" />
-      <arg column="belong" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -15,7 +15,7 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    sid, ssubject, stype1, stype2, belong, creator, create_time, updater, update_time
+    sid, ssubject, stype1, stype2, dept_id, creator, create_time, updater, update_time
   </sql>
   <insert id="insertSelective" parameterType="com.haibao.model.po.Subject">
     insert into t_subject
@@ -32,8 +32,8 @@
       <if test="stype2 != null">
         stype2,
       </if>
-      <if test="belong != null">
-        belong,
+      <if test="deptId != null">
+        dept_id,
       </if>
       <if test="creator != null">
         creator,
@@ -61,8 +61,8 @@
       <if test="stype2 != null">
         #{stype2,jdbcType=TINYINT},
       </if>
-      <if test="belong != null">
-        #{belong,jdbcType=INTEGER},
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
       </if>
       <if test="creator != null">
         #{creator,jdbcType=INTEGER},
@@ -90,8 +90,8 @@
       <if test="stype2 != null">
         stype2 = #{stype2,jdbcType=TINYINT},
       </if>
-      <if test="belong != null">
-        belong = #{belong,jdbcType=INTEGER},
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=INTEGER},
       </if>
       <if test="creator != null">
         creator = #{creator,jdbcType=INTEGER},

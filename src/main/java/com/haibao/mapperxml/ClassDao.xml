@@ -6,7 +6,7 @@
       <idArg column="cid" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="grade" javaType="java.util.Date" jdbcType="DATE" />
-      <arg column="major" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="major_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="class_no" javaType="java.lang.Byte" jdbcType="TINYINT" />
       <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
@@ -15,7 +15,7 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    cid, dept_id, grade, major, class_no, creator, create_time, updater, update_time
+    cid, dept_id, grade, major_id, class_no, creator, create_time, updater, update_time
   </sql>
   <insert id="insertSelective" parameterType="com.haibao.model.po.Class">
     insert into t_class
@@ -29,8 +29,8 @@
       <if test="grade != null">
         grade,
       </if>
-      <if test="major != null">
-        major,
+      <if test="majorId != null">
+        major_id,
       </if>
       <if test="classNo != null">
         class_no,
@@ -58,8 +58,8 @@
       <if test="grade != null">
         #{grade,jdbcType=DATE},
       </if>
-      <if test="major != null">
-        #{major,jdbcType=INTEGER},
+      <if test="majorId != null">
+        #{majorId,jdbcType=INTEGER},
       </if>
       <if test="classNo != null">
         #{classNo,jdbcType=TINYINT},
@@ -87,8 +87,8 @@
       <if test="grade != null">
         grade = #{grade,jdbcType=DATE},
       </if>
-      <if test="major != null">
-        major = #{major,jdbcType=INTEGER},
+      <if test="majorId != null">
+        major_id = #{majorId,jdbcType=INTEGER},
       </if>
       <if test="classNo != null">
         class_no = #{classNo,jdbcType=TINYINT},

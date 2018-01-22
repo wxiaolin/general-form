@@ -16,11 +16,11 @@ public interface RoomDao {
 
     @Insert({
         "insert into t_room (rid, rname, ",
-        "belong, creator, ",
+        "building_id, creator, ",
         "create_time, updater, ",
         "update_time)",
         "values (#{rid,jdbcType=INTEGER}, #{rname,jdbcType=VARCHAR}, ",
-        "#{belong,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, ",
+        "#{buildingId,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, ",
         "#{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, ",
         "#{updateTime,jdbcType=TIMESTAMP})"
     })
@@ -30,7 +30,7 @@ public interface RoomDao {
 
     @Select({
         "select",
-        "rid, rname, belong, creator, create_time, updater, update_time",
+        "rid, rname, building_id, creator, create_time, updater, update_time",
         "from t_room",
         "where rid = #{rid,jdbcType=INTEGER}"
     })
@@ -42,7 +42,7 @@ public interface RoomDao {
     @Update({
         "update t_room",
         "set rname = #{rname,jdbcType=VARCHAR},",
-          "belong = #{belong,jdbcType=INTEGER},",
+          "building_id = #{buildingId,jdbcType=INTEGER},",
           "creator = #{creator,jdbcType=INTEGER},",
           "create_time = #{createTime,jdbcType=TIMESTAMP},",
           "updater = #{updater,jdbcType=INTEGER},",

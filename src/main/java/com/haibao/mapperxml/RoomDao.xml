@@ -5,7 +5,7 @@
     <constructor>
       <idArg column="rid" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="rname" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="belong" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="building_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -13,7 +13,7 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    rid, rname, belong, creator, create_time, updater, update_time
+    rid, rname, building_id, creator, create_time, updater, update_time
   </sql>
   <insert id="insertSelective" parameterType="com.haibao.model.po.Room">
     insert into t_room
@@ -24,8 +24,8 @@
       <if test="rname != null">
         rname,
       </if>
-      <if test="belong != null">
-        belong,
+      <if test="buildingId != null">
+        building_id,
       </if>
       <if test="creator != null">
         creator,
@@ -47,8 +47,8 @@
       <if test="rname != null">
         #{rname,jdbcType=VARCHAR},
       </if>
-      <if test="belong != null">
-        #{belong,jdbcType=INTEGER},
+      <if test="buildingId != null">
+        #{buildingId,jdbcType=INTEGER},
       </if>
       <if test="creator != null">
         #{creator,jdbcType=INTEGER},
@@ -70,8 +70,8 @@
       <if test="rname != null">
         rname = #{rname,jdbcType=VARCHAR},
       </if>
-      <if test="belong != null">
-        belong = #{belong,jdbcType=INTEGER},
+      <if test="buildingId != null">
+        building_id = #{buildingId,jdbcType=INTEGER},
       </if>
       <if test="creator != null">
         creator = #{creator,jdbcType=INTEGER},

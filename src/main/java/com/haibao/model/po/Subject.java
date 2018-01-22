@@ -11,7 +11,7 @@ public class Subject {
 
     private Byte stype2;
 
-    private Integer belong;
+    private Integer deptId;
 
     private Integer creator;
 
@@ -21,12 +21,12 @@ public class Subject {
 
     private Date updateTime;
 
-    public Subject(Integer sid, String ssubject, Byte stype1, Byte stype2, Integer belong, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public Subject(Integer sid, String ssubject, Byte stype1, Byte stype2, Integer deptId, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.sid = sid;
         this.ssubject = ssubject;
         this.stype1 = stype1;
         this.stype2 = stype2;
-        this.belong = belong;
+        this.deptId = deptId;
         this.creator = creator;
         this.createTime = createTime;
         this.updater = updater;
@@ -69,12 +69,12 @@ public class Subject {
         this.stype2 = stype2;
     }
 
-    public Integer getBelong() {
-        return belong;
+    public Integer getDeptId() {
+        return deptId;
     }
 
-    public void setBelong(Integer belong) {
-        this.belong = belong;
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
     }
 
     public Integer getCreator() {

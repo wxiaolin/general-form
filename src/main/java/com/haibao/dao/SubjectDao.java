@@ -17,12 +17,12 @@ public interface SubjectDao {
     @Insert({
         "insert into t_subject (sid, ssubject, ",
         "stype1, stype2, ",
-        "belong, creator, ",
+        "dept_id, creator, ",
         "create_time, updater, ",
         "update_time)",
         "values (#{sid,jdbcType=INTEGER}, #{ssubject,jdbcType=VARCHAR}, ",
         "#{stype1,jdbcType=TINYINT}, #{stype2,jdbcType=TINYINT}, ",
-        "#{belong,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, ",
+        "#{deptId,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, ",
         "#{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, ",
         "#{updateTime,jdbcType=TIMESTAMP})"
     })
@@ -32,7 +32,7 @@ public interface SubjectDao {
 
     @Select({
         "select",
-        "sid, ssubject, stype1, stype2, belong, creator, create_time, updater, update_time",
+        "sid, ssubject, stype1, stype2, dept_id, creator, create_time, updater, update_time",
         "from t_subject",
         "where sid = #{sid,jdbcType=INTEGER}"
     })
@@ -46,7 +46,7 @@ public interface SubjectDao {
         "set ssubject = #{ssubject,jdbcType=VARCHAR},",
           "stype1 = #{stype1,jdbcType=TINYINT},",
           "stype2 = #{stype2,jdbcType=TINYINT},",
-          "belong = #{belong,jdbcType=INTEGER},",
+          "dept_id = #{deptId,jdbcType=INTEGER},",
           "creator = #{creator,jdbcType=INTEGER},",
           "create_time = #{createTime,jdbcType=TIMESTAMP},",
           "updater = #{updater,jdbcType=INTEGER},",

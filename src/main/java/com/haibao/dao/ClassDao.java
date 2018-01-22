@@ -16,11 +16,11 @@ public interface ClassDao {
 
     @Insert({
         "insert into t_class (cid, dept_id, ",
-        "grade, major, class_no, ",
+        "grade, major_id, class_no, ",
         "creator, create_time, ",
         "updater, update_time)",
         "values (#{cid,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, ",
-        "#{grade,jdbcType=DATE}, #{major,jdbcType=INTEGER}, #{classNo,jdbcType=TINYINT}, ",
+        "#{grade,jdbcType=DATE}, #{majorId,jdbcType=INTEGER}, #{classNo,jdbcType=TINYINT}, ",
         "#{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, ",
         "#{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})"
     })
@@ -30,7 +30,7 @@ public interface ClassDao {
 
     @Select({
         "select",
-        "cid, dept_id, grade, major, class_no, creator, create_time, updater, update_time",
+        "cid, dept_id, grade, major_id, class_no, creator, create_time, updater, update_time",
         "from t_class",
         "where cid = #{cid,jdbcType=INTEGER}"
     })
@@ -43,7 +43,7 @@ public interface ClassDao {
         "update t_class",
         "set dept_id = #{deptId,jdbcType=INTEGER},",
           "grade = #{grade,jdbcType=DATE},",
-          "major = #{major,jdbcType=INTEGER},",
+          "major_id = #{majorId,jdbcType=INTEGER},",
           "class_no = #{classNo,jdbcType=TINYINT},",
           "creator = #{creator,jdbcType=INTEGER},",
           "create_time = #{createTime,jdbcType=TIMESTAMP},",

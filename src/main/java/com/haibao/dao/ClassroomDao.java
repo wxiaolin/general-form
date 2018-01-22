@@ -16,11 +16,11 @@ public interface ClassroomDao {
 
     @Insert({
         "insert into t_classroom (cid, cname, ",
-        "belong, creator, ",
+        "building_id, creator, ",
         "create_time, updater, ",
         "update_time)",
         "values (#{cid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR}, ",
-        "#{belong,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, ",
+        "#{buildingId,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, ",
         "#{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, ",
         "#{updateTime,jdbcType=TIMESTAMP})"
     })
@@ -30,7 +30,7 @@ public interface ClassroomDao {
 
     @Select({
         "select",
-        "cid, cname, belong, creator, create_time, updater, update_time",
+        "cid, cname, building_id, creator, create_time, updater, update_time",
         "from t_classroom",
         "where cid = #{cid,jdbcType=INTEGER}"
     })
@@ -42,7 +42,7 @@ public interface ClassroomDao {
     @Update({
         "update t_classroom",
         "set cname = #{cname,jdbcType=VARCHAR},",
-          "belong = #{belong,jdbcType=INTEGER},",
+          "building_id = #{buildingId,jdbcType=INTEGER},",
           "creator = #{creator,jdbcType=INTEGER},",
           "create_time = #{createTime,jdbcType=TIMESTAMP},",
           "updater = #{updater,jdbcType=INTEGER},",

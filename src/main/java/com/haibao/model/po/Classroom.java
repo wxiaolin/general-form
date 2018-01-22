@@ -7,7 +7,7 @@ public class Classroom {
 
     private String cname;
 
-    private Integer belong;
+    private Integer buildingId;
 
     private Integer creator;
 
@@ -17,10 +17,10 @@ public class Classroom {
 
     private Date updateTime;
 
-    public Classroom(Integer cid, String cname, Integer belong, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public Classroom(Integer cid, String cname, Integer buildingId, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.cid = cid;
         this.cname = cname;
-        this.belong = belong;
+        this.buildingId = buildingId;
         this.creator = creator;
         this.createTime = createTime;
         this.updater = updater;
@@ -47,12 +47,12 @@ public class Classroom {
         this.cname = cname == null ? null : cname.trim();
     }
 
-    public Integer getBelong() {
-        return belong;
+    public Integer getBuildingId() {
+        return buildingId;
     }
 
-    public void setBelong(Integer belong) {
-        this.belong = belong;
+    public void setBuildingId(Integer buildingId) {
+        this.buildingId = buildingId;
     }
 
     public Integer getCreator() {

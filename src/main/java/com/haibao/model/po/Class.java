@@ -9,7 +9,7 @@ public class Class {
 
     private Date grade;
 
-    private Integer major;
+    private Integer majorId;
 
     private Byte classNo;
 
@@ -21,11 +21,11 @@ public class Class {
 
     private Date updateTime;
 
-    public Class(Integer cid, Integer deptId, Date grade, Integer major, Byte classNo, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public Class(Integer cid, Integer deptId, Date grade, Integer majorId, Byte classNo, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.cid = cid;
         this.deptId = deptId;
         this.grade = grade;
-        this.major = major;
+        this.majorId = majorId;
         this.classNo = classNo;
         this.creator = creator;
         this.createTime = createTime;
@@ -61,12 +61,12 @@ public class Class {
         this.grade = grade;
     }
 
-    public Integer getMajor() {
-        return major;
+    public Integer getMajorId() {
+        return majorId;
     }
 
-    public void setMajor(Integer major) {
-        this.major = major;
+    public void setMajorId(Integer majorId) {
+        this.majorId = majorId;
     }
 
     public Byte getClassNo() {
