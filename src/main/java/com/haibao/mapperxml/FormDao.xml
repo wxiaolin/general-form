@@ -36,6 +36,28 @@
   <sql id="Blob_Column_List">
     fdefine
   </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_form
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_form
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.haibao.model.po.Form">
+    insert into t_form (fid, fname, fstatus, 
+      fdesc, dept_id, ftype, 
+      creator, create_time, updater, 
+      update_time, fdefine)
+    values (#{fid,jdbcType=INTEGER}, #{fname,jdbcType=VARCHAR}, #{fstatus,jdbcType=TINYINT}, 
+      #{fdesc,jdbcType=VARCHAR}, #{deptId,jdbcType=INTEGER}, #{ftype,jdbcType=TINYINT}, 
+      #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{fdefine,jdbcType=LONGVARBINARY})
+  </insert>
   <insert id="insertSelective" parameterType="com.haibao.model.po.Form">
     insert into t_form
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -143,6 +165,33 @@
         fdefine = #{fdefine,jdbcType=LONGVARBINARY},
       </if>
     </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.haibao.model.po.Form">
+    update t_form
+    set fname = #{fname,jdbcType=VARCHAR},
+      fstatus = #{fstatus,jdbcType=TINYINT},
+      fdesc = #{fdesc,jdbcType=VARCHAR},
+      dept_id = #{deptId,jdbcType=INTEGER},
+      ftype = #{ftype,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      updater = #{updater,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      fdefine = #{fdefine,jdbcType=LONGVARBINARY}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haibao.model.po.Form">
+    update t_form
+    set fname = #{fname,jdbcType=VARCHAR},
+      fstatus = #{fstatus,jdbcType=TINYINT},
+      fdesc = #{fdesc,jdbcType=VARCHAR},
+      dept_id = #{deptId,jdbcType=INTEGER},
+      ftype = #{ftype,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      updater = #{updater,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where fid = #{fid,jdbcType=INTEGER}
   </update>
 </mapper>

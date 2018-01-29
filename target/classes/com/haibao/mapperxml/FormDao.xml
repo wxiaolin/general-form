@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haibao.dao.FormDao">
+  <resultMap id="BaseResultMap" type="com.haibao.model.po.Form">
+    <constructor>
+      <idArg column="fid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="fname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fstatus" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="fdesc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="ftype" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.haibao.model.po.Form">
+    <constructor>
+      <idArg column="fid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="fname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fstatus" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="fdesc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="ftype" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="fdefine" javaType="_byte[]" jdbcType="LONGVARBINARY" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    fid, fname, fstatus, fdesc, dept_id, ftype, creator, create_time, updater, update_time
+  </sql>
+  <sql id="Blob_Column_List">
+    fdefine
+  </sql>
+  <insert id="insertSelective" parameterType="com.haibao.model.po.Form">
+    insert into t_form
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        fid,
+      </if>
+      <if test="fname != null">
+        fname,
+      </if>
+      <if test="fstatus != null">
+        fstatus,
+      </if>
+      <if test="fdesc != null">
+        fdesc,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="ftype != null">
+        ftype,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="fdefine != null">
+        fdefine,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="fname != null">
+        #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="fstatus != null">
+        #{fstatus,jdbcType=TINYINT},
+      </if>
+      <if test="fdesc != null">
+        #{fdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="ftype != null">
+        #{ftype,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fdefine != null">
+        #{fdefine,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.model.po.Form">
+    update t_form
+    <set>
+      <if test="fname != null">
+        fname = #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="fstatus != null">
+        fstatus = #{fstatus,jdbcType=TINYINT},
+      </if>
+      <if test="fdesc != null">
+        fdesc = #{fdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="ftype != null">
+        ftype = #{ftype,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fdefine != null">
+        fdefine = #{fdefine,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

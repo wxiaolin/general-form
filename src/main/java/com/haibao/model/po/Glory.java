@@ -9,6 +9,8 @@ public class Glory {
 
     private String gname;
 
+    private String gdept;
+
     private Byte glevel;
 
     private Byte gtype;
@@ -21,10 +23,11 @@ public class Glory {
 
     private Date updateTime;
 
-    public Glory(Integer gid, String awardee, String gname, Byte glevel, Byte gtype, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public Glory(Integer gid, String awardee, String gname, String gdept, Byte glevel, Byte gtype, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.gid = gid;
         this.awardee = awardee;
         this.gname = gname;
+        this.gdept = gdept;
         this.glevel = glevel;
         this.gtype = gtype;
         this.creator = creator;
@@ -59,6 +62,14 @@ public class Glory {
 
     public void setGname(String gname) {
         this.gname = gname == null ? null : gname.trim();
+    }
+
+    public String getGdept() {
+        return gdept;
+    }
+
+    public void setGdept(String gdept) {
+        this.gdept = gdept == null ? null : gdept.trim();
     }
 
     public Byte getGlevel() {

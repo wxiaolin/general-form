@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haibao.dao.EmployeeCollegeInfoDao">
+  <resultMap id="BaseResultMap" type="com.haibao.model.po.EmployeeCollegeInfo">
+    <constructor>
+      <idArg column="eid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_no" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="estatus" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="job_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="entry_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    eid, emp_name, emp_no, estatus, dept_id, job_id, entry_date, creator, create_time, 
+    updater, update_time
+  </sql>
+  <insert id="insertSelective" parameterType="com.haibao.model.po.EmployeeCollegeInfo">
+    insert into t_employee_college_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        eid,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empNo != null">
+        emp_no,
+      </if>
+      <if test="estatus != null">
+        estatus,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="jobId != null">
+        job_id,
+      </if>
+      <if test="entryDate != null">
+        entry_date,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        #{eid,jdbcType=INTEGER},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empNo != null">
+        #{empNo,jdbcType=CHAR},
+      </if>
+      <if test="estatus != null">
+        #{estatus,jdbcType=TINYINT},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="jobId != null">
+        #{jobId,jdbcType=INTEGER},
+      </if>
+      <if test="entryDate != null">
+        #{entryDate,jdbcType=DATE},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.model.po.EmployeeCollegeInfo">
+    update t_employee_college_info
+    <set>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empNo != null">
+        emp_no = #{empNo,jdbcType=CHAR},
+      </if>
+      <if test="estatus != null">
+        estatus = #{estatus,jdbcType=TINYINT},
+      </if>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="jobId != null">
+        job_id = #{jobId,jdbcType=INTEGER},
+      </if>
+      <if test="entryDate != null">
+        entry_date = #{entryDate,jdbcType=DATE},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -14,6 +14,24 @@
   <sql id="Base_Column_List">
     aid, aname, creator, create_time, updater, update_time
   </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_college_area
+    where aid = #{aid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_college_area
+    where aid = #{aid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.haibao.model.po.CollegeArea">
+    insert into t_college_area (aid, aname, creator, 
+      create_time, updater, update_time
+      )
+    values (#{aid,jdbcType=INTEGER}, #{aname,jdbcType=VARCHAR}, #{creator,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
   <insert id="insertSelective" parameterType="com.haibao.model.po.CollegeArea">
     insert into t_college_area
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -76,6 +94,15 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
+    where aid = #{aid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haibao.model.po.CollegeArea">
+    update t_college_area
+    set aname = #{aname,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      updater = #{updater,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where aid = #{aid,jdbcType=INTEGER}
   </update>
 </mapper>

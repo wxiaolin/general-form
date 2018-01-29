@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haibao.dao.ScoreDao">
+  <resultMap id="BaseResultMap" type="com.haibao.model.po.Score">
+    <constructor>
+      <idArg column="sid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="stu_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="ayear" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="semester" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="score1" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="score2" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="subject_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    sid, stu_id, ayear, semester, score1, score2, subject_id, creator, create_time, updater, 
+    update_time
+  </sql>
+  <insert id="insertSelective" parameterType="com.haibao.model.po.Score">
+    insert into t_score
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="stuId != null">
+        stu_id,
+      </if>
+      <if test="ayear != null">
+        ayear,
+      </if>
+      <if test="semester != null">
+        semester,
+      </if>
+      <if test="score1 != null">
+        score1,
+      </if>
+      <if test="score2 != null">
+        score2,
+      </if>
+      <if test="subjectId != null">
+        subject_id,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="stuId != null">
+        #{stuId,jdbcType=INTEGER},
+      </if>
+      <if test="ayear != null">
+        #{ayear,jdbcType=CHAR},
+      </if>
+      <if test="semester != null">
+        #{semester,jdbcType=TINYINT},
+      </if>
+      <if test="score1 != null">
+        #{score1,jdbcType=REAL},
+      </if>
+      <if test="score2 != null">
+        #{score2,jdbcType=REAL},
+      </if>
+      <if test="subjectId != null">
+        #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.model.po.Score">
+    update t_score
+    <set>
+      <if test="stuId != null">
+        stu_id = #{stuId,jdbcType=INTEGER},
+      </if>
+      <if test="ayear != null">
+        ayear = #{ayear,jdbcType=CHAR},
+      </if>
+      <if test="semester != null">
+        semester = #{semester,jdbcType=TINYINT},
+      </if>
+      <if test="score1 != null">
+        score1 = #{score1,jdbcType=REAL},
+      </if>
+      <if test="score2 != null">
+        score2 = #{score2,jdbcType=REAL},
+      </if>
+      <if test="subjectId != null">
+        subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where sid = #{sid,jdbcType=INTEGER}
+  </update>
+</mapper>

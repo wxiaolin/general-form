@@ -16,6 +16,24 @@
   <sql id="Base_Column_List">
     did, dname, drank, belong, creator, create_time, updater, update_time
   </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_district
+    where did = #{did,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_district
+    where did = #{did,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.haibao.model.po.District">
+    insert into t_district (did, dname, drank, 
+      belong, creator, create_time, 
+      updater, update_time)
+    values (#{did,jdbcType=INTEGER}, #{dname,jdbcType=VARCHAR}, #{drank,jdbcType=TINYINT}, 
+      #{belong,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
   <insert id="insertSelective" parameterType="com.haibao.model.po.District">
     insert into t_district
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -96,6 +114,17 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
+    where did = #{did,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haibao.model.po.District">
+    update t_district
+    set dname = #{dname,jdbcType=VARCHAR},
+      drank = #{drank,jdbcType=TINYINT},
+      belong = #{belong,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      updater = #{updater,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where did = #{did,jdbcType=INTEGER}
   </update>
 </mapper>

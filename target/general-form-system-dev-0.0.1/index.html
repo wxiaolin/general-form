@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Title</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        #form {
+            width: 850px;
+            height: 1188px;
+        }
+    </style>
+</head>
+
+<body>
+<button onclick="getForm()">获取表</button>
+<div id="form"></div>
+
+</body>
+<script>
+    function createForm(define) {
+        var form = eval(define);
+        var p = $("<p></p>").text(form.formName);
+        p.css("font-size", "24px");
+        $('div#form').append(p);
+        for (var i = 0; i < 6; i++) {
+            var cell = form.cellList[i];
+            var d = $("<div></div>").text(cell.valuee);
+            d.width(cell.widthh);
+            d.height(cell.heightt);
+            d.css("float", "left");
+            $('div#form').append(d);
+        }
+        for (var i = 6; i < form.cellList.length; i++) {
+            var cell = form.cellList[i];
+            var d = $("<div></div>").text(cell.valuee);
+            d.width(cell.widthh);
+            d.height(cell.heightt);
+            d.css("float", "left");
+            d.css("box-sizing", "border-box");
+            d.css("border", "1px solid");
+            $('div#form').append(d);
+        }
+    }
+
+    function getForm() {
+        $.ajax({
+            url: '/form',
+            type: "GET",
+            dataType: 'json',
+            success: function (d) {
+                console.log(d);
+                createForm(d);
+            }
+        });
+    }
+</script>
+</html>

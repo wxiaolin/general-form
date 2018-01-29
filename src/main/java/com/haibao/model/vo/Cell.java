@@ -5,14 +5,53 @@ package com.haibao.model.vo;
  */
 public class Cell {
 
-    private Double width;
-    private Double height;
-    private int fontSize;
-    private int fontFamily;
-    private String value;
+    private Double widthh;
+    private Double heightt;
+    private Double fontSize;
+    private String keyy;
+    private String valuee;
 
+    public Double getWidthh() {
+        return widthh;
+    }
 
+    public void setWidthh(Double widthh) {
+        this.widthh = widthh;
+    }
 
+    public Double getHeightt() {
+        return heightt;
+    }
 
+    public void setHeightt(Double heightt) {
+        this.heightt = heightt;
+    }
 
+    public Double getFontSize() {
+        return fontSize;
+    }
+
+    public void setFontSize(Double fontSize) {
+        this.fontSize = fontSize;
+    }
+
+    public String getKeyy() {
+        return keyy;
+    }
+
+    public void setKeyy(String keyy) {
+        this.keyy = keyy;
+    }
+
+    public String getValuee() {
+        return valuee;
+    }
+
+    public void setValuee(String valuee) {
+        this.valuee = valuee;
+    }
+
+    public Cell() {
+
+    }
 }
