@@ -75,4 +75,19 @@ public class Nation {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Nation)) return false;
+
+        Nation nation = (Nation) o;
+
+        return nname != null ? nname.equals(nation.nname) : nation.nname == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return nname != null ? nname.hashCode() : 0;
+    }
 }

@@ -34,7 +34,7 @@
                 <property name="supportedMediaTypes">
                     <list>
                         <value>application/json; charset=UTF-8</value>
-                        <value>application/x-www-form-urlencoded; charset=UTF-8</value>
+                        <value>application/x-www-formVO-urlencoded; charset=UTF-8</value>
                         <value>text/html; charset=UTF-8</value><!-- 避免IE出现下载JSON文件的情况 -->
                     </list>
                 </property>

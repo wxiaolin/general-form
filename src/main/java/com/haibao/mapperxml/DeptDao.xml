@@ -17,10 +17,15 @@
     did, dname, belong, ddesc, creator, create_time, updater, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from t_dept
     where did = #{did,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultType="com.haibao.model.po.Dept">
+    select
+    <include refid="Base_Column_List" />
+    from t_dept
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_dept

@@ -86,4 +86,22 @@ public class Major {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Major)) return false;
+
+        Major major1 = (Major) o;
+
+        if (major != null ? !major.equals(major1.major) : major1.major != null) return false;
+        return deptId != null ? deptId.equals(major1.deptId) : major1.deptId == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = major != null ? major.hashCode() : 0;
+        result = 31 * result + (deptId != null ? deptId.hashCode() : 0);
+        return result;
+    }
 }

@@ -2,6 +2,8 @@ package com.haibao.dao;
 
 import com.haibao.model.po.Major;
 
+import java.util.List;
+
 public interface MajorDao {
     int deleteByPrimaryKey(Integer mid);
 
@@ -10,6 +12,8 @@ public interface MajorDao {
     int insertSelective(Major record);
 
     Major selectByPrimaryKey(Integer mid);
+
+    List<Major> selectAll();
 
     int updateByPrimaryKeySelective(Major record);
 

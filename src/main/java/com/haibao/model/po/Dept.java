@@ -97,4 +97,22 @@ public class Dept {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Dept)) return false;
+
+        Dept dept = (Dept) o;
+
+        if (dname != null ? !dname.equals(dept.dname) : dept.dname != null) return false;
+        return belong != null ? belong.equals(dept.belong) : dept.belong == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = dname != null ? dname.hashCode() : 0;
+        result = 31 * result + (belong != null ? belong.hashCode() : 0);
+        return result;
+    }
 }

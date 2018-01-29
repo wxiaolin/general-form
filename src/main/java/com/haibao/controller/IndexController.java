@@ -1,17 +1,15 @@
 package com.haibao.controller;
 
+import com.haibao.model.po.ClassTable;
 import com.haibao.model.vo.Cell;
-import com.haibao.model.vo.Form;
+import com.haibao.model.vo.FormVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by haibao on 2018/1/27.
@@ -21,11 +19,11 @@ public class IndexController {
 
     @ResponseBody
     @RequestMapping(value = {"/form"}, method = RequestMethod.GET)
-    public Form getForm() {
-        Form form = new Form();
+    public FormVO getForm() {
+        FormVO formVO = new FormVO();
         List<Cell> cells = new LinkedList<Cell>();
 
-        form.setFormName("Form Name");
+        formVO.setFormName("FormVO Name");
 
         for (int i = 0; i < 6; i++) {
             Cell cell1 = new Cell();
@@ -82,8 +80,8 @@ public class IndexController {
             cells.add(cell3);
             cells.add(cell4);
         }
-        form.setCellList(cells);
-        return form;
+        formVO.setCellList(cells);
+        return formVO;
     }
 
 

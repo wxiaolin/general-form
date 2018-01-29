@@ -2,6 +2,8 @@ package com.haibao.dao;
 
 import com.haibao.model.po.District;
 
+import java.util.List;
+
 public interface DistrictDao {
     int deleteByPrimaryKey(Integer did);
 
@@ -10,6 +12,8 @@ public interface DistrictDao {
     int insertSelective(District record);
 
     District selectByPrimaryKey(Integer did);
+
+    List<District> selectAll();
 
     int updateByPrimaryKeySelective(District record);
 
