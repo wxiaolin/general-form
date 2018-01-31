@@ -8,6 +8,8 @@ import java.util.List;
  */
 public class FormVO implements Serializable {
 
+
+    private static final long serialVersionUID = -6933028693681178806L;
     private double widthh = 840;
 
     private double heightt;

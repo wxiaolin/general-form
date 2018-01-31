@@ -1,10 +1,13 @@
 package com.haibao.model.vo;
 
+import java.io.Serializable;
+
 /**
  * Created by haibao on 2018/1/22.
  */
-public class Cell {
+public class Cell implements Serializable{
 
+    private static final long serialVersionUID = 5429366605589727371L;
     private Double widthh;
     private Double heightt;
     private Double fontSize;
