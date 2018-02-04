@@ -1,11 +1,14 @@
 package com.haibao.controller;
 
+import com.haibao.model.enums.PoliticalStatusCode;
 import com.haibao.model.enums.ResultCode;
-import com.haibao.model.po.Form;
+import com.haibao.model.enums.SexCode;
+import com.haibao.model.enums.ViewField;
+import com.haibao.model.po.*;
 import com.haibao.model.vo.Cell;
 import com.haibao.model.vo.FormVO;
 import com.haibao.model.vo.Result;
-import com.haibao.service.FormService;
+import com.haibao.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,16 +30,59 @@ public class DemoController {
     @Autowired
     private FormService formService;
 
+    @Autowired
+    private StudentServcice studentServcice;
+
+    @Autowired
+    private DeptService deptService;
+    @Autowired
+    private MajorService majorService;
+    @Autowired
+    private ClassService classService;
+    @Autowired
+    private DistrictService districtService;
+    @Autowired
+    private NationService nationService;
+
+    @ResponseBody
+    @RequestMapping(value = "/autofill",method = RequestMethod.POST)
+    public Result autofill(Integer fid, String stuno) throws IOException, ClassNotFoundException {
+
+        Form form = formService.getForm(fid);
+
+        System.out.println(fid+" "+stuno);
+
+        ByteArrayInputStream bais = new ByteArrayInputStream(form.getFdefine());
+        ObjectInputStream ois = new ObjectInputStream(bais);
+
+        FormVO formVO = (FormVO) ois.readObject();
+        List<Cell> cells = formVO.getCellList();
+
+        StudentCollegeInfo studentCollegeInfo = new StudentCollegeInfo();
+        studentCollegeInfo.setStuNo(stuno);
+        studentCollegeInfo = studentServcice.getStudentCollegeInfo(studentCollegeInfo);
+        System.out.println(studentCollegeInfo.toString());
+
+        StudentInfo studentInfo = new StudentInfo();
+        studentInfo.setStuciId(studentCollegeInfo.getSid());
+        studentInfo = studentServcice.getStudentInfo(studentInfo);
+
+        fillCell(cells,studentInfo,studentCollegeInfo);
+
+
+        return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), formVO);
+    }
+
     @ResponseBody
     @RequestMapping(value = "/readformdb")
     public Result readFormDB() throws IOException, ClassNotFoundException {
-        Form form = formService.getForm(1);
+        Form form = formService.getForm(3);
         ByteArrayInputStream bais = new ByteArrayInputStream(form.getFdefine());
         ObjectInputStream ois = new ObjectInputStream(bais);
 
         FormVO formVO = (FormVO) ois.readObject();
 
-        return new Result(true,ResultCode.SUCCESS.getCode(),ResultCode.SUCCESS.getDesc(),formVO);
+        return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), formVO);
     }
 
 
@@ -56,6 +103,7 @@ public class DemoController {
         cell2.setWidthh(179.2);
         cell2.setHeightt((double) 40);
         cell2.setFontSize((double) 16);
+        cell2.setKeyy("DEPT");
         cell2.setValuee("");
         cells.add(cell1);
         cells.add(cell2);
@@ -63,11 +111,12 @@ public class DemoController {
         cell3.setWidthh(100.8);
         cell3.setHeightt((double) 40);
         cell3.setFontSize((double) 16);
-        cell3.setValuee("专业");
+        cell3.setValuee("专业班级");
         Cell cell4 = new Cell();
         cell4.setWidthh(179.2);
         cell4.setHeightt((double) 40);
         cell4.setFontSize((double) 16);
+        cell4.setKeyy("MAJOR");
         cell4.setValuee("");
         cells.add(cell3);
         cells.add(cell4);
@@ -80,6 +129,7 @@ public class DemoController {
         cell6.setWidthh(179.2);
         cell6.setHeightt((double) 40);
         cell6.setFontSize((double) 16);
+        cell6.setKeyy("STU_NO");
         cell6.setValuee("");
         cells.add(cell5);
         cells.add(cell6);
@@ -93,6 +143,7 @@ public class DemoController {
         cell8.setWidthh(179.2);
         cell8.setHeightt((double) 40);
         cell8.setFontSize((double) 16);
+        cell8.setKeyy("NAME");
         cell8.setValuee("");
         cells.add(cell7);
         cells.add(cell8);
@@ -105,6 +156,7 @@ public class DemoController {
         cell10.setWidthh(179.2);
         cell10.setHeightt((double) 40);
         cell10.setFontSize((double) 16);
+        cell10.setKeyy("SEX");
         cell10.setValuee("");
         cells.add(cell9);
         cells.add(cell10);
@@ -117,6 +169,7 @@ public class DemoController {
         cell12.setWidthh(179.2);
         cell12.setHeightt((double) 40);
         cell12.setFontSize((double) 16);
+        cell12.setKeyy("BIRTHDAY");
         cell12.setValuee("");
         cells.add(cell11);
         cells.add(cell12);
@@ -130,6 +183,7 @@ public class DemoController {
         cell14.setWidthh(179.2);
         cell14.setHeightt((double) 40);
         cell14.setFontSize((double) 16);
+        cell14.setKeyy("NATION");
         cell14.setValuee("");
         cells.add(cell13);
         cells.add(cell14);
@@ -142,6 +196,7 @@ public class DemoController {
         cell16.setWidthh(179.2);
         cell16.setHeightt((double) 40);
         cell16.setFontSize((double) 16);
+        cell16.setKeyy("CENSUS_REGISTER");
         cell16.setValuee("");
         cells.add(cell15);
         cells.add(cell16);
@@ -154,6 +209,7 @@ public class DemoController {
         cell18.setWidthh(179.2);
         cell18.setHeightt((double) 40);
         cell18.setFontSize((double) 16);
+        cell18.setKeyy("POLITICAL_STATUS");
         cell18.setValuee("");
         cells.add(cell17);
         cells.add(cell18);
@@ -168,6 +224,7 @@ public class DemoController {
         cell20.setWidthh(179.2);
         cell20.setHeightt((double) 40);
         cell20.setFontSize((double) 16);
+        cell20.setKeyy("MOBILE");
         cell20.setValuee("");
         cells.add(cell19);
         cells.add(cell20);
@@ -180,6 +237,7 @@ public class DemoController {
         cell22.setWidthh(459.2);
         cell22.setHeightt((double) 40);
         cell22.setFontSize((double) 16);
+        cell22.setKeyy("ADDRESS");
         cell22.setValuee("");
         cells.add(cell21);
         cells.add(cell22);
@@ -540,5 +598,102 @@ public class DemoController {
         return formVO;
     }
 
+
+
+    private void fillCell(List<Cell> cells, StudentInfo si, StudentCollegeInfo sci) {
+
+        for (Cell cell : cells) {
+            if (null == cell.getKeyy() || "".equals(cell.getKeyy())) {
+                continue;
+            } else {
+                ViewField vf = ViewField.valueOf(cell.getKeyy());
+                switch (vf) {
+                    case NAME:
+                        cell.setValuee(sci.getStuName());
+                        break;
+                    case STU_NO:
+                        cell.setValuee(sci.getStuNo());
+                        break;
+                    case REGDATE:
+                        SimpleDateFormat pattern = new SimpleDateFormat("yyyy-MM-dd");
+                        cell.setValuee(pattern.format(sci.getRegdate()));
+                        break;
+                    case STATUS:
+                        cell.setValuee(String.valueOf(sci.getSstatus()));
+                        break;
+                    case DEPT:
+                        Dept dept = deptService.getDept(sci.getDeptId());
+                        cell.setValuee(dept.getDname());
+                        break;
+                    case MAJOR:
+                        Major major = majorService.getMajor(sci.getMajorId());
+                        cell.setValuee(major.getMajor());
+                        break;
+                    case MINOR_1:
+                        Major minor1 = majorService.getMajor(sci.getMinorId1());
+                        cell.setValuee(minor1.getMajor());
+                        break;
+                    case MINOR_2:
+                        Major minor2 = majorService.getMajor(sci.getMinorId2());
+                        cell.setValuee(minor2.getMajor());
+                        break;
+                    case GRADE:
+                        SimpleDateFormat pattern1 = new SimpleDateFormat("yyyy");
+                        cell.setValuee(pattern1.format(sci.getGrade()));
+                        break;
+                    case CLASSES:
+                        ClassTable classTable = classService.getClassTable(sci.getClassId());
+                        Major major1 = majorService.getMajor(classTable.getMajorId());
+                        SimpleDateFormat pattern2 = new SimpleDateFormat("yyyy");
+                        String grade = pattern2.format(classTable.getGrade());
+                        String className = grade + "级" + major1.getMajor() + classTable.getClassNo();
+                        cell.setValuee(className);
+                        break;
+                    case APARTMENT:
+                        ;
+                        break;
+                    case ROOM:
+                        ;
+                        break;
+                    case SEX:
+                        if (SexCode.MALE.getCode() == si.getSex()) {
+                            cell.setValuee("男");
+                        } else if (SexCode.FAMALE.getCode() == si.getSex()) {
+                            cell.setValuee("女");
+                        }
+                        break;
+                    case BIRTHDAY:
+                        SimpleDateFormat pattern3 = new SimpleDateFormat("yyyy-MM-dd");
+                        cell.setValuee(pattern3.format(si.getBirthday()));
+                        break;
+                    case CENSUS_REGISTER:
+                        District district = districtService.getDistrict(si.getCrid());
+                        cell.setValuee(district.getDname());
+                        break;
+                    case NATION:
+                        Nation nation = nationService.getNation(si.getNation());
+                        cell.setValuee(nation.getNname());
+                        break;
+                    case ADDRESS:
+                        cell.setValuee(si.getAddress());
+                        break;
+                    case MOBILE:
+                        cell.setValuee(si.getMobile());
+                        break;
+                    case POLITICAL_STATUS:
+                        for (PoliticalStatusCode politicalStatusCode : PoliticalStatusCode.values()) {
+                            if (politicalStatusCode.getCode() == si.getPsId()) {
+                                cell.setValuee(politicalStatusCode.getDesc());
+                            }
+                        }
+                        break;
+
+
+                }
+
+
+            }
+        }
+    }
 
 }

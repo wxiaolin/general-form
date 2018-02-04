@@ -152,4 +152,23 @@ public class StudentInfo {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public String toString() {
+        return "StudentInfo{" +
+                "stuId=" + stuId +
+                ", stuciId=" + stuciId +
+                ", sex=" + sex +
+                ", birthday=" + birthday +
+                ", crid=" + crid +
+                ", nation=" + nation +
+                ", address='" + address + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", psId=" + psId +
+                ", creator=" + creator +
+                ", createTime=" + createTime +
+                ", updater=" + updater +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

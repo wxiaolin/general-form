@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haibao.dao.ClassroomDao">
+  <resultMap id="BaseResultMap" type="com.haibao.model.po.Classroom">
+    <constructor>
+      <idArg column="cid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="cname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="building_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    cid, cname, building_id, creator, create_time, updater, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_classroom
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_classroom
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.haibao.model.po.Classroom">
+    insert into t_classroom (cid, cname, building_id, 
+      creator, create_time, updater, 
+      update_time)
+    values (#{cid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR}, #{buildingId,jdbcType=INTEGER}, 
+      #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haibao.model.po.Classroom">
+    insert into t_classroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="cname != null">
+        cname,
+      </if>
+      <if test="buildingId != null">
+        building_id,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="cname != null">
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingId != null">
+        #{buildingId,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.model.po.Classroom">
+    update t_classroom
+    <set>
+      <if test="cname != null">
+        cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingId != null">
+        building_id = #{buildingId,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haibao.model.po.Classroom">
+    update t_classroom
+    set cname = #{cname,jdbcType=VARCHAR},
+      building_id = #{buildingId,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      updater = #{updater,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+</mapper>

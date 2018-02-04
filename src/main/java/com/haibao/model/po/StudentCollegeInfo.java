@@ -196,4 +196,27 @@ public class StudentCollegeInfo {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public String toString() {
+        return "StudentCollegeInfo{" +
+                "sid=" + sid +
+                ", stuName='" + stuName + '\'' +
+                ", stuNo='" + stuNo + '\'' +
+                ", regdate=" + regdate +
+                ", sstatus=" + sstatus +
+                ", deptId=" + deptId +
+                ", majorId=" + majorId +
+                ", minorId1=" + minorId1 +
+                ", minorId2=" + minorId2 +
+                ", grade=" + grade +
+                ", classId=" + classId +
+                ", apartment=" + apartment +
+                ", room=" + room +
+                ", creator=" + creator +
+                ", createTime=" + createTime +
+                ", updater=" + updater +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }
