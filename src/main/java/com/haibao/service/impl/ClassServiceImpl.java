@@ -25,18 +25,6 @@ public class ClassServiceImpl implements ClassService {
     @Autowired
     private ClassTableDao classTableDao;
 
-    @Autowired
-    private CacheManager cacheManager;
-
-    @PostConstruct
-    public void setup() {
-        Cache classesCache = cacheManager.getCache("classes");
-        List<ClassTable> classList = classTableDao.selectAll();
-        for (ClassTable c : classList) {
-            classesCache.put(c.getCid(), c);
-        }
-    }
-
     @Cacheable(value = "classes")
     public ClassTable getClassTable(Integer cid){
         return classTableDao.selectByPrimaryKey(cid);

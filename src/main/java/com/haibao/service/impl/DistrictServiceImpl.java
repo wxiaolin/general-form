@@ -23,18 +23,6 @@ public class DistrictServiceImpl implements DistrictService {
     @Autowired
     private DistrictDao districtDao;
 
-    @Autowired
-    private CacheManager cacheManager;
-
-    @PostConstruct
-    public void setup() {
-        Cache distractCachhe = cacheManager.getCache("districts");
-        List<District> districtList = districtDao.selectAll();
-        for (District d : districtList) {
-            distractCachhe.put(d.getDid(), d);
-        }
-
-    }
 
     @Cacheable(value = "districts")
     public District getDistrict(Integer did) {

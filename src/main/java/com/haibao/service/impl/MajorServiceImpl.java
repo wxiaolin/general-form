@@ -23,18 +23,6 @@ public class MajorServiceImpl implements MajorService {
     @Autowired
     private MajorDao majorDao;
 
-    @Autowired
-    private CacheManager cacheManager;
-
-    @PostConstruct
-    public void setup() {
-        Cache majorCache = cacheManager.getCache("majors");
-        List<Major> majorList = majorDao.selectAll();
-        for (Major m : majorList) {
-            majorCache.put(m.getMid(), m);
-        }
-    }
-
     @Cacheable(value = "majors")
     public Major getMajor(Integer mid) {
         return majorDao.selectByPrimaryKey(mid);

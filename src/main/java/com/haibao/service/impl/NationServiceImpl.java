@@ -24,18 +24,6 @@ public class NationServiceImpl implements NationService {
     @Autowired
     private NationDao nationDao;
 
-    @Autowired
-    private CacheManager cacheManager;
-
-    @PostConstruct
-    public void setup() {
-        Cache nationCache = cacheManager.getCache("nations");
-        List<Nation> nationList = nationDao.selectAll();
-        for (Nation n : nationList) {
-            nationCache.put(n.getNid(), n);
-        }
-    }
-
     @Cacheable(value = "nations")
     public Nation getNation(Integer nid) {
         return nationDao.selectByPrimaryKey(nid);

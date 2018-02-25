@@ -15,6 +15,10 @@ public class Result implements Serializable{
     private Object data;
 
 
+    public Result() {
+
+    }
+
     public Result(Boolean success, Integer code, String msg, Object data) {
         this.success = success;
         this.code = code;
@@ -52,9 +56,5 @@ public class Result implements Serializable{
 
     public void setData(Object data) {
         this.data = data;
-    }
-
-    public Result() {
-
     }
 }

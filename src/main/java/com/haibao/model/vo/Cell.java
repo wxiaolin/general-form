@@ -13,6 +13,11 @@ public class Cell implements Serializable{
     private Double fontSize;
     private String keyy;
     private String valuee;
+    private Boolean hasBorder;
+
+    public Cell() {
+
+    }
 
     public Double getWidthh() {
         return widthh;
@@ -54,7 +59,11 @@ public class Cell implements Serializable{
         this.valuee = valuee;
     }
 
-    public Cell() {
+    public Boolean getHasBorder() {
+        return hasBorder;
+    }
 
+    public void setHasBorder(Boolean hasBorder) {
+        this.hasBorder = hasBorder;
     }
 }

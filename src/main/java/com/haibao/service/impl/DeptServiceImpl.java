@@ -22,16 +22,6 @@ public class DeptServiceImpl implements DeptService {
     @Autowired
     private DeptDao deptDao;
 
-    @Autowired
-    private CacheManager cacheManager;
-
-    public void setup() {
-        Cache deptCache = cacheManager.getCache("depts");
-        List<Dept> deptList = deptDao.selectAll();
-        for (Dept d : deptList) {
-            deptCache.put(d.getDid(), d);
-        }
-    }
 
     @Cacheable(value = "depts")
     public Dept getDept(Integer did) {
