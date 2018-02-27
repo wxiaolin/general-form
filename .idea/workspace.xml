@@ -6,39 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a892b727-34b8-4b63-bf64-3d77cd611533" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/haibao/controller/DemoController$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/controller/DemoController$1.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/haibao/controller/AutoFormController.class" afterPath="$PROJECT_DIR$/target/classes/com/haibao/controller/AutoFormController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/haibao/controller/DemoController.class" afterPath="$PROJECT_DIR$/target/classes/com/haibao/controller/DemoController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/haibao/model/vo/Cell.class" afterPath="$PROJECT_DIR$/target/classes/com/haibao/model/vo/Cell.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/haibao/model/vo/Result.class" afterPath="$PROJECT_DIR$/target/classes/com/haibao/model/vo/Result.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/haibao/service/impl/ClassServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/haibao/service/impl/ClassServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/haibao/service/impl/DeptServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/haibao/service/impl/DeptServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/haibao/service/impl/DistrictServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/haibao/service/impl/DistrictServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/haibao/service/impl/MajorServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/haibao/service/impl/MajorServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/haibao/service/impl/NationServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/haibao/service/impl/NationServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/controller/AutoFormController.class" afterPath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/controller/AutoFormController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/controller/DemoController.class" afterPath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/controller/DemoController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/model/vo/Cell.class" afterPath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/model/vo/Cell.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/model/vo/Result.class" afterPath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/model/vo/Result.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/service/impl/ClassServiceImpl.class" afterPath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/service/impl/ClassServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/service/impl/DeptServiceImpl.class" afterPath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/service/impl/DeptServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/service/impl/DistrictServiceImpl.class" afterPath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/service/impl/DistrictServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/service/impl/MajorServiceImpl.class" afterPath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/service/impl/MajorServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/service/impl/NationServiceImpl.class" afterPath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/classes/com/haibao/service/impl/NationServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haibao/controller/AutoFormController.java" afterPath="$PROJECT_DIR$/src/main/java/com/haibao/controller/AutoFormController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haibao/controller/DemoController.java" afterPath="$PROJECT_DIR$/src/main/java/com/haibao/controller/DemoController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haibao/model/vo/Cell.java" afterPath="$PROJECT_DIR$/src/main/java/com/haibao/model/vo/Cell.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haibao/model/vo/Result.java" afterPath="$PROJECT_DIR$/src/main/java/com/haibao/model/vo/Result.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haibao/service/impl/ClassServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/haibao/service/impl/ClassServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haibao/service/impl/DeptServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/haibao/service/impl/DeptServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haibao/service/impl/DistrictServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/haibao/service/impl/DistrictServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haibao/service/impl/MajorServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/haibao/service/impl/MajorServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haibao/service/impl/NationServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/haibao/service/impl/NationServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/index.html" afterPath="$PROJECT_DIR$/target/general-form-system-dev-0.0.1/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/starter.html" afterPath="$PROJECT_DIR$/src/main/webapp/starter.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -69,12 +38,37 @@
       <file leaf-file-name="starter.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/starter.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="380" column="61" lean-forward="false" selection-start-line="380" selection-start-column="61" selection-end-line="380" selection-end-column="61" />
+            <state relative-caret-position="600">
+              <caret line="354" column="0" lean-forward="true" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#15305#15311#0" expanded="true" />
+                <element signature="n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#12041#12047#0" expanded="true" />
+                <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="making.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/making.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1200">
+              <caret line="100" column="7" lean-forward="false" selection-start-line="100" selection-start-column="7" selection-end-line="100" selection-end-column="7" />
+              <folding>
+                <element signature="n#script#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -348,13 +342,84 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generalformsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generalformsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="general-form-system-dev-0.0.1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generalformsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generalformsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generalformsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generalformsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generalformsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generalformsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -369,6 +434,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -377,7 +443,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -396,7 +462,7 @@
       <recent name="D:\Programming\IdeaProjects\generalformsystem\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.starter.html">
+  <component name="RunManager" selected="Tomcat Server.Unnamed">
     <configuration default="false" name="DemoController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -999,12 +1065,13 @@
       <workItem from="1519110629868" duration="2013000" />
       <workItem from="1519223588350" duration="6041000" />
       <workItem from="1519290605819" duration="731000" />
-      <workItem from="1519535742520" duration="2134000" />
+      <workItem from="1519535742520" duration="9946000" />
+      <workItem from="1519641563823" duration="1796000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194851000" />
+    <option name="totallyTimeSpent" value="204459000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1017,7 +1084,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1035,7 +1102,6 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278496" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1043,8 +1109,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90951824" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2414163" sideWeight="0.4958872" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2446352" sideWeight="0.4958872" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1053,6 +1119,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278496" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1112,13 +1179,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haibao/model/po/StudentCollegeInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="200" column="18" lean-forward="false" selection-start-line="200" selection-start-column="18" selection-end-line="200" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haibao/model/vo/Result.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1366,18 +1426,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/bootstrap-theme.min.css.map">
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/font-awesome.min.css">
@@ -1391,13 +1450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/making.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="11" column="49" lean-forward="true" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -1472,13 +1524,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/making.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="100" column="7" lean-forward="false" selection-start-line="100" selection-start-column="7" selection-end-line="100" selection-end-column="7" />
+          <folding>
+            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/starter.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="380" column="61" lean-forward="false" selection-start-line="380" selection-start-column="61" selection-end-line="380" selection-end-column="61" />
+        <state relative-caret-position="600">
+          <caret line="354" column="0" lean-forward="true" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#15305#15311#0" expanded="true" />
+            <element signature="n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#12041#12047#0" expanded="true" />
+            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -1490,7 +1563,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>generalformsystem:war</last-edited>
+          <last-edited>generalformsystem:war exploded</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
