@@ -26,6 +26,7 @@
     select
     <include refid="Base_Column_List" />
     from t_district
+    where did = #{did,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_district

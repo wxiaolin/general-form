@@ -94,27 +94,16 @@ public class District {
         return updateTime;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof District)) return false;
-
-        District district = (District) o;
-
-        if (dname != null ? !dname.equals(district.dname) : district.dname != null) return false;
-        if (drank != null ? !drank.equals(district.drank) : district.drank != null) return false;
-        return belong != null ? belong.equals(district.belong) : district.belong == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = dname != null ? dname.hashCode() : 0;
-        result = 31 * result + (drank != null ? drank.hashCode() : 0);
-        result = 31 * result + (belong != null ? belong.hashCode() : 0);
-        return result;
-    }
-
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "District{" +
+                "did=" + did +
+                ", dname='" + dname + '\'' +
+                ", belong=" + belong +
+                '}';
     }
 }
