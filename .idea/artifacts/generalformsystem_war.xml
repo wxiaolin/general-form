@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="generalformsystem:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="general-form-system-dev-0.0.1.war">
-      <element id="artifact" artifact-name="generalformsystem:war exploded" />
-    </root>
-  </artifact>
-</component>
