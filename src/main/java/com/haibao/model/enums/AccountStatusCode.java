@@ -1,6 +1,7 @@
 package com.haibao.model.enums;
 
 /**
+ * 账号状态枚举
  * Created by haibao on 2018/1/22.
  */
 public enum AccountStatusCode {

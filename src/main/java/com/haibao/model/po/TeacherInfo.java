@@ -5,7 +5,9 @@ import java.util.Date;
 public class TeacherInfo {
     private Integer tid;
 
-    private Integer tciId;
+    private String tno;
+
+    private String tname;
 
     private Byte sex;
 
@@ -19,7 +21,17 @@ public class TeacherInfo {
 
     private String mobile;
 
-    private Integer psId;
+    private Byte psId;
+
+    private Date entryDate;
+
+    private Byte tstatus;
+
+    private Integer deptId;
+
+    private Byte touter;
+
+    private Byte title;
 
     private Integer creator;
 
@@ -29,9 +41,10 @@ public class TeacherInfo {
 
     private Date updateTime;
 
-    public TeacherInfo(Integer tid, Integer tciId, Byte sex, Date birthday, Integer crid, Integer nation, String address, String mobile, Integer psId, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public TeacherInfo(Integer tid, String tno, String tname, Byte sex, Date birthday, Integer crid, Integer nation, String address, String mobile, Byte psId, Date entryDate, Byte tstatus, Integer deptId, Byte touter, Byte title, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.tid = tid;
-        this.tciId = tciId;
+        this.tno = tno;
+        this.tname = tname;
         this.sex = sex;
         this.birthday = birthday;
         this.crid = crid;
@@ -39,6 +52,11 @@ public class TeacherInfo {
         this.address = address;
         this.mobile = mobile;
         this.psId = psId;
+        this.entryDate = entryDate;
+        this.tstatus = tstatus;
+        this.deptId = deptId;
+        this.touter = touter;
+        this.title = title;
         this.creator = creator;
         this.createTime = createTime;
         this.updater = updater;
@@ -57,12 +75,20 @@ public class TeacherInfo {
         this.tid = tid;
     }
 
-    public Integer getTciId() {
-        return tciId;
+    public String getTno() {
+        return tno;
     }
 
-    public void setTciId(Integer tciId) {
-        this.tciId = tciId;
+    public void setTno(String tno) {
+        this.tno = tno == null ? null : tno.trim();
+    }
+
+    public String getTname() {
+        return tname;
+    }
+
+    public void setTname(String tname) {
+        this.tname = tname == null ? null : tname.trim();
     }
 
     public Byte getSex() {
@@ -113,12 +139,52 @@ public class TeacherInfo {
         this.mobile = mobile == null ? null : mobile.trim();
     }
 
-    public Integer getPsId() {
+    public Byte getPsId() {
         return psId;
     }
 
-    public void setPsId(Integer psId) {
+    public void setPsId(Byte psId) {
         this.psId = psId;
+    }
+
+    public Date getEntryDate() {
+        return entryDate;
+    }
+
+    public void setEntryDate(Date entryDate) {
+        this.entryDate = entryDate;
+    }
+
+    public Byte getTstatus() {
+        return tstatus;
+    }
+
+    public void setTstatus(Byte tstatus) {
+        this.tstatus = tstatus;
+    }
+
+    public Integer getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
+    }
+
+    public Byte getTouter() {
+        return touter;
+    }
+
+    public void setTouter(Byte touter) {
+        this.touter = touter;
+    }
+
+    public Byte getTitle() {
+        return title;
+    }
+
+    public void setTitle(Byte title) {
+        this.title = title;
     }
 
     public Integer getCreator() {

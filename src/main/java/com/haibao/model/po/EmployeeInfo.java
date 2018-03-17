@@ -5,7 +5,9 @@ import java.util.Date;
 public class EmployeeInfo {
     private Integer eid;
 
-    private Integer eciId;
+    private String empName;
+
+    private String empNo;
 
     private Byte sex;
 
@@ -21,6 +23,14 @@ public class EmployeeInfo {
 
     private Byte psId;
 
+    private Byte estatus;
+
+    private Integer deptId;
+
+    private Integer jobId;
+
+    private Date entryDate;
+
     private Integer creator;
 
     private Date createTime;
@@ -29,9 +39,10 @@ public class EmployeeInfo {
 
     private Date updateTime;
 
-    public EmployeeInfo(Integer eid, Integer eciId, Byte sex, Date birthday, Integer crid, Integer nation, String address, String mobile, Byte psId, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public EmployeeInfo(Integer eid, String empName, String empNo, Byte sex, Date birthday, Integer crid, Integer nation, String address, String mobile, Byte psId, Byte estatus, Integer deptId, Integer jobId, Date entryDate, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.eid = eid;
-        this.eciId = eciId;
+        this.empName = empName;
+        this.empNo = empNo;
         this.sex = sex;
         this.birthday = birthday;
         this.crid = crid;
@@ -39,6 +50,10 @@ public class EmployeeInfo {
         this.address = address;
         this.mobile = mobile;
         this.psId = psId;
+        this.estatus = estatus;
+        this.deptId = deptId;
+        this.jobId = jobId;
+        this.entryDate = entryDate;
         this.creator = creator;
         this.createTime = createTime;
         this.updater = updater;
@@ -57,12 +72,20 @@ public class EmployeeInfo {
         this.eid = eid;
     }
 
-    public Integer getEciId() {
-        return eciId;
+    public String getEmpName() {
+        return empName;
     }
 
-    public void setEciId(Integer eciId) {
-        this.eciId = eciId;
+    public void setEmpName(String empName) {
+        this.empName = empName == null ? null : empName.trim();
+    }
+
+    public String getEmpNo() {
+        return empNo;
+    }
+
+    public void setEmpNo(String empNo) {
+        this.empNo = empNo == null ? null : empNo.trim();
     }
 
     public Byte getSex() {
@@ -119,6 +142,38 @@ public class EmployeeInfo {
 
     public void setPsId(Byte psId) {
         this.psId = psId;
+    }
+
+    public Byte getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(Byte estatus) {
+        this.estatus = estatus;
+    }
+
+    public Integer getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
+    }
+
+    public Integer getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(Integer jobId) {
+        this.jobId = jobId;
+    }
+
+    public Date getEntryDate() {
+        return entryDate;
+    }
+
+    public void setEntryDate(Date entryDate) {
+        this.entryDate = entryDate;
     }
 
     public Integer getCreator() {

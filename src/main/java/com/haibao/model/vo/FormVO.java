@@ -53,4 +53,14 @@ public class FormVO implements Serializable {
     public void setHeightt(double heightt) {
         this.heightt = heightt;
     }
+
+    @Override
+    public String toString() {
+        return "FormVO{" +
+                "widthh=" + widthh +
+                ", heightt=" + heightt +
+                ", formName='" + formName + '\'' +
+                ", cellList=" + cellList +
+                '}';
+    }
 }

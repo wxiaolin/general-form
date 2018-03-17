@@ -46,25 +46,18 @@ public class AutoFormController {
     public Result autofill(Integer fid, String stuno) throws IOException, ClassNotFoundException {
 
         Form form = formService.getForm(fid);
-
         System.out.println(fid + " " + stuno);
 
         ByteArrayInputStream bais = new ByteArrayInputStream(form.getFdefine());
         ObjectInputStream ois = new ObjectInputStream(bais);
-
         FormVO formVO = (FormVO) ois.readObject();
         List<Cell> cells = formVO.getCellList();
 
-        StudentCollegeInfo studentCollegeInfo = new StudentCollegeInfo();
-        studentCollegeInfo.setStuNo(stuno);
-        studentCollegeInfo = studentServcice.getStudentCollegeInfo(studentCollegeInfo);
-        System.out.println(studentCollegeInfo.toString());
-
         StudentInfo studentInfo = new StudentInfo();
-        studentInfo.setStuciId(studentCollegeInfo.getSid());
+        studentInfo.setStuNo(stuno);
         studentInfo = studentServcice.getStudentInfo(studentInfo);
 
-        fillCell(cells, studentInfo, studentCollegeInfo);
+        fillCell(cells, studentInfo);
 
         return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), formVO);
     }
@@ -74,50 +67,51 @@ public class AutoFormController {
      * 对List<Cell>的cells作填充内容值的操作
      * @param cells
      * @param si
-     * @param sci
      */
-    private void fillCell(List<Cell> cells, StudentInfo si, StudentCollegeInfo sci) {
+    private void fillCell(List<Cell> cells, StudentInfo si) {
+        // 遍历单元格列表
         for (Cell cell : cells) {
             if (null == cell.getKeyy() || "".equals(cell.getKeyy())) {
+                // 判空
                 continue;
             } else {
                 ViewField vf = ViewField.valueOf(cell.getKeyy());
                 switch (vf) {
                     case NAME:
-                        cell.setValuee(sci.getStuName());
+                        cell.setValuee(si.getStuName());
                         break;
                     case STU_NO:
-                        cell.setValuee(sci.getStuNo());
+                        cell.setValuee(si.getStuNo());
                         break;
                     case REGDATE:
                         SimpleDateFormat pattern = new SimpleDateFormat("yyyy-MM-dd");
-                        cell.setValuee(pattern.format(sci.getRegdate()));
+                        cell.setValuee(pattern.format(si.getRegdate()));
                         break;
                     case STATUS:
-                        cell.setValuee(String.valueOf(sci.getSstatus()));
+                        cell.setValuee(String.valueOf(si.getSstatus()));
                         break;
                     case DEPT:
-                        Dept dept = deptService.getDept(sci.getDeptId());
+                        Dept dept = deptService.getDept(si.getDeptId());
                         cell.setValuee(dept.getDname());
                         break;
                     case MAJOR:
-                        Major major = majorService.getMajor(sci.getMajorId());
+                        Major major = majorService.getMajor(si.getMajorId());
                         cell.setValuee(major.getMajor());
                         break;
                     case MINOR_1:
-                        Major minor1 = majorService.getMajor(sci.getMinorId1());
+                        Major minor1 = majorService.getMajor(si.getMinorId1());
                         cell.setValuee(minor1.getMajor());
                         break;
                     case MINOR_2:
-                        Major minor2 = majorService.getMajor(sci.getMinorId2());
+                        Major minor2 = majorService.getMajor(si.getMinorId2());
                         cell.setValuee(minor2.getMajor());
                         break;
                     case GRADE:
                         SimpleDateFormat pattern1 = new SimpleDateFormat("yyyy");
-                        cell.setValuee(pattern1.format(sci.getGrade()));
+                        cell.setValuee(pattern1.format(si.getGrade()));
                         break;
                     case CLASSES:
-                        ClassTable classTable = classService.getClassTable(sci.getClassId());
+                        ClassTable classTable = classService.getClassTable(si.getClassId());
                         Major major1 = majorService.getMajor(classTable.getMajorId());
                         SimpleDateFormat pattern2 = new SimpleDateFormat("yyyy");
                         String grade = pattern2.format(classTable.getGrade());

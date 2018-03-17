@@ -1,5 +1,6 @@
 package com.haibao.model.po;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class Form {
@@ -129,5 +130,22 @@ public class Form {
 
     public void setFdefine(byte[] fdefine) {
         this.fdefine = fdefine;
+    }
+
+    @Override
+    public String toString() {
+        return "Form{" +
+                "fid=" + fid +
+                ", fname='" + fname + '\'' +
+                ", fstatus=" + fstatus +
+                ", fdesc='" + fdesc + '\'' +
+                ", deptId=" + deptId +
+                ", ftype=" + ftype +
+                ", creator=" + creator +
+                ", createTime=" + createTime +
+                ", updater=" + updater +
+                ", updateTime=" + updateTime +
+                ", fdefine=" + Arrays.toString(fdefine) +
+                '}';
     }
 }

@@ -4,7 +4,8 @@
   <resultMap id="BaseResultMap" type="com.haibao.model.po.EmployeeInfo">
     <constructor>
       <idArg column="eid" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="eci_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_no" javaType="java.lang.String" jdbcType="CHAR" />
       <arg column="sex" javaType="java.lang.Byte" jdbcType="TINYINT" />
       <arg column="birthday" javaType="java.util.Date" jdbcType="DATE" />
       <arg column="crid" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -12,6 +13,10 @@
       <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="mobile" javaType="java.lang.String" jdbcType="CHAR" />
       <arg column="ps_id" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="estatus" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="job_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="entry_date" javaType="java.util.Date" jdbcType="DATE" />
       <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -19,8 +24,8 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    eid, eci_id, sex, birthday, crid, nation, address, mobile, ps_id, creator, create_time, 
-    updater, update_time
+    eid, emp_name, emp_no, sex, birthday, crid, nation, address, mobile, ps_id, estatus, 
+    dept_id, job_id, entry_date, creator, create_time, updater, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -33,16 +38,18 @@
     where eid = #{eid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.haibao.model.po.EmployeeInfo">
-    insert into t_employee_info (eid, eci_id, sex, 
-      birthday, crid, nation, 
+    insert into t_employee_info (eid, emp_name, emp_no, 
+      sex, birthday, crid, nation, 
       address, mobile, ps_id, 
-      creator, create_time, updater, 
-      update_time)
-    values (#{eid,jdbcType=INTEGER}, #{eciId,jdbcType=INTEGER}, #{sex,jdbcType=TINYINT}, 
-      #{birthday,jdbcType=DATE}, #{crid,jdbcType=INTEGER}, #{nation,jdbcType=INTEGER}, 
+      estatus, dept_id, job_id, 
+      entry_date, creator, create_time, 
+      updater, update_time)
+    values (#{eid,jdbcType=INTEGER}, #{empName,jdbcType=VARCHAR}, #{empNo,jdbcType=CHAR}, 
+      #{sex,jdbcType=TINYINT}, #{birthday,jdbcType=DATE}, #{crid,jdbcType=INTEGER}, #{nation,jdbcType=INTEGER}, 
       #{address,jdbcType=VARCHAR}, #{mobile,jdbcType=CHAR}, #{psId,jdbcType=TINYINT}, 
-      #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+      #{estatus,jdbcType=TINYINT}, #{deptId,jdbcType=INTEGER}, #{jobId,jdbcType=INTEGER}, 
+      #{entryDate,jdbcType=DATE}, #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.haibao.model.po.EmployeeInfo">
     insert into t_employee_info
@@ -50,8 +57,11 @@
       <if test="eid != null">
         eid,
       </if>
-      <if test="eciId != null">
-        eci_id,
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empNo != null">
+        emp_no,
       </if>
       <if test="sex != null">
         sex,
@@ -74,6 +84,18 @@
       <if test="psId != null">
         ps_id,
       </if>
+      <if test="estatus != null">
+        estatus,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="jobId != null">
+        job_id,
+      </if>
+      <if test="entryDate != null">
+        entry_date,
+      </if>
       <if test="creator != null">
         creator,
       </if>
@@ -91,8 +113,11 @@
       <if test="eid != null">
         #{eid,jdbcType=INTEGER},
       </if>
-      <if test="eciId != null">
-        #{eciId,jdbcType=INTEGER},
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empNo != null">
+        #{empNo,jdbcType=CHAR},
       </if>
       <if test="sex != null">
         #{sex,jdbcType=TINYINT},
@@ -115,6 +140,18 @@
       <if test="psId != null">
         #{psId,jdbcType=TINYINT},
       </if>
+      <if test="estatus != null">
+        #{estatus,jdbcType=TINYINT},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="jobId != null">
+        #{jobId,jdbcType=INTEGER},
+      </if>
+      <if test="entryDate != null">
+        #{entryDate,jdbcType=DATE},
+      </if>
       <if test="creator != null">
         #{creator,jdbcType=INTEGER},
       </if>
@@ -132,8 +169,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.haibao.model.po.EmployeeInfo">
     update t_employee_info
     <set>
-      <if test="eciId != null">
-        eci_id = #{eciId,jdbcType=INTEGER},
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empNo != null">
+        emp_no = #{empNo,jdbcType=CHAR},
       </if>
       <if test="sex != null">
         sex = #{sex,jdbcType=TINYINT},
@@ -156,6 +196,18 @@
       <if test="psId != null">
         ps_id = #{psId,jdbcType=TINYINT},
       </if>
+      <if test="estatus != null">
+        estatus = #{estatus,jdbcType=TINYINT},
+      </if>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="jobId != null">
+        job_id = #{jobId,jdbcType=INTEGER},
+      </if>
+      <if test="entryDate != null">
+        entry_date = #{entryDate,jdbcType=DATE},
+      </if>
       <if test="creator != null">
         creator = #{creator,jdbcType=INTEGER},
       </if>
@@ -173,7 +225,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.haibao.model.po.EmployeeInfo">
     update t_employee_info
-    set eci_id = #{eciId,jdbcType=INTEGER},
+    set emp_name = #{empName,jdbcType=VARCHAR},
+      emp_no = #{empNo,jdbcType=CHAR},
       sex = #{sex,jdbcType=TINYINT},
       birthday = #{birthday,jdbcType=DATE},
       crid = #{crid,jdbcType=INTEGER},
@@ -181,6 +234,10 @@
       address = #{address,jdbcType=VARCHAR},
       mobile = #{mobile,jdbcType=CHAR},
       ps_id = #{psId,jdbcType=TINYINT},
+      estatus = #{estatus,jdbcType=TINYINT},
+      dept_id = #{deptId,jdbcType=INTEGER},
+      job_id = #{jobId,jdbcType=INTEGER},
+      entry_date = #{entryDate,jdbcType=DATE},
       creator = #{creator,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       updater = #{updater,jdbcType=INTEGER},

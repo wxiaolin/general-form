@@ -17,12 +17,12 @@
         <description>spring mvc servlet</description>
         <servlet-name>spring</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <com.haibao.init-param>
+        <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>
 
             </param-value>
-        </com.haibao.init-param>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>

@@ -1,6 +1,5 @@
 package com.haibao.service;
 
-import com.haibao.model.po.StudentCollegeInfo;
 import com.haibao.model.po.StudentInfo;
 
 import java.util.List;
@@ -12,8 +11,6 @@ public interface StudentServcice {
 
 
     StudentInfo getStudentInfo(StudentInfo record);
-    StudentCollegeInfo getStudentCollegeInfo(StudentCollegeInfo record);
     List<StudentInfo> listStudentInfo(StudentInfo record);
-    List<StudentCollegeInfo> listStudentCollegeInfo(StudentCollegeInfo record);
 
 }
