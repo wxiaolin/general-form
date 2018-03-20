@@ -10,6 +10,7 @@
     <packaging>war</packaging>
     <properties>
         <spring.version>4.2.2.RELEASE</spring.version>
+        <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
         <servlet.version>3.1.0</servlet.version>
         <jstl.version>1.2</jstl.version>
         <mybatis.version>3.2.6</mybatis.version>
@@ -57,16 +58,29 @@
         </dependency>
         <!--mybatis end-->
 
+        <!--模板引擎，使用Thymeleaf替代jstl-->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.version}</version>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+            <version>${thymeleaf.version}</version>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>${jstl.version}</version>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring4</artifactId>
+            <version>${thymeleaf.version}</version>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>javax.servlet</groupId>-->
+            <!--<artifactId>javax.servlet-api</artifactId>-->
+            <!--<version>${servlet.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>javax.servlet</groupId>-->
+            <!--<artifactId>jstl</artifactId>-->
+            <!--<version>${jstl.version}</version>-->
+        <!--</dependency>-->
+
+
 
         <!--database start-->
         <!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 -->

@@ -23,8 +23,10 @@ public class DistrictInit {
         Sheet sheet = workbook.getSheetAt(0);
         Iterator<Row> rowIterator = sheet.iterator();
         List<District> districtList = new ArrayList<>();
-        Integer belong = null;
         rowIterator.next();
+        final int belongCountry = 0;
+        int belongProv = 0;
+        int belongCity = 0;
         while (rowIterator.hasNext()) {
             Row row = rowIterator.next();
             Iterator<Cell> cellIterator = row.cellIterator();
@@ -47,9 +49,11 @@ public class DistrictInit {
                     }
                 }
                 district.setDname(cell3.getStringCellValue().trim());
-                district.setBelong(belong);
+                district.setBelong(belongCity);
+                // 2 县级行政区
                 district.setDrank((byte) 2);
                 district.setCreator(1);
+                districtList.add(district);
             }
             if (row.getLastCellNum() == 3) {
                 cell0 = row.getCell(0);
@@ -65,10 +69,12 @@ public class DistrictInit {
                     }
                 }
                 district.setDname(cell2.getStringCellValue().trim());
-                district.setBelong(belong);
+                district.setBelong(belongProv);
                 district.setDrank((byte) 1);
+                // 1 市级行政区
                 district.setCreator(1);
-                belong = district.getDid();
+                districtList.add(district);
+                belongCity = district.getDid();
             }
             if (row.getLastCellNum() == 2) {
                 cell0 = row.getCell(0);
@@ -84,12 +90,14 @@ public class DistrictInit {
                     }
                 }
                 district.setDname(cell1.getStringCellValue().trim());
-                district.setBelong(0);
+                district.setBelong(belongCountry);
+                // 0，省级行政区
                 district.setDrank((byte) 0);
                 district.setCreator(1);
-                belong = district.getDid();
+                districtList.add(district);
+                belongProv = district.getDid();
             }
-            districtList.add(district);
+
         }
         String url = "jdbc:mysql://120.77.148.101:3306/general_form_system_db?useServerPrepStmts=true&rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf-8";
         String user = "haibao";

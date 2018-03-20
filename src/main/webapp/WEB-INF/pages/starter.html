@@ -3,7 +3,7 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -33,27 +33,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <style>
+        .cell{
+            box-sizing: border-box;
+            border: 1px solid;
+            font-size: 16px;
+            text-align: center;
+        }
+
+    </style>
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -134,10 +124,8 @@ desired effect
     </header>
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
-
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
-
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel">
                 <div class="pull-left image">
@@ -199,8 +187,8 @@ desired effect
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Page Header
-                <small>Optional description</small>
+                页头
+                <small>可选描述</small>
             </h1>
             <ol class="breadcrumb">
                 <li>
@@ -363,32 +351,32 @@ immediately after the control sidebar -->
 
     function addfield1() {
         var p1 = $("<p></p>");
-        var input1 = $("<input />");
+        var input1 = $('<input class="cell" />');
         input1.addClass("cell");
         input1.width(100.8);
         input1.append(p1);
-        input1.css("box-sizing", "border-box");
-        input1.css("border", "1px solid");
+        input1.css("padding-top", "16px");
+        input1.css("padding-bottom", "16px");
         $("#form").append(input1);
-        var input2 = $("<input />");
+        var input2 = $('<input class="cell" />');
         var p = $("<p></p>");
         input2.addClass("cell");
         input2.width(179.2);
         input2.append(p);
-        input2.css("box-sizing", "border-box");
-        input2.css("border", "1px solid");
+        input2.css("padding-top", "16px");
+        input2.css("padding-bottom", "16px");
         $("#form").append(input2);
     }
     function addfield2() {
         var p1 = $("<p></p>");
-        var input1 = $("<input />");
+        var input1 = $('<input class="cell" />');
         input1.addClass("cell");
         input1.width(100.8);
         input1.append(p1);
         input1.css("box-sizing", "border-box");
         input1.css("border", "1px solid");
         $("#form").append(input1);
-        var input2 = $("<input />");
+        var input2 = $('<input class="cell" />');
         var p = $("<p></p>");
         input2.addClass("cell");
         input2.width(319.2);
@@ -405,14 +393,16 @@ immediately after the control sidebar -->
         input1.append(p1);
         input1.css("box-sizing", "border-box");
         input1.css("border", "1px solid");
+
         $("#form").append(input1);
         var input2 = $("<input />");
-        var p = $("<p></p>");
+        var p = $("<p></p>").html("&nbsp;&nbsp;&nbsp;");
         input2.addClass("cell");
         input2.width(739.2);
         input2.append(p);
         input2.css("box-sizing", "border-box");
         input2.css("border", "1px solid");
+
         $("#form").append(input2);
     }
 

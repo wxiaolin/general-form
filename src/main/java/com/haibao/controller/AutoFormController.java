@@ -132,12 +132,14 @@ public class AutoFormController {
                         }
                         break;
                     case BIRTHDAY:
-                        SimpleDateFormat pattern3 = new SimpleDateFormat("yyyy-MM-dd");
+                        SimpleDateFormat pattern3 = new SimpleDateFormat("yyyy-MM");
                         cell.setValuee(pattern3.format(si.getBirthday()));
                         break;
                     case CENSUS_REGISTER:
-                        District district = districtService.getDistrict(si.getCrid());
-                        cell.setValuee(district.getDname());
+                        District area = districtService.getDistrict(si.getCrid());
+                        District city = districtService.getDistrict(area.getBelong());
+                        District prov = districtService.getDistrict(city.getBelong());
+                        cell.setValuee(prov.getDname()+city.getDname()+area.getDname());
                         break;
                     case NATION:
                         Nation nation = nationService.getNation(si.getNation());
