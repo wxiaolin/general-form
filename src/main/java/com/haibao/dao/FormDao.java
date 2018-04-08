@@ -1,6 +1,8 @@
 package com.haibao.dao;
 
-import com.haibao.model.po.Form;
+import com.haibao.pojo.entity.Form;
+
+import java.util.List;
 
 public interface FormDao {
     int deleteByPrimaryKey(Integer fid);
@@ -10,6 +12,8 @@ public interface FormDao {
     int insertSelective(Form record);
 
     Form selectByPrimaryKey(Integer fid);
+
+    List<Form> selectAll();
 
     int updateByPrimaryKeySelective(Form record);
 

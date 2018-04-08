@@ -1,8 +1,6 @@
 package com.haibao.service;
 
-import com.haibao.model.po.Dept;
-
-import java.util.List;
+import com.haibao.pojo.entity.Dept;
 
 /**
  * Created by haibao on 2018/1/29.

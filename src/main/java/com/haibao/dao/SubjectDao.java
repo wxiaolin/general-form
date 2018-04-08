@@ -1,6 +1,6 @@
 package com.haibao.dao;
 
-import com.haibao.model.po.Subject;
+import com.haibao.pojo.entity.Subject;
 
 public interface SubjectDao {
     int deleteByPrimaryKey(Integer sid);

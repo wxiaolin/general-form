@@ -1,6 +1,6 @@
 package com.haibao.dao;
 
-import com.haibao.model.po.CollegeArea;
+import com.haibao.pojo.entity.CollegeArea;
 
 public interface CollegeAreaDao {
     int deleteByPrimaryKey(Integer aid);

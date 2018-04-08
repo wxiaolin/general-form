@@ -1,6 +1,6 @@
 package com.haibao.dao;
 
-import com.haibao.model.po.Building;
+import com.haibao.pojo.entity.Building;
 
 public interface BuildingDao {
     int deleteByPrimaryKey(Integer bid);

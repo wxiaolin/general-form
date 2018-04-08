@@ -1,13 +1,10 @@
 package com.haibao.controller;
 
-import com.haibao.model.enums.PoliticalStatusCode;
-import com.haibao.model.enums.ResultCode;
-import com.haibao.model.enums.SexCode;
-import com.haibao.model.enums.ViewField;
-import com.haibao.model.po.*;
-import com.haibao.model.vo.Cell;
-import com.haibao.model.vo.FormVO;
-import com.haibao.model.vo.Result;
+import com.haibao.pojo.enums.ResultCode;
+import com.haibao.pojo.entity.*;
+import com.haibao.pojo.vo.Cell;
+import com.haibao.pojo.vo.FormVO;
+import com.haibao.pojo.vo.Result;
 import com.haibao.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.*;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * Created by haibao on 2018/1/27.
+ * Created on 2018/3/18.
+ * @author haibao
  */
 @Controller
 public class DemoController {
@@ -40,21 +37,29 @@ public class DemoController {
     @Autowired
     private NationService nationService;
 
+    /**
+     *  从数据库中读取表定义
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @ResponseBody
     @RequestMapping(value = "/readformdb")
     public Result readFormDB() throws IOException, ClassNotFoundException {
         Form form = formService.getForm(3);
         ByteArrayInputStream bais = new ByteArrayInputStream(form.getFdefine());
         ObjectInputStream ois = new ObjectInputStream(bais);
-
         FormVO formVO = (FormVO) ois.readObject();
-
         Set set = new TreeSet();
-
         return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), formVO);
     }
 
 
+    /**
+     * 将表序列化后持久化至数据库
+     * @return
+     * @throws IOException
+     */
     @ResponseBody
     @RequestMapping(value = "/saveform", method = RequestMethod.POST)
     public Result saveForm() throws IOException {

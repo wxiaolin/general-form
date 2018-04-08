@@ -1,6 +1,6 @@
 package com.haibao.init.db;
 
-import com.haibao.model.po.District;
+import com.haibao.pojo.entity.District;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.core.io.ClassPathResource;
@@ -12,9 +12,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
 /**
- * Created by haibao on 2018/3/3.
+ * 初始化行政区域表
+ * Created on 2018/3/18.
+ * @author haibao
  */
 public class DistrictInit {
     public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException {

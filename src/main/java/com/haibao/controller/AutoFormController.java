@@ -1,13 +1,13 @@
 package com.haibao.controller;
 
-import com.haibao.model.enums.PoliticalStatusCode;
-import com.haibao.model.enums.ResultCode;
-import com.haibao.model.enums.SexCode;
-import com.haibao.model.enums.ViewField;
-import com.haibao.model.po.*;
-import com.haibao.model.vo.Cell;
-import com.haibao.model.vo.FormVO;
-import com.haibao.model.vo.Result;
+import com.haibao.pojo.enums.PoliticalStatusCode;
+import com.haibao.pojo.enums.ResultCode;
+import com.haibao.pojo.enums.SexCode;
+import com.haibao.pojo.enums.ViewField;
+import com.haibao.pojo.entity.*;
+import com.haibao.pojo.vo.Cell;
+import com.haibao.pojo.vo.FormVO;
+import com.haibao.pojo.vo.Result;
 import com.haibao.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

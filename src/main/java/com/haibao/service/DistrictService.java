@@ -1,6 +1,6 @@
 package com.haibao.service;
 
-import com.haibao.model.po.District;
+import com.haibao.pojo.entity.District;
 
 /**
  * Created by haibao on 2018/3/3.

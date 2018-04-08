@@ -1,7 +1,7 @@
 package com.haibao.service.impl;
 
 import com.haibao.dao.DistrictDao;
-import com.haibao.model.po.District;
+import com.haibao.pojo.entity.District;
 import com.haibao.service.DistrictService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;

@@ -1,7 +1,7 @@
 package com.haibao.service.cache;
 
 import com.haibao.dao.*;
-import com.haibao.model.po.*;
+import com.haibao.pojo.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
@@ -24,7 +24,6 @@ public class ApplicationCache {
     private MajorDao majorDao;
     @Autowired
     private NationDao nationDao;
-
     @Autowired
     private CacheManager cacheManager;
 

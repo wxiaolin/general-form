@@ -1,9 +1,8 @@
 package com.haibao.service.impl;
 
 import com.haibao.dao.StudentInfoDao;
-import com.haibao.model.po.StudentInfo;
+import com.haibao.pojo.entity.StudentInfo;
 import com.haibao.service.StudentServcice;
-import com.sun.org.apache.bcel.internal.generic.RET;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.haibao.dao;
 
-import com.haibao.model.po.Dept;
+import com.haibao.pojo.entity.Dept;
 
 import java.util.List;
 

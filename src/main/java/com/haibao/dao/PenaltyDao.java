@@ -1,6 +1,6 @@
 package com.haibao.dao;
 
-import com.haibao.model.po.Penalty;
+import com.haibao.pojo.entity.Penalty;
 
 public interface PenaltyDao {
     int deleteByPrimaryKey(Integer pid);
