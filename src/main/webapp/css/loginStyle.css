@@ -1,0 +1,61 @@
+body {
+	  background-color: #E6E6E6;
+}
+.mycenter{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    width:500px;
+    padding: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.picture{
+	margin: 0 auto;
+	margin-top: 4%;
+	margin-bottom: 4%;
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+}
+.picture img{
+	width: 120px;
+	height: 120px; 
+	border-radius:50%
+}
+.block1{
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 6%;
+    margin-bottom: 16%;
+	width: 400px;
+	height: 380px;
+	border: 2px solid white;
+	background-color: #F7F7F7;
+}
+.mycenter mysign{
+    width: 440px;
+    border: solid red 3px;
+    
+    /*overflow: auto;*/
+}
+
+.mycenter input,checkbox,button{
+    margin-top:2%;
+    margin-left: 10%;
+    margin-right: 10%;
+	border: 1px solid #878787
+}
+.col-lg-10 form-control{
+	width: 300px;
+}
+.mycheckbox{
+    margin-top:10px;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    height: 10px;
+}
+.mycheckbox a{
+	margin-left: 57px;
+}
