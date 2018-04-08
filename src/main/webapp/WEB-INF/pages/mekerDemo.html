@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/jquery.min.js"></script>
+    <title>Title</title>
+    <style>
+        body, h1, h2, h3, h4, h5, h6, hr, blockquote, /* structural elements 结构元素 */
+        dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+        pre, /* text formatting elements 文本格式元素 */
+        fieldset, lengend, textarea, /* form elements 表单元素 */
+        table, th, td { /* table elements 表格元素 */
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        #form{
+            width: 850px;
+        }
+        .cell{
+            float: left;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        input{
+            padding: 16px 0;
+            float: left;
+            font-size: 16px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<button onclick="addfield1()">add1/3 cell</button>
+<button onclick="addfield2()">add1/2 cell</button>
+<button onclick="addfield3()">add cell</button>
+<table id="form"></table>
+<script>
+
+    function addfield1() {
+        var p1 = $("<p></p>");
+        var input1 = $("<input />");
+        input1.addClass("cell");
+        input1.width(100.8);
+        input1.append(p1);
+        input1.css("box-sizing", "border-box");
+        input1.css("border", "1px solid");
+        $("#form").append(input1);
+        var input2 = $("<input />");
+        var p = $("<p></p>");
+        input2.addClass("cell");
+        input2.width(179.2);
+        input2.append(p);
+        input2.css("box-sizing", "border-box");
+        input2.css("border", "1px solid");
+        $("#form").append(input2);
+    }
+    function addfield2() {
+        var p1 = $("<p></p>");
+        var input1 = $("<input />");
+        input1.addClass("cell");
+        input1.width(100.8);
+        input1.append(p1);
+        input1.css("box-sizing", "border-box");
+        input1.css("border", "1px solid");
+        $("#form").append(input1);
+        var input2 = $("<input />");
+        var p = $("<p></p>");
+        input2.addClass("cell");
+        input2.width(319.2);
+        input2.append(p);
+        input2.css("box-sizing", "border-box");
+        input2.css("border", "1px solid");
+        $("#form").append(input2);
+    }
+    function addfield3() {
+        var p1 = $("<p></p>");
+        var input1 = $("<input />");
+        input1.addClass("cell");
+        input1.width(100.8);
+        input1.append(p1);
+        input1.css("box-sizing", "border-box");
+        input1.css("border", "1px solid");
+        $("#form").append(input1);
+        var input2 = $("<input />");
+        var p = $("<p></p>");
+        input2.addClass("cell");
+        input2.width(739.2);
+        input2.append(p);
+        input2.css("box-sizing", "border-box");
+        input2.css("border", "1px solid");
+        $("#form").append(input2);
+    }
+
+    function addbase() {
+
+    }
+</script>
+</body>
+</html>
