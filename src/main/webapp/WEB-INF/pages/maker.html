@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="sidebar">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>通用表格系统</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/ionicons.min.css">
+    <link rel="stylesheet" href="/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/css/skins/skin-blue.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/cell.css">
+
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header" th:replace="common/header::header">
+
+    </header>
+    <aside class="main-sidebar" th:replace="common/sidebar::sadebar">
+
+    </aside>
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                页头
+                <small>可选描述</small>
+            </h1>
+        </section>
+        <section class="content container-fluid">
+            <div class="box box-danger direct-chat direct-chat-danger">
+                <div class="box-header with-border">
+                    <h3 class="box-title">表格绘制</h3>
+                </div>
+                <div class="box-body">
+                    <div class="input-group ">
+                        <div class="input-group-btn float-left">
+                            <button onclick="mode1Line1()" class="btn btn-making btn-danger btn-flat">模板1行1</button>
+                        </div>
+                        <div class="input-group-btn float-left">
+                            <button onclick="mode1Line2()" class="btn btn-making btn-danger btn-flat">模板1行2</button>
+                        </div>
+                        <div class="input-group-btn float-left">
+                            <button onclick="mode1Line3()" class="btn btn-making btn-danger btn-flat">模板1行3</button>
+                        </div>
+                    </div>
+                    <div class="input-group ">
+                        <div class="input-group-btn float-left">
+                            <button onclick="mode2Line1()" class="btn btn-making btn-danger btn-flat">模板1行1</button>
+                        </div>
+                        <div class="input-group-btn float-left">
+                            <button onclick="mode2Line2()" class="btn btn-making btn-danger btn-flat">模板1行2</button>
+                        </div>
+                        <div class="input-group-btn float-left">
+                            <button onclick="mode2Line3()" class="btn btn-making btn-danger btn-flat">模板1行3</button>
+                        </div>
+                    </div>
+                    <div class="input-group ">
+                        <div class="input-group-btn float-left">
+                            <button onclick="middleLine()" class="btn btn-making btn-danger btn-flat">L</button>
+                        </div>
+                        <div class="input-group-btn float-left">
+                            <button onclick="bigLine()" class="btn btn-making btn-danger btn-flat">XL</button>
+                        </div>
+                        <div class="input-group-btn float-left">
+                            <button onclick="biggerLine()" class="btn btn-making btn-danger btn-flat">XXL</button>
+                        </div>
+                        <div class="input-group-btn float-left">
+                            <button onclick="biggestLine()" class="btn btn-making btn-danger btn-flat">XXXL</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="form" class="form box-footer">
+                    <h3 class="form-title">表&nbsp;&nbsp;格&nbsp;&nbsp;名&nbsp;&nbsp;称</h3>
+                    <br/><br/>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="main-footer" th:replace="common/footer::footer">
+
+    </footer>
+
+    <div class="control-sidebar-bg"></div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/adminlte.min.js"></script>
+<script src="/js/maker.js"></script>
+</body>
+
+</html>

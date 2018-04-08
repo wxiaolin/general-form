@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>通用表格系统</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/ionicons.min.css">
+    <link rel="stylesheet" href="/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/css/skins/skin-blue.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <style>
+
+    </style>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header" th:replace="common/header::header">
+
+    </header>
+    <aside class="main-sidebar" th:replace="common/sidebar::sadebar">
+
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                系统公告
+                <small>可选描述</small>
+            </h1>
+        </section>
+        <section class="content container-fluid">
+            <div class="box box-danger direct-chat direct-chat-danger">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">醒目公告</div>
+                    <div class="panel-body">
+                        <p>公告内容</p>
+                    </div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="col-md-10">公告标题</th>
+                            <th class="col-md-2">发布日期</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!--/*@thymesVar id="formList" type="java.util.List"*/-->
+                        <tr th:each="form : ${formList}">
+                            <!--/*@thymesVar id="fname" type="java.lang.String"*/-->
+                            <td><a th:href="@{'form/'+${form.fid}}" th:text="${form.fname}"></a> </td>
+                            <!--/*@thymesVar id="createTime" type="java.util.Date"*/-->
+                            <td th:text="${form.createTime!=null}  ? ${#dates.format(form.createTime,'yyyy/MM/dd')} : '???' ">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="form" class="box-footer">
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="main-footer" th:replace="common/footer::footer">
+
+    </footer>
+
+    <div class="control-sidebar-bg"></div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/adminlte.min.js"></script>
+<script>
+
+</script>
+</body>
+
+</html>

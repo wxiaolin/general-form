@@ -1,413 +1,269 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="sidebar">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Starter</title>
-    <!-- Tell the browser to be responsive to screen width -->
+    <title>通用表格系统</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="/css/font-awesome.min.css">
-    <!-- Ionicons -->
     <link rel="stylesheet" href="/css/ionicons.min.css">
-    <!-- Theme style -->
     <link rel="stylesheet" href="/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-  page. However, you can choose any other skin. Make sure you
-  apply the skin class to the body tag so the changes take effect. -->
     <link rel="stylesheet" href="/css/skins/skin-blue.min.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+    <link rel="stylesheet" href="/css/sidebar.css">
     <style>
-        .cell{
+        .form {
+            width: 860px;
+            height: 1200px;
+        }
+
+        .form-title {
+            text-align: center;
+        }
+
+        .cell {
             box-sizing: border-box;
             border: 1px solid;
             font-size: 16px;
             text-align: center;
         }
 
+        .cell-normal {
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+
+        .cell-big {
+            padding-top: 16px;
+            padding-bottom: 16px;
+            height: 220px;
+        }
+
+        .cell-bigger {
+            padding-top: 16px;
+            padding-bottom: 16px;
+            height: 330px;
+        }
+
+        .cell-biggest {
+            padding-top: 16px;
+            padding-bottom: 16px;
+            height: 440px;
+        }
+
+        .input-group-btn {
+            width: auto;
+            margin-right: 4px;
+        }
+
+        .float-left {
+            float: left;
+        }
     </style>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
     <!-- Main Header -->
-    <header class="main-header">
+    <header class="main-header" th:replace="common/header::header">
 
-        <!-- Logo -->
-        <a href="index2.html" class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>A</b>LT</span>
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>通用表格</b>系统</span>
-        </a>
-
-        <!-- Header Navbar -->
-        <nav class="navbar navbar-static-top" role="navigation">
-            <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                <span class="sr-only">Toggle navigation</span>
-            </a>
-            <!-- Navbar Right Menu -->
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    <!-- Notifications Menu -->
-                    <!-- Tasks Menu -->
-                    <li class="dropdown user user-menu">
-                        <!-- Menu Toggle Button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <!-- The user image in the navbar-->
-                            <img src="/img/57725474_p0_master1200.jpg" class="user-image" alt="User Image">
-                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">Alexander Pierce</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- The user image in the menu -->
-                            <li class="user-header">
-                                <img src="/img/57725474_p0_master1200.jpg" class="img-circle" alt="User Image">
-
-                                <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
-                                </p>
-                            </li>
-                            <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Control Sidebar Toggle Button -->
-                    <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="/img/57725474_p0_master1200.jpg" class="img-circle" alt="User Image">
-                </div>
-                <div class="pull-left info">
-                    <p>Alexander Pierce</p>
-                    <!-- Status -->
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
-            </div>
+    <aside class="main-sidebar" th:replace="common/sidebar::sadebar">
 
-            <!-- search form (Optional) -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-              					<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
-                                        class="fa fa-search"></i>
-              					</button>
-            				</span>
-                </div>
-            </form>
-            <!-- /.search form -->
-
-            <!-- Sidebar Menu -->
-            <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">HEADER</li>
-                <!-- Optionally, you can add icons to the links -->
-                <li class="active">
-                    <a href="#"><i class="fa fa-link"></i> <span>Link</span></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a>
-                </li>
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-                        <span class="pull-right-container">
-                					<i class="fa fa-angle-left pull-right"></i>
-              					</span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li>
-                            <a href="#">Link in level 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Link in level 2</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- /.sidebar-menu -->
-        </section>
-        <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
                 页头
                 <small>可选描述</small>
             </h1>
-            <ol class="breadcrumb">
-                <li>
-                    <a href="#"><i class="fa fa-dashboard"></i> Level</a>
-                </li>
-                <li class="active">Here</li>
-            </ol>
         </section>
-        <!-- Main content -->
         <section class="content container-fluid">
-
-            <!-- Construct the box with style you want. Here we are using box-danger -->
-            <!-- Then add the class direct-chat and choose the direct-chat-* contexual class -->
-            <!-- The contextual class should match the box, so we are using direct-chat-danger -->
             <div class="box box-danger direct-chat direct-chat-danger">
                 <div class="box-header with-border">
                     <h3 class="box-title">表格绘制</h3>
-                    <div class="box-tools pull-right">
-                        <span data-toggle="tooltip" title="3 New Messages" class="badge bg-red">3</span>
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        <!-- In box-tools add this button if you intend to use the contacts pane -->
-                        <button class="btn btn-box-tool" data-toggle="tooltip" title="Contacts"
-                                data-widget="chat-pane-toggle"><i class="fa fa-comments"></i></button>
-                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                    </div>
                 </div>
-                <!-- /.box-header -->
                 <div class="box-body">
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-danger btn-flat">Send</button>
-                        </span>
+                    <div class="input-group ">
+                        <div class="input-group-btn float-left">
+                            <button onclick="mode1Line1()" class="btn btn-making btn-danger btn-flat">模板1行1</button>
+                        </div>
+                        <div class="input-group-btn float-left">
+                            <button onclick="mode1Line2()" class="btn btn-making btn-danger btn-flat">模板1行2</button>
+                        </div>
+                        <div class="input-group-btn float-left">
+                            <button onclick="mode1Line3()" class="btn btn-making btn-danger btn-flat">模板1行3</button>
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-danger btn-flat">Send</button>
-                        </span>
+                    <div class="input-group ">
+                        <div class="input-group-btn float-left">
+                            <button onclick="mode2Line1()" class="btn btn-making btn-danger btn-flat">模板1行1</button>
+                        </div>
+                        <div class="input-group-btn float-left">
+                            <button onclick="mode2Line2()" class="btn btn-making btn-danger btn-flat">模板1行2</button>
+                        </div>
+                        <div class="input-group-btn float-left">
+                            <button onclick="mode2Line3()" class="btn btn-making btn-danger btn-flat">模板1行3</button>
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <button onclick="addfield1()" type="button" class="btn btn-danger btn-flat">Send</button>
-                        </span>
+                    <div class="input-group ">
+                        <div class="input-group-btn float-left">
+                            <button onclick="bigLine()" class="btn btn-making btn-danger btn-flat">XL</button>
+                        </div>
+                        <div class="input-group-btn float-left">
+                            <button onclick="biggerLine()" class="btn btn-making btn-danger btn-flat">XXL</button>
+                        </div>
+                        <div class="input-group-btn float-left">
+                            <button onclick="biggestLine()" class="btn btn-making btn-danger btn-flat">XXXL</button>
+                        </div>
                     </div>
                 </div>
                 <!-- /.box-body -->
-                <div id="form" class="box-footer" style="width: 860px;">
-
+                <div id="form" class="form box-footer">
+                    <h3 class="form-title">表&nbsp;&nbsp;格&nbsp;&nbsp;名&nbsp;&nbsp;称</h3>
+                    <br/><br/>
                 </div>
-                <!-- /.box-footer-->
             </div>
-            <!--/.direct-chat -->
-
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <!-- To the right -->
-        <div class="pull-right hidden-xs">
-            Anything you want
-        </div>
-        <!-- Default to the left -->
-        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <footer class="main-footer" th:replace="common/footer::footer">
+
     </footer>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            <li class="active">
-                <a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a>
-            </li>
-            <li>
-                <a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a>
-            </li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <!-- Home tab content -->
-            <div class="tab-pane active" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Recent Activity</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:;">
-                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                <p>Will be 23 on April 24th</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-                <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:;">
-                            <h4 class="control-sidebar-subheading">
-                                Custom Template Design
-                                <span class="pull-right-container">
-                    <span class="label label-danger pull-right">70%</span>
-                  </span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-            </div>
-            <!-- /.tab-pane -->
-            <!-- Stats tab content -->
-            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-            <!-- /.tab-pane -->
-            <!-- Settings tab content -->
-            <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
-                    <h3 class="control-sidebar-heading">General Settings</h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Report panel usage
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Some information about this general settings option
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-                </form>
-            </div>
-            <!-- /.tab-pane -->
-        </div>
-    </aside>
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
 
-<!-- REQUIRED JS SCRIPTS -->
-
-<!-- jQuery 3 -->
 <script src="/js/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
 <script src="/js/bootstrap.min.js"></script>
-<!-- AdminLTE App -->
 <script src="/js/adminlte.min.js"></script>
 <script>
-
-    function addfield1() {
-        var p1 = $("<p></p>");
+    function mode1Line1() {
+        for (var i = 0; i < 3; i++) {
+            var input1 = $('<input class="cell" />');
+            input1.addClass("cell cell-normal");
+            input1.width(90);
+            $("#form").append(input1);
+            var input2 = $('<input class="cell" />');
+            input2.addClass("cell cell-normal");
+            input2.width(190);
+            $("#form").append(input2);
+        }
+    }
+    function mode1Line2() {
         var input1 = $('<input class="cell" />');
-        input1.addClass("cell");
-        input1.width(100.8);
-        input1.append(p1);
-        input1.css("padding-top", "16px");
-        input1.css("padding-bottom", "16px");
+        input1.addClass("cell cell-normal");
+        input1.width(90);
         $("#form").append(input1);
         var input2 = $('<input class="cell" />');
-        var p = $("<p></p>");
-        input2.addClass("cell");
-        input2.width(179.2);
-        input2.append(p);
-        input2.css("padding-top", "16px");
-        input2.css("padding-bottom", "16px");
+        input2.addClass("cell cell-normal");
+        input2.width(190);
         $("#form").append(input2);
+        var input3 = $('<input class="cell" />');
+        input3.addClass("cell cell-normal");
+        input3.width(90);
+        $("#form").append(input3);
+        var input4 = $('<input class="cell" />');
+        input4.addClass("cell cell-normal");
+        input4.width(470);
+        $("#form").append(input4);
     }
-    function addfield2() {
-        var p1 = $("<p></p>");
-        var input1 = $('<input class="cell" />');
-        input1.addClass("cell");
-        input1.width(100.8);
-        input1.append(p1);
-        input1.css("box-sizing", "border-box");
-        input1.css("border", "1px solid");
-        $("#form").append(input1);
-        var input2 = $('<input class="cell" />');
-        var p = $("<p></p>");
-        input2.addClass("cell");
-        input2.width(319.2);
-        input2.append(p);
-        input2.css("box-sizing", "border-box");
-        input2.css("border", "1px solid");
-        $("#form").append(input2);
-    }
-    function addfield3() {
-        var p1 = $("<p></p>");
+    function mode1Line3() {
         var input1 = $("<input />");
-        input1.addClass("cell");
-        input1.width(100.8);
-        input1.append(p1);
-        input1.css("box-sizing", "border-box");
-        input1.css("border", "1px solid");
-
+        input1.addClass("cell cell-normal");
+        input1.width(90);
         $("#form").append(input1);
         var input2 = $("<input />");
-        var p = $("<p></p>").html("&nbsp;&nbsp;&nbsp;");
-        input2.addClass("cell");
-        input2.width(739.2);
-        input2.append(p);
-        input2.css("box-sizing", "border-box");
-        input2.css("border", "1px solid");
-
+        input2.addClass("cell cell-normal");
+        input2.width(750);
         $("#form").append(input2);
     }
-
-    function addbase() {
-
+    function mode2Line1() {
+        for (var i = 0; i < 4; i++) {
+            var input1 = $("<input />");
+            input1.addClass("cell cell-normal");
+            input1.width(90);
+            $("#form").append(input1);
+            var input2 = $("<input />");
+            input2.addClass("cell cell-normal");
+            input2.width(120);
+            $("#form").append(input2);
+        }
+    }
+    function mode2Line2() {
+        for (var i = 0; i < 2; i++) {
+            var input1 = $("<input />");
+            input1.addClass("cell cell-normal");
+            input1.width(90);
+            $("#form").append(input1);
+            var input2 = $("<input />");
+            input2.addClass("cell cell-normal");
+            input2.width(120);
+            $("#form").append(input2);
+        }
+        var input1 = $("<input />");
+        input1.addClass("cell cell-normal");
+        input1.width(90);
+        $("#form").append(input1);
+        var input2 = $("<input />");
+        input2.addClass("cell cell-normal");
+        input2.width(330);
+        $("#form").append(input2);
+    }
+    function mode2Line3() {
+        var input1 = $("<input />");
+        input1.addClass("cell cell-normal");
+        input1.width(90);
+        $("#form").append(input1);
+        var input2 = $("<input />");
+        input2.addClass("cell cell-normal");
+        input2.width(120);
+        $("#form").append(input2);
+        var input3 = $("<input />");
+        input3.addClass("cell cell-normal");
+        input3.width(90);
+        $("#form").append(input3);
+        var input4 = $("<input />");
+        input4.addClass("cell cell-normal");
+        input4.width(540);
+        $("#form").append(input4);
+    }
+    function bigLine() {
+        var input1 = $("<input />");
+        input1.addClass("cell cell-big");
+        input1.width(90);
+        $("#form").append(input1);
+        var input2 = $("<input />");
+        input2.addClass("cell cell-big");
+        input2.width(750);
+        $("#form").append(input2);
+    }
+    function biggerLine() {
+        var input1 = $("<input />");
+        input1.addClass("cell cell-bigger");
+        input1.width(90);
+        $("#form").append(input1);
+        var input2 = $("<input />");
+        input2.addClass("cell cell-bigger");
+        input2.width(750);
+        $("#form").append(input2);
+    }
+    function biggestLine() {
+        var input1 = $("<input />");
+        input1.addClass("cell cell-biggest");
+        input1.width(90);
+        $("#form").append(input1);
+        var input2 = $("<input />");
+        input2.addClass("cell cell-biggest");
+        input2.width(750);
+        $("#form").append(input2);
     }
 </script>
 </body>

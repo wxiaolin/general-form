@@ -1,0 +1,58 @@
+.float-left {
+    float: left;
+}
+
+.input-group-btn {
+    width: auto;
+    margin-right: 4px;
+}
+
+.form {
+    width: 860px;
+    height: 1200px;
+}
+
+.form-title {
+    text-align: center;
+}
+
+.cell {
+    box-sizing: border-box;
+    border: 1px solid;
+    font-size: 16px;
+    text-align: center;
+}
+
+.cell-normal {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.cell-middle {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    height: 110px;
+}
+
+.cell-big {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    height: 220px;
+}
+
+.cell-bigger {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    height: 330px;
+}
+
+.cell-biggest {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    height: 440px;
+}
+
+.cell-not-border{
+    border: none;
+}
+
