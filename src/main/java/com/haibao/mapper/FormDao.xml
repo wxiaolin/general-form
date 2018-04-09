@@ -51,6 +51,20 @@
     <include refid="Blob_Column_List" />
     from t_form
   </select>
+  <select id="selectCount" resultType="java.lang.Integer">
+    select
+    count(fid)
+    from t_form
+  </select>
+  <select id="selectLimit" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_form
+    order by create_time desc
+    limit #{offset},#{rowCount}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_form
     where fid = #{fid,jdbcType=INTEGER}

@@ -1,6 +1,7 @@
 package com.haibao.service;
 
 import com.haibao.pojo.entity.Form;
+import com.haibao.pojo.vo.Page;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public interface FormService {
 
     Integer saveForm(Form form);
 
-    List<Form> listForm();
+    Page<Form> pageList(Integer pageNum);
 
     Form getForm(Integer fid);
 

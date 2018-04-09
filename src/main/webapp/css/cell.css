@@ -1,6 +1,10 @@
 .float-left {
     float: left;
 }
+/* bootstrap自带 */
+/*.text-left{*/
+    /*text-align: left;*/
+/*}*/
 
 .input-group-btn {
     width: auto;
@@ -13,46 +17,55 @@
 }
 
 .form-title {
+    width: 100%;
+    font-size: 24px;
     text-align: center;
+    border-style: dotted;
 }
 
 .cell {
+    padding-top: 16px;
+    padding-bottom: 16px;
     box-sizing: border-box;
-    border: 1px solid;
+    border-style: solid;
+    border-width: 1px;
     font-size: 16px;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .cell-normal {
-    padding-top: 16px;
-    padding-bottom: 16px;
+
 }
 
 .cell-middle {
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
     height: 110px;
 }
 
 .cell-big {
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
     height: 220px;
 }
 
 .cell-bigger {
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
     height: 330px;
 }
 
 .cell-biggest {
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
     height: 440px;
 }
 
-.cell-not-border{
-    border: none;
+.cell-not-border {
+    border-style: none;
 }
 
+.cell-dotted {
+    padding-bottom: 0;
+    border-style: dotted;
+}

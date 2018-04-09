@@ -14,13 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 public class PagesController {
 
     @RequestMapping(value = {"demo", "demo.html"})
-    public ModelAndView index(HttpServletRequest req) {
+    public ModelAndView demo(HttpServletRequest req) {
         return new ModelAndView("demo");
     }
 
     @RequestMapping(value = {"makerDemo", "makerDemo.html"})
     public String making() {
-        return "making";
+        return "makerDemo";
     }
 
     @RequestMapping(value = {"starter", "starter.html"})

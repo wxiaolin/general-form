@@ -1,6 +1,7 @@
 package com.haibao.dao;
 
 import com.haibao.pojo.entity.Form;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,6 +15,10 @@ public interface FormDao {
     Form selectByPrimaryKey(Integer fid);
 
     List<Form> selectAll();
+
+    int selectCount();
+
+    List<Form> selectLimit(@Param("offset") Integer offset, @Param("rowCount")Integer rowCount);
 
     int updateByPrimaryKeySelective(Form record);
 
