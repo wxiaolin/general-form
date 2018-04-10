@@ -69,13 +69,15 @@
                             th:switch="${i}"
                         >
                             <!--/* i==1时输出《 */-->
-                            <a th:case="1" th:text="'&laquo;'"
+                            <a class="radius-none"
+                               th:case="1" th:text="'&laquo;'"
                                th:href="@{${pageObj.currentPage==1?'#':('?page='+((pageObj.currentPage)-1))}}"></a>
                             <!--/* i==max时输出 */-->
-                            <a th:case="${pageObj.pageMax+2}" th:text="'&raquo;'"
+                            <a class="radius-none"
+                               th:case="${pageObj.pageMax+2}" th:text="'&raquo;'"
                                th:href="@{${pageObj.currentPage==pageObj.pageMax?'#':('?page='+((pageObj.currentPage)+1))}}"></a>
                             <!--/*  */-->
-                            <a th:case="*" th:href="@{'?page='+${(i)-1}}" th:text="${(i)-1}"></a>
+                            <a th:case="*" th:text="${(i)-1}" th:href="@{'?page='+${(i)-1}}"></a>
                         </li>
                         <!--<li><a href="#">&raquo;</a></li>-->
                     </ul>

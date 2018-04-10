@@ -4,34 +4,27 @@
     <meta charset="utf-8"/>
     <title></title>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/loginStyle.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
 
 </head>
 <body>
 <form action="login" method="post">
-    <div class="mycenter">
-        <div class="mysign">
-            <div class="block1">
-                <div class="picture">
-                    <img src="/img/timg1.jpg">
-                </div>
-                <div class="col-lg-10">
-                    <input type="text" class="form-control" name="username" placeholder="请输入账户名" required="required"
-                           autofocus/>
-                </div>
-                <div class="col-lg-10"></div>
-                <div class="col-lg-10">
-                    <input type="password" class="form-control" name="password" placeholder="请输入密码" required="required"
-                           autofocus/>
-                </div>
-                <div class="col-lg-10"></div>
-                <div class="col-lg-10 mycheckbox checkbox">
-                    <input type="checkbox" class="col-lg-1">记住密码</input>
-                </div>
-                <div class="col-lg-10"></div>
-                <div class="col-lg-10">
-                    <button type="button" class="btn btn-success col-lg-12">登录</button>
-                </div>
+    <div class="container">
+        <div class="login-frame center-absolute ">
+            <div class="login-logo">
+                <img src="/img/timg1.jpg">
+            </div>
+            <div class="col-lg-12 form-space">
+                <input type="text" class="form-control radius-none" name="username" placeholder="请输入账户名" required="required"
+                       autofocus/>
+            </div>
+            <div class="col-lg-12 form-space">
+                <input type="password" class="form-control radius-none" name="password" placeholder="请输入密码" required="required"
+                       autofocus/>
+            </div>
+            <div class="col-lg-8 form-space"></div>
+            <div class="col-lg-4 form-space">
+                <button type="button" class="btn btn-success col-lg-12 radius-none">登录</button>
             </div>
         </div>
     </div>

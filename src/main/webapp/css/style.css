@@ -1,5 +1,12 @@
 @import "sidebar.css";
 @import "cell.css";
+@import "loginStyle.css";
 .pagination>li:first-child>a, .pagination>li:first-child>span, .pagination>li:last-child>a , .pagination>li:last-child>span{
+    border-radius: 0;
+}
+.float-left {
+    float: left;
+}
+.radius-none{
     border-radius: 0;
 }
