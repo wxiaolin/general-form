@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="/css/ionicons.min.css">
     <link rel="stylesheet" href="/css/AdminLTE.min.css">
     <link rel="stylesheet" href="/css/skins/skin-blue.min.css">
+    <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/style.css">
     <style>
 
     </style>
@@ -52,24 +53,32 @@
                         <!--/*@thymesVar id="formList" type="java.util.List"*/-->
                         <tr th:each="form : ${formList}">
                             <!--/*@thymesVar id="fname" type="java.lang.String"*/-->
-                            <td><a th:href="@{'form/'+${form.fid}}" th:text="${form.fname}"></a> </td>
+                            <td><a th:href="@{'form/'+${form.fid}}" th:text="${form.fname}"></a></td>
                             <!--/*@thymesVar id="createTime" type="java.util.Date"*/-->
                             <td th:text="${#dates.format(form.createTime,'yyyy/MM/dd')}">&nbsp;</td>
                         </tr>
-                        <ul class="pagination" >
-                            <li><a href="#">&laquo;</a></li>
-                            <!--th:if="${i==pageObj.currentPage}" th:class="active"-->
-                            <li th:each="i : ${#numbers.sequence(1,pageObj.pageMax)}" >
-                                <a th:href="@{'?page='+${i}}" th:text="${i}"></a>
-                            </li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
                         </tbody>
+
                     </table>
                 </div>
-
                 <div id="form" class="box-footer">
-
+                    <ul class="pagination">
+                        <!--<li><a href="#">&laquo;</a></li>-->
+                        <li th:each="i : ${#numbers.sequence(1,pageObj.pageMax+2)}"
+                            th:class="${(i)-1==pageObj.currentPage?'active':null}"
+                            th:switch="${i}"
+                        >
+                            <!--/* i==1时输出《 */-->
+                            <a th:case="1" th:text="'&laquo;'"
+                               th:href="@{${pageObj.currentPage==1?'#':('?page='+((pageObj.currentPage)-1))}}"></a>
+                            <!--/* i==max时输出 */-->
+                            <a th:case="${pageObj.pageMax+2}" th:text="'&raquo;'"
+                               th:href="@{${pageObj.currentPage==pageObj.pageMax?'#':('?page='+((pageObj.currentPage)+1))}}"></a>
+                            <!--/*  */-->
+                            <a th:case="*" th:href="@{'?page='+${(i)-1}}" th:text="${(i)-1}"></a>
+                        </li>
+                        <!--<li><a href="#">&raquo;</a></li>-->
+                    </ul>
                 </div>
             </div>
         </section>
