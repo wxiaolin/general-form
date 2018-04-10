@@ -4,7 +4,8 @@ package com.haibao.pojo.enums;
  * Created by haibao on 2018/3/25.
  */
 public enum SessionContext {
-    USER_CONTEXT("USER_CONTEXT");
+
+    LOGIN_USER("loginUser");
 
     private String name;
 

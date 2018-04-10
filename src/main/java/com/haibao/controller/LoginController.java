@@ -33,7 +33,7 @@ public class LoginController {
     public Result doLogin(String userName, String password, HttpServletRequest request) {
         Account user = loginService.doLogin(userName, password);
         if (user != null) {
-            request.getSession().setAttribute(SessionContext.USER_CONTEXT.getName(), user);
+            request.getSession().setAttribute(SessionContext.LOGIN_USER.getName(), user);
             return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), null);
         } else {
             return new Result(false, ResultCode.FAILS.getCode(), ResultCode.FAILS.getDesc(), null);
