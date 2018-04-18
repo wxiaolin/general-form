@@ -19,7 +19,7 @@
     </properties>
     <dependencies>
         <!--spring start-->
-        <!--webmvc模块包含core,beans,context,aop,web,expression模块-->
+        <!--webmvc模块包含core, beans, context, aop, web, expression模块-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -79,8 +79,6 @@
             <!--<artifactId>jstl</artifactId>-->
             <!--<version>${jstl.version}</version>-->
         <!--</dependency>-->
-
-
 
         <!--database start-->
         <!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 -->
