@@ -23,9 +23,9 @@ public class PagesController {
         return "makerDemo";
     }
 
-    @RequestMapping(value = {"starter", "starter.html"})
-    public String starter() {
-        return "starter";
-    }
+//    @RequestMapping(value = {"starter", "starter.html"})
+//    public String starter() {
+//        return "starter";
+//    }
 
 }
