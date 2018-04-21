@@ -3,17 +3,17 @@ package com.haibao.pojo.entity;
 import java.util.Date;
 
 public class Glory {
-    private Integer gid;
+    private Integer id;
 
     private String awardee;
 
-    private String gname;
+    private String name;
 
-    private String gdept;
+    private String deptId;
 
-    private Byte glevel;
+    private Byte level;
 
-    private Byte gtype;
+    private Byte type;
 
     private Integer creator;
 
@@ -23,13 +23,13 @@ public class Glory {
 
     private Date updateTime;
 
-    public Glory(Integer gid, String awardee, String gname, String gdept, Byte glevel, Byte gtype, Integer creator, Date createTime, Integer updater, Date updateTime) {
-        this.gid = gid;
+    public Glory(Integer id, String awardee, String name, String deptId, Byte level, Byte type, Integer creator, Date createTime, Integer updater, Date updateTime) {
+        this.id = id;
         this.awardee = awardee;
-        this.gname = gname;
-        this.gdept = gdept;
-        this.glevel = glevel;
-        this.gtype = gtype;
+        this.name = name;
+        this.deptId = deptId;
+        this.level = level;
+        this.type = type;
         this.creator = creator;
         this.createTime = createTime;
         this.updater = updater;
@@ -40,12 +40,12 @@ public class Glory {
         super();
     }
 
-    public Integer getGid() {
-        return gid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setGid(Integer gid) {
-        this.gid = gid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getAwardee() {
@@ -56,36 +56,36 @@ public class Glory {
         this.awardee = awardee == null ? null : awardee.trim();
     }
 
-    public String getGname() {
-        return gname;
+    public String getName() {
+        return name;
     }
 
-    public void setGname(String gname) {
-        this.gname = gname == null ? null : gname.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
-    public String getGdept() {
-        return gdept;
+    public String getDeptId() {
+        return deptId;
     }
 
-    public void setGdept(String gdept) {
-        this.gdept = gdept == null ? null : gdept.trim();
+    public void setDeptId(String deptId) {
+        this.deptId = deptId == null ? null : deptId.trim();
     }
 
-    public Byte getGlevel() {
-        return glevel;
+    public Byte getLevel() {
+        return level;
     }
 
-    public void setGlevel(Byte glevel) {
-        this.glevel = glevel;
+    public void setLevel(Byte level) {
+        this.level = level;
     }
 
-    public Byte getGtype() {
-        return gtype;
+    public Byte getType() {
+        return type;
     }
 
-    public void setGtype(Byte gtype) {
-        this.gtype = gtype;
+    public void setType(Byte type) {
+        this.type = type;
     }
 
     public Integer getCreator() {

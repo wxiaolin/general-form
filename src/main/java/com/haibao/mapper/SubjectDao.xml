@@ -3,8 +3,8 @@
 <mapper namespace="com.haibao.dao.SubjectDao">
   <resultMap id="BaseResultMap" type="com.haibao.pojo.entity.Subject">
     <constructor>
-      <idArg column="sid" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="ssubject" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="subject" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="stype1" javaType="java.lang.Byte" jdbcType="TINYINT" />
       <arg column="stype2" javaType="java.lang.Byte" jdbcType="TINYINT" />
       <arg column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -15,24 +15,24 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    sid, ssubject, stype1, stype2, dept_id, creator, create_time, updater, update_time
+    id, subject, stype1, stype2, dept_id, creator, create_time, updater, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_subject
-    where sid = #{sid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_subject
-    where sid = #{sid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.haibao.pojo.entity.Subject">
-    insert into t_subject (sid, ssubject, stype1, 
+    insert into t_subject (id, subject, stype1, 
       stype2, dept_id, creator, 
       create_time, updater, update_time
       )
-    values (#{sid,jdbcType=INTEGER}, #{ssubject,jdbcType=VARCHAR}, #{stype1,jdbcType=TINYINT}, 
+    values (#{id,jdbcType=INTEGER}, #{subject,jdbcType=VARCHAR}, #{stype1,jdbcType=TINYINT}, 
       #{stype2,jdbcType=TINYINT}, #{deptId,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}
       )
@@ -40,11 +40,11 @@
   <insert id="insertSelective" parameterType="com.haibao.pojo.entity.Subject">
     insert into t_subject
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        sid,
+      <if test="id != null">
+        id,
       </if>
-      <if test="ssubject != null">
-        ssubject,
+      <if test="subject != null">
+        subject,
       </if>
       <if test="stype1 != null">
         stype1,
@@ -69,11 +69,11 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=INTEGER},
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="ssubject != null">
-        #{ssubject,jdbcType=VARCHAR},
+      <if test="subject != null">
+        #{subject,jdbcType=VARCHAR},
       </if>
       <if test="stype1 != null">
         #{stype1,jdbcType=TINYINT},
@@ -101,8 +101,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.haibao.pojo.entity.Subject">
     update t_subject
     <set>
-      <if test="ssubject != null">
-        ssubject = #{ssubject,jdbcType=VARCHAR},
+      <if test="subject != null">
+        subject = #{subject,jdbcType=VARCHAR},
       </if>
       <if test="stype1 != null">
         stype1 = #{stype1,jdbcType=TINYINT},
@@ -126,11 +126,11 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where sid = #{sid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.haibao.pojo.entity.Subject">
     update t_subject
-    set ssubject = #{ssubject,jdbcType=VARCHAR},
+    set subject = #{subject,jdbcType=VARCHAR},
       stype1 = #{stype1,jdbcType=TINYINT},
       stype2 = #{stype2,jdbcType=TINYINT},
       dept_id = #{deptId,jdbcType=INTEGER},
@@ -138,6 +138,6 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       updater = #{updater,jdbcType=INTEGER},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where sid = #{sid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

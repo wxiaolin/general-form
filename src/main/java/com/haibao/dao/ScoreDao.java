@@ -3,13 +3,13 @@ package com.haibao.dao;
 import com.haibao.pojo.entity.Score;
 
 public interface ScoreDao {
-    int deleteByPrimaryKey(Integer sid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Score record);
 
     int insertSelective(Score record);
 
-    Score selectByPrimaryKey(Integer sid);
+    Score selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Score record);
 

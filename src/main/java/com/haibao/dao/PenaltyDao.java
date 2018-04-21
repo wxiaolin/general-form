@@ -3,13 +3,13 @@ package com.haibao.dao;
 import com.haibao.pojo.entity.Penalty;
 
 public interface PenaltyDao {
-    int deleteByPrimaryKey(Integer pid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Penalty record);
 
     int insertSelective(Penalty record);
 
-    Penalty selectByPrimaryKey(Integer pid);
+    Penalty selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Penalty record);
 

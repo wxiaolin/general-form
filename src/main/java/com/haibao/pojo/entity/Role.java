@@ -3,7 +3,7 @@ package com.haibao.pojo.entity;
 import java.util.Date;
 
 public class Role {
-    private Integer rid;
+    private Integer id;
 
     private String role;
 
@@ -15,8 +15,8 @@ public class Role {
 
     private Date updateTime;
 
-    public Role(Integer rid, String role, Integer creator, Date createTime, Integer updater, Date updateTime) {
-        this.rid = rid;
+    public Role(Integer id, String role, Integer creator, Date createTime, Integer updater, Date updateTime) {
+        this.id = id;
         this.role = role;
         this.creator = creator;
         this.createTime = createTime;
@@ -28,12 +28,12 @@ public class Role {
         super();
     }
 
-    public Integer getRid() {
-        return rid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setRid(Integer rid) {
-        this.rid = rid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getRole() {

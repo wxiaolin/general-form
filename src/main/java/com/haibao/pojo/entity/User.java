@@ -2,7 +2,7 @@ package com.haibao.pojo.entity;
 
 import java.util.Date;
 
-public class Account {
+public class User {
     private Integer aid;
 
     private String account;
@@ -21,7 +21,7 @@ public class Account {
 
     private Date updateTime;
 
-    public Account(Integer aid, String account, String password, Integer roleId, Byte astatus, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public User(Integer aid, String account, String password, Integer roleId, Byte astatus, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.aid = aid;
         this.account = account;
         this.password = password;
@@ -33,7 +33,7 @@ public class Account {
         this.updateTime = updateTime;
     }
 
-    public Account() {
+    public User() {
         super();
     }
 

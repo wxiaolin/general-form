@@ -44,7 +44,7 @@ public class FormServiceImpl implements FormService {
     }
 
 
-    public Form getForm(Integer fid) {
-        return formDao.selectByPrimaryKey(fid);
+    public Form getForm(Integer id) {
+        return formDao.selectByPrimaryKey(id);
     }
 }

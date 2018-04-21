@@ -42,17 +42,17 @@ public class DistrictInit {
                 switch (cell0.getCellType()) {
                     case Cell.CELL_TYPE_NUMERIC:{
                         double code = cell0.getNumericCellValue();
-                        district.setDid(Integer.valueOf((int) code));
+                        district.setId(Integer.valueOf((int) code));
                     }break;
                     case Cell.CELL_TYPE_STRING:{
                         String code = cell0.getStringCellValue().substring(0, 6);
-                        district.setDid(Integer.valueOf(Integer.valueOf(code)));
+                        district.setId(Integer.valueOf(Integer.valueOf(code)));
                     }
                 }
-                district.setDname(cell3.getStringCellValue().trim());
+                district.setName(cell3.getStringCellValue().trim());
                 district.setBelong(belongCity);
                 // 2 县级行政区
-                district.setDrank((byte) 2);
+                district.setRank((byte) 2);
                 district.setCreator(1);
                 districtList.add(district);
             }
@@ -62,20 +62,20 @@ public class DistrictInit {
                 switch (cell0.getCellType()) {
                     case Cell.CELL_TYPE_NUMERIC:{
                         double code = cell0.getNumericCellValue();
-                        district.setDid(Integer.valueOf((int) code));
+                        district.setId(Integer.valueOf((int) code));
                     }break;
                     case Cell.CELL_TYPE_STRING:{
                         String code = cell0.getStringCellValue().substring(0, 6);
-                        district.setDid(Integer.valueOf(Integer.valueOf(code)));
+                        district.setId(Integer.valueOf(Integer.valueOf(code)));
                     }
                 }
-                district.setDname(cell2.getStringCellValue().trim());
+                district.setName(cell2.getStringCellValue().trim());
                 district.setBelong(belongProv);
-                district.setDrank((byte) 1);
+                district.setRank((byte) 1);
                 // 1 市级行政区
                 district.setCreator(1);
                 districtList.add(district);
-                belongCity = district.getDid();
+                belongCity = district.getId();
             }
             if (row.getLastCellNum() == 2) {
                 cell0 = row.getCell(0);
@@ -83,20 +83,20 @@ public class DistrictInit {
                 switch (cell0.getCellType()) {
                     case Cell.CELL_TYPE_NUMERIC:{
                         double code = cell0.getNumericCellValue();
-                        district.setDid(Integer.valueOf((int) code));
+                        district.setId(Integer.valueOf((int) code));
                     }break;
                     case Cell.CELL_TYPE_STRING:{
                         String code = cell0.getStringCellValue().substring(0, 6);
-                        district.setDid(Integer.valueOf(Integer.valueOf(code)));
+                        district.setId(Integer.valueOf(Integer.valueOf(code)));
                     }
                 }
-                district.setDname(cell1.getStringCellValue().trim());
+                district.setName(cell1.getStringCellValue().trim());
                 district.setBelong(belongCountry);
                 // 0，省级行政区
-                district.setDrank((byte) 0);
+                district.setRank((byte) 0);
                 district.setCreator(1);
                 districtList.add(district);
-                belongProv = district.getDid();
+                belongProv = district.getId();
             }
 
         }
@@ -112,9 +112,9 @@ public class DistrictInit {
                     " values (?,?,?,?,?) ";
         statement = connection.prepareStatement(sql);
         for (District d : districtList) {
-            statement.setInt(1,d.getDid());
-            statement.setString(2,d.getDname());
-            statement.setByte(3,d.getDrank());
+            statement.setInt(1,d.getId());
+            statement.setString(2,d.getName());
+            statement.setByte(3,d.getRank());
             statement.setInt(4,d.getBelong());
             statement.setInt(5,1);
             statement.addBatch();

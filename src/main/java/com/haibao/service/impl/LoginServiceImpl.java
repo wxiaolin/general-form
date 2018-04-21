@@ -1,7 +1,7 @@
 package com.haibao.service.impl;
 
-import com.haibao.dao.AccountDao;
-import com.haibao.pojo.entity.Account;
+import com.haibao.dao.UserDao;
+import com.haibao.pojo.entity.User;
 import com.haibao.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,13 +12,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginServiceImpl implements LoginService {
     @Autowired
-    private AccountDao accountDao;
+    private UserDao userDao;
 
     @Override
-    public Account doLogin(String userName, String password) {
-        Account account = new Account();
-        account.setAccount(userName);
-        account.setPassword(password);
-        return accountDao.selectByCriteria(account);
+    public User doLogin(String userName, String password) {
+        User user = new User();
+        user.setAccount(userName);
+        user.setPassword(password);
+        return userDao.selectByCriteria(user);
     }
 }

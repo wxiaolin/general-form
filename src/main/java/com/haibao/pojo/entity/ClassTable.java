@@ -3,7 +3,7 @@ package com.haibao.pojo.entity;
 import java.util.Date;
 
 public class ClassTable {
-    private Integer cid;
+    private Integer id;
 
     private Integer deptId;
 
@@ -21,8 +21,8 @@ public class ClassTable {
 
     private Date updateTime;
 
-    public ClassTable(Integer cid, Integer deptId, Date grade, Integer majorId, Byte classNo, Integer creator, Date createTime, Integer updater, Date updateTime) {
-        this.cid = cid;
+    public ClassTable(Integer id, Integer deptId, Date grade, Integer majorId, Byte classNo, Integer creator, Date createTime, Integer updater, Date updateTime) {
+        this.id = id;
         this.deptId = deptId;
         this.grade = grade;
         this.majorId = majorId;
@@ -37,12 +37,12 @@ public class ClassTable {
         super();
     }
 
-    public Integer getCid() {
-        return cid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCid(Integer cid) {
-        this.cid = cid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getDeptId() {
@@ -107,27 +107,5 @@ public class ClassTable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ClassTable)) return false;
-
-        ClassTable that = (ClassTable) o;
-
-        if (deptId != null ? !deptId.equals(that.deptId) : that.deptId != null) return false;
-        if (grade != null ? !grade.equals(that.grade) : that.grade != null) return false;
-        if (majorId != null ? !majorId.equals(that.majorId) : that.majorId != null) return false;
-        return classNo != null ? classNo.equals(that.classNo) : that.classNo == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = deptId != null ? deptId.hashCode() : 0;
-        result = 31 * result + (grade != null ? grade.hashCode() : 0);
-        result = 31 * result + (majorId != null ? majorId.hashCode() : 0);
-        result = 31 * result + (classNo != null ? classNo.hashCode() : 0);
-        return result;
     }
 }

@@ -35,27 +35,27 @@ public class ApplicationCache {
         Cache classesCache = cacheManager.getCache("classes");
         List<ClassTable> classList = classTableDao.selectAll();
         for (ClassTable c : classList) {
-            classesCache.put(c.getCid(), c);
+            classesCache.put(c.getId(), c);
         }
         Cache deptCache = cacheManager.getCache("depts");
         List<Dept> deptList = deptDao.selectAll();
         for (Dept d : deptList) {
-            deptCache.put(d.getDid(), d);
+            deptCache.put(d.getId(), d);
         }
         Cache distractCachhe = cacheManager.getCache("districts");
         List<District> districtList = districtDao.selectAll();
         for (District d : districtList) {
-            distractCachhe.put(d.getDid(), d);
+            distractCachhe.put(d.getId(), d);
         }
         Cache majorCache = cacheManager.getCache("majors");
         List<Major> majorList = majorDao.selectAll();
         for (Major m : majorList) {
-            majorCache.put(m.getMid(), m);
+            majorCache.put(m.getId(), m);
         }
         Cache nationCache = cacheManager.getCache("nations");
         List<Nation> nationList = nationDao.selectAll();
         for (Nation n : nationList) {
-            nationCache.put(n.getNid(), n);
+            nationCache.put(n.getId(), n);
         }
     }
 }

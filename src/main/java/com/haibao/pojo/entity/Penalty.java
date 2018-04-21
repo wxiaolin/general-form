@@ -3,13 +3,13 @@ package com.haibao.pojo.entity;
 import java.util.Date;
 
 public class Penalty {
-    private Integer pid;
+    private Integer id;
 
     private Byte identity;
 
     private Integer fkId;
 
-    private Byte plevel;
+    private Byte level;
 
     private String pdesc;
 
@@ -21,11 +21,11 @@ public class Penalty {
 
     private Date updateTime;
 
-    public Penalty(Integer pid, Byte identity, Integer fkId, Byte plevel, String pdesc, Integer creator, Date createTime, Integer updater, Date updateTime) {
-        this.pid = pid;
+    public Penalty(Integer id, Byte identity, Integer fkId, Byte level, String pdesc, Integer creator, Date createTime, Integer updater, Date updateTime) {
+        this.id = id;
         this.identity = identity;
         this.fkId = fkId;
-        this.plevel = plevel;
+        this.level = level;
         this.pdesc = pdesc;
         this.creator = creator;
         this.createTime = createTime;
@@ -37,12 +37,12 @@ public class Penalty {
         super();
     }
 
-    public Integer getPid() {
-        return pid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Byte getIdentity() {
@@ -61,12 +61,12 @@ public class Penalty {
         this.fkId = fkId;
     }
 
-    public Byte getPlevel() {
-        return plevel;
+    public Byte getLevel() {
+        return level;
     }
 
-    public void setPlevel(Byte plevel) {
-        this.plevel = plevel;
+    public void setLevel(Byte level) {
+        this.level = level;
     }
 
     public String getPdesc() {

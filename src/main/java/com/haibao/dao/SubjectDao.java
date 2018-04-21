@@ -3,13 +3,13 @@ package com.haibao.dao;
 import com.haibao.pojo.entity.Subject;
 
 public interface SubjectDao {
-    int deleteByPrimaryKey(Integer sid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Subject record);
 
     int insertSelective(Subject record);
 
-    Subject selectByPrimaryKey(Integer sid);
+    Subject selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Subject record);
 

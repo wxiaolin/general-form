@@ -3,7 +3,7 @@ package com.haibao.pojo.entity;
 import java.util.Date;
 
 public class Major {
-    private Integer mid;
+    private Integer id;
 
     private String major;
 
@@ -17,9 +17,9 @@ public class Major {
 
     private Date updateTime;
 
-    public Major(Integer mid, String major, Integer deptId, Integer creator, Date createTime, Integer updater, Date updateTime) {
-        this.mid = mid;
-        this.major = major;
+    public Major(Integer id, String ajor, Integer deptId, Integer creator, Date createTime, Integer updater, Date updateTime) {
+        this.id = id;
+        this.major = ajor;
         this.deptId = deptId;
         this.creator = creator;
         this.createTime = createTime;
@@ -31,12 +31,12 @@ public class Major {
         super();
     }
 
-    public Integer getMid() {
-        return mid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setMid(Integer mid) {
-        this.mid = mid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getMajor() {
@@ -44,7 +44,7 @@ public class Major {
     }
 
     public void setMajor(String major) {
-        this.major = major == null ? null : major.trim();
+        this.major = major;
     }
 
     public Integer getDeptId() {
@@ -85,23 +85,5 @@ public class Major {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Major)) return false;
-
-        Major major1 = (Major) o;
-
-        if (major != null ? !major.equals(major1.major) : major1.major != null) return false;
-        return deptId != null ? deptId.equals(major1.deptId) : major1.deptId == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = major != null ? major.hashCode() : 0;
-        result = 31 * result + (deptId != null ? deptId.hashCode() : 0);
-        return result;
     }
 }

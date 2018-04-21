@@ -3,7 +3,7 @@
 <mapper namespace="com.haibao.dao.ClassTableDao">
   <resultMap id="BaseResultMap" type="com.haibao.pojo.entity.ClassTable">
     <constructor>
-      <idArg column="cid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="grade" javaType="java.util.Date" jdbcType="DATE" />
       <arg column="major_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -15,13 +15,13 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    cid, dept_id, grade, major_id, class_no, creator, create_time, updater, update_time
+    id, dept_id, grade, major_id, class_no, creator, create_time, updater, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_class
-    where cid = #{cid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultType="com.haibao.pojo.entity.ClassTable">
     select
@@ -30,14 +30,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_class
-    where cid = #{cid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.haibao.pojo.entity.ClassTable">
-    insert into t_class (cid, dept_id, grade, 
+    insert into t_class (id, dept_id, grade, 
       major_id, class_no, creator, 
       create_time, updater, update_time
       )
-    values (#{cid,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{grade,jdbcType=DATE}, 
+    values (#{id,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{grade,jdbcType=DATE}, 
       #{majorId,jdbcType=INTEGER}, #{classNo,jdbcType=TINYINT}, #{creator,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}
       )
@@ -45,8 +45,8 @@
   <insert id="insertSelective" parameterType="com.haibao.pojo.entity.ClassTable">
     insert into t_class
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="cid != null">
-        cid,
+      <if test="id != null">
+        id,
       </if>
       <if test="deptId != null">
         dept_id,
@@ -74,8 +74,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="cid != null">
-        #{cid,jdbcType=INTEGER},
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="deptId != null">
         #{deptId,jdbcType=INTEGER},
@@ -131,7 +131,7 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where cid = #{cid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.haibao.pojo.entity.ClassTable">
     update t_class
@@ -143,6 +143,6 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       updater = #{updater,jdbcType=INTEGER},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where cid = #{cid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

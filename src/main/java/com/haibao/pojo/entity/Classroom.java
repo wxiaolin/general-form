@@ -3,9 +3,9 @@ package com.haibao.pojo.entity;
 import java.util.Date;
 
 public class Classroom {
-    private Integer cid;
+    private Integer id;
 
-    private String cname;
+    private String name;
 
     private Integer buildingId;
 
@@ -17,9 +17,9 @@ public class Classroom {
 
     private Date updateTime;
 
-    public Classroom(Integer cid, String cname, Integer buildingId, Integer creator, Date createTime, Integer updater, Date updateTime) {
-        this.cid = cid;
-        this.cname = cname;
+    public Classroom(Integer id, String name, Integer buildingId, Integer creator, Date createTime, Integer updater, Date updateTime) {
+        this.id = id;
+        this.name = name;
         this.buildingId = buildingId;
         this.creator = creator;
         this.createTime = createTime;
@@ -31,20 +31,20 @@ public class Classroom {
         super();
     }
 
-    public Integer getCid() {
-        return cid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCid(Integer cid) {
-        this.cid = cid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getCname() {
-        return cname;
+    public String getName() {
+        return name;
     }
 
-    public void setCname(String cname) {
-        this.cname = cname == null ? null : cname.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public Integer getBuildingId() {

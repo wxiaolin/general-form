@@ -3,13 +3,13 @@ package com.haibao.dao;
 import com.haibao.pojo.entity.Room;
 
 public interface RoomDao {
-    int deleteByPrimaryKey(Integer rid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Room record);
 
     int insertSelective(Room record);
 
-    Room selectByPrimaryKey(Integer rid);
+    Room selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Room record);
 

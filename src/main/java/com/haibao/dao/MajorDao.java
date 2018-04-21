@@ -5,15 +5,16 @@ import com.haibao.pojo.entity.Major;
 import java.util.List;
 
 public interface MajorDao {
-    int deleteByPrimaryKey(Integer mid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Major record);
 
     int insertSelective(Major record);
 
-    Major selectByPrimaryKey(Integer mid);
+    Major selectByPrimaryKey(Integer id);
 
     List<Major> selectAll();
+
 
     int updateByPrimaryKeySelective(Major record);
 

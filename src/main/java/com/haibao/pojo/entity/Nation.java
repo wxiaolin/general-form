@@ -3,9 +3,9 @@ package com.haibao.pojo.entity;
 import java.util.Date;
 
 public class Nation {
-    private Integer nid;
+    private Integer id;
 
-    private String nname;
+    private String name;
 
     private Integer creator;
 
@@ -15,9 +15,9 @@ public class Nation {
 
     private Date updateTime;
 
-    public Nation(Integer nid, String nname, Integer creator, Date createTime, Integer updater, Date updateTime) {
-        this.nid = nid;
-        this.nname = nname;
+    public Nation(Integer id, String name, Integer creator, Date createTime, Integer updater, Date updateTime) {
+        this.id = id;
+        this.name = name;
         this.creator = creator;
         this.createTime = createTime;
         this.updater = updater;
@@ -28,20 +28,20 @@ public class Nation {
         super();
     }
 
-    public Integer getNid() {
-        return nid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setNid(Integer nid) {
-        this.nid = nid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNname() {
-        return nname;
+    public String getName() {
+        return name;
     }
 
-    public void setNname(String nname) {
-        this.nname = nname == null ? null : nname.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public Integer getCreator() {
@@ -74,20 +74,5 @@ public class Nation {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Nation)) return false;
-
-        Nation nation = (Nation) o;
-
-        return nname != null ? nname.equals(nation.nname) : nation.nname == null;
-    }
-
-    @Override
-    public int hashCode() {
-        return nname != null ? nname.hashCode() : 0;
     }
 }

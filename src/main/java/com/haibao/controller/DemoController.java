@@ -47,7 +47,7 @@ public class DemoController {
     @RequestMapping(value = "/readformdb")
     public Result readFormDB() throws IOException, ClassNotFoundException {
         Form form = formService.getForm(3);
-        ByteArrayInputStream bais = new ByteArrayInputStream(form.getFdefine());
+        ByteArrayInputStream bais = new ByteArrayInputStream(form.getDefine());
         ObjectInputStream ois = new ObjectInputStream(bais);
         FormVO formVO = (FormVO) ois.readObject();
         Set set = new TreeSet();
@@ -238,8 +238,8 @@ public class DemoController {
         Form form = new Form();
         form.setCreator(1);
         form.setCreateTime(new Date());
-        form.setFname("测试表");
-        form.setFdefine(buffer);
+        form.setName("测试表");
+        form.setDefine(buffer);
         form.setFdesc("测试表");
 
         formService.saveForm(form);

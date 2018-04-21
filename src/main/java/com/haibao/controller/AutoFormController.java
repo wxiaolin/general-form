@@ -43,12 +43,12 @@ public class AutoFormController {
 
     @ResponseBody
     @RequestMapping(value = "/autofill", method = RequestMethod.POST)
-    public Result autofill(Integer fid, String stuno) throws IOException, ClassNotFoundException {
+    public Result autofill(Integer id, String stuno) throws IOException, ClassNotFoundException {
 
-        Form form = formService.getForm(fid);
-        System.out.println(fid + " " + stuno);
+        Form form = formService.getForm(id);
+        System.out.println(id + " " + stuno);
 
-        ByteArrayInputStream bais = new ByteArrayInputStream(form.getFdefine());
+        ByteArrayInputStream bais = new ByteArrayInputStream(form.getDefine());
         ObjectInputStream ois = new ObjectInputStream(bais);
         FormVO formVO = (FormVO) ois.readObject();
         List<Cell> cells = formVO.getCellList();
@@ -92,7 +92,7 @@ public class AutoFormController {
                         break;
                     case DEPT:
                         Dept dept = deptService.getDept(si.getDeptId());
-                        cell.setValuee(dept.getDname());
+                        cell.setValuee(dept.getName());
                         break;
                     case MAJOR:
                         Major major = majorService.getMajor(si.getMajorId());
@@ -139,11 +139,11 @@ public class AutoFormController {
                         District area = districtService.getDistrict(si.getCrid());
                         District city = districtService.getDistrict(area.getBelong());
                         District prov = districtService.getDistrict(city.getBelong());
-                        cell.setValuee(prov.getDname()+city.getDname()+area.getDname());
+                        cell.setValuee(prov.getName()+city.getName()+area.getName());
                         break;
                     case NATION:
                         Nation nation = nationService.getNation(si.getNation());
-                        cell.setValuee(nation.getNname());
+                        cell.setValuee(nation.getName());
                         break;
                     case ADDRESS:
                         cell.setValuee(si.getAddress());

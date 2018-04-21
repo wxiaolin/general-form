@@ -5,13 +5,13 @@ import com.haibao.pojo.entity.District;
 import java.util.List;
 
 public interface DistrictDao {
-    int deleteByPrimaryKey(Integer did);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(District record);
 
     int insertSelective(District record);
 
-    District selectByPrimaryKey(Integer did);
+    District selectByPrimaryKey(Integer id);
 
     List<District> selectAll();
 

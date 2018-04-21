@@ -6,19 +6,17 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface FormDao {
-    int deleteByPrimaryKey(Integer fid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Form record);
 
     int insertSelective(Form record);
 
-    Form selectByPrimaryKey(Integer fid);
-
-    List<Form> selectAll();
+    Form selectByPrimaryKey(Integer id);
 
     int selectCount();
 
-    List<Form> selectLimit(@Param("offset") Integer offset, @Param("rowCount")Integer rowCount);
+    List<Form> selectLimit(@Param("offset") int offset, @Param("rowCount") int rowCount);
 
     int updateByPrimaryKeySelective(Form record);
 

@@ -5,13 +5,13 @@ import com.haibao.pojo.entity.ClassTable;
 import java.util.List;
 
 public interface ClassTableDao {
-    int deleteByPrimaryKey(Integer cid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(ClassTable record);
 
     int insertSelective(ClassTable record);
 
-    ClassTable selectByPrimaryKey(Integer cid);
+    ClassTable selectByPrimaryKey(Integer id);
 
     List<ClassTable> selectAll();
 

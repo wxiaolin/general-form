@@ -1,8 +1,8 @@
 package com.haibao.controller;
 
+import com.haibao.pojo.entity.User;
 import com.haibao.pojo.enums.ResultCode;
 import com.haibao.pojo.enums.SessionContext;
-import com.haibao.pojo.entity.Account;
 import com.haibao.pojo.vo.Result;
 import com.haibao.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class LoginController {
     @RequestMapping(value = "login", method = RequestMethod.POST)
     @ResponseBody
     public Result doLogin(String userName, String password, HttpServletRequest request) {
-        Account user = loginService.doLogin(userName, password);
+        User user = loginService.doLogin(userName, password);
         if (user != null) {
             request.getSession().setAttribute(SessionContext.LOGIN_USER.getName(), user);
             return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), null);

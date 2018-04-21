@@ -5,15 +5,16 @@ import com.haibao.pojo.entity.Nation;
 import java.util.List;
 
 public interface NationDao {
-    int deleteByPrimaryKey(Integer nid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Nation record);
 
     int insertSelective(Nation record);
 
-    Nation selectByPrimaryKey(Integer nid);
+    Nation selectByPrimaryKey(Integer id);
 
     List<Nation> selectAll();
+
 
     int updateByPrimaryKeySelective(Nation record);
 

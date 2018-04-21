@@ -3,7 +3,7 @@ package com.haibao.pojo.entity;
 import java.util.Date;
 
 public class Score {
-    private Integer sid;
+    private Integer id;
 
     private Integer stuId;
 
@@ -25,8 +25,8 @@ public class Score {
 
     private Date updateTime;
 
-    public Score(Integer sid, Integer stuId, String ayear, Byte semester, Float score1, Float score2, Integer subjectId, Integer creator, Date createTime, Integer updater, Date updateTime) {
-        this.sid = sid;
+    public Score(Integer id, Integer stuId, String ayear, Byte semester, Float score1, Float score2, Integer subjectId, Integer creator, Date createTime, Integer updater, Date updateTime) {
+        this.id = id;
         this.stuId = stuId;
         this.ayear = ayear;
         this.semester = semester;
@@ -43,12 +43,12 @@ public class Score {
         super();
     }
 
-    public Integer getSid() {
-        return sid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setSid(Integer sid) {
-        this.sid = sid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getStuId() {

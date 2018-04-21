@@ -1,53 +1,62 @@
 package com.haibao.pojo.entity;
 
-import java.util.Arrays;
 import java.util.Date;
 
 public class Form {
-    private Integer fid;
-    private String fname;
-    private Byte fstatus;
-    private String fdesc;
-    private Integer deptId;
-    private Byte ftype;
-    private Integer creator;
-    private Date createTime;
-    private Integer updater;
-    private Date updateTime;
-    private byte[] fdefine;
+    private Integer id;
 
-    public Form(Integer fid, String fname, Byte fstatus, String fdesc, Integer deptId, Byte ftype, Integer creator, Date createTime, Integer updater, Date updateTime, byte[] fdefine) {
-        this.fid = fid;
-        this.fname = fname;
+    private String name;
+
+    private Byte fstatus;
+
+    private String fdesc;
+
+    private Integer deptId;
+
+    private Byte type;
+
+    private Integer creator;
+
+    private Date createTime;
+
+    private Integer updater;
+
+    private Date updateTime;
+
+    private byte[] define;
+
+    public Form(Integer id, String name, Byte fstatus, String fdesc, Integer deptId, Byte type, Integer creator, Date createTime, Integer updater, Date updateTime, byte[] define) {
+        this.id = id;
+        this.name = name;
         this.fstatus = fstatus;
         this.fdesc = fdesc;
         this.deptId = deptId;
-        this.ftype = ftype;
+        this.type = type;
         this.creator = creator;
         this.createTime = createTime;
         this.updater = updater;
         this.updateTime = updateTime;
-        this.fdefine = fdefine;
+        this.define = define;
     }
 
     public Form() {
         super();
     }
 
-    public Integer getFid() {
-        return fid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setFid(Integer fid) {
-        this.fid = fid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getFname() {
-        return fname;
+    public String getName() {
+        return name;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname == null ? null : fname.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public Byte getFstatus() {
@@ -74,12 +83,12 @@ public class Form {
         this.deptId = deptId;
     }
 
-    public Byte getFtype() {
-        return ftype;
+    public Byte getType() {
+        return type;
     }
 
-    public void setFtype(Byte ftype) {
-        this.ftype = ftype;
+    public void setType(Byte type) {
+        this.type = type;
     }
 
     public Integer getCreator() {
@@ -114,28 +123,11 @@ public class Form {
         this.updateTime = updateTime;
     }
 
-    public byte[] getFdefine() {
-        return fdefine;
+    public byte[] getDefine() {
+        return define;
     }
 
-    public void setFdefine(byte[] fdefine) {
-        this.fdefine = fdefine;
-    }
-
-    @Override
-    public String toString() {
-        return "Form{" +
-                "fid=" + fid +
-                ", fname='" + fname + '\'' +
-                ", fstatus=" + fstatus +
-                ", fdesc='" + fdesc + '\'' +
-                ", deptId=" + deptId +
-                ", ftype=" + ftype +
-                ", creator=" + creator +
-                ", createTime=" + createTime +
-                ", updater=" + updater +
-                ", updateTime=" + updateTime +
-                ", fdefine=" + Arrays.toString(fdefine) +
-                '}';
+    public void setDefine(byte[] define) {
+        this.define = define;
     }
 }

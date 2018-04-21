@@ -3,8 +3,8 @@
 <mapper namespace="com.haibao.dao.CollegeAreaDao">
   <resultMap id="BaseResultMap" type="com.haibao.pojo.entity.CollegeArea">
     <constructor>
-      <idArg column="aid" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="aname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -12,34 +12,34 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    aid, aname, creator, create_time, updater, update_time
+    id, name, creator, create_time, updater, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_college_area
-    where aid = #{aid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_college_area
-    where aid = #{aid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.haibao.pojo.entity.CollegeArea">
-    insert into t_college_area (aid, aname, creator, 
+    insert into t_college_area (id, name, creator, 
       create_time, updater, update_time
       )
-    values (#{aid,jdbcType=INTEGER}, #{aname,jdbcType=VARCHAR}, #{creator,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{creator,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.haibao.pojo.entity.CollegeArea">
     insert into t_college_area
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="aid != null">
-        aid,
+      <if test="id != null">
+        id,
       </if>
-      <if test="aname != null">
-        aname,
+      <if test="name != null">
+        name,
       </if>
       <if test="creator != null">
         creator,
@@ -55,11 +55,11 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="aid != null">
-        #{aid,jdbcType=INTEGER},
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="aname != null">
-        #{aname,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
       <if test="creator != null">
         #{creator,jdbcType=INTEGER},
@@ -78,8 +78,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.haibao.pojo.entity.CollegeArea">
     update t_college_area
     <set>
-      <if test="aname != null">
-        aname = #{aname,jdbcType=VARCHAR},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="creator != null">
         creator = #{creator,jdbcType=INTEGER},
@@ -94,15 +94,15 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where aid = #{aid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.haibao.pojo.entity.CollegeArea">
     update t_college_area
-    set aname = #{aname,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
       creator = #{creator,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       updater = #{updater,jdbcType=INTEGER},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where aid = #{aid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

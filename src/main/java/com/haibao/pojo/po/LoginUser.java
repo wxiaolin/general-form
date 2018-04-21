@@ -1,7 +1,7 @@
 package com.haibao.pojo.po;
 
-import com.haibao.pojo.entity.Account;
 import com.haibao.pojo.entity.StudentInfo;
+import com.haibao.pojo.entity.User;
 
 /**
  * Created on 2018/4/5.
@@ -9,15 +9,15 @@ import com.haibao.pojo.entity.StudentInfo;
  * @author haibao
  */
 public class LoginUser {
-    private Account loginAccount;
+    private User loginUser;
     private StudentInfo userInfo;
 
-    public Account getLoginAccount() {
-        return loginAccount;
+    public User getLoginUser() {
+        return loginUser;
     }
 
-    public void setLoginAccount(Account loginAccount) {
-        this.loginAccount = loginAccount;
+    public void setLoginAccount(User loginUser) {
+        this.loginUser = loginUser;
     }
 
     public StudentInfo getUserInfo() {

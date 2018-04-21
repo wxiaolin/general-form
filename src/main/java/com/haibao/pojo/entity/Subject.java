@@ -3,9 +3,9 @@ package com.haibao.pojo.entity;
 import java.util.Date;
 
 public class Subject {
-    private Integer sid;
+    private Integer id;
 
-    private String ssubject;
+    private String subject;
 
     private Byte stype1;
 
@@ -21,9 +21,9 @@ public class Subject {
 
     private Date updateTime;
 
-    public Subject(Integer sid, String ssubject, Byte stype1, Byte stype2, Integer deptId, Integer creator, Date createTime, Integer updater, Date updateTime) {
-        this.sid = sid;
-        this.ssubject = ssubject;
+    public Subject(Integer id, String subject, Byte stype1, Byte stype2, Integer deptId, Integer creator, Date createTime, Integer updater, Date updateTime) {
+        this.id = id;
+        this.subject = subject;
         this.stype1 = stype1;
         this.stype2 = stype2;
         this.deptId = deptId;
@@ -37,20 +37,20 @@ public class Subject {
         super();
     }
 
-    public Integer getSid() {
-        return sid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setSid(Integer sid) {
-        this.sid = sid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getSsubject() {
-        return ssubject;
+    public String getSubject() {
+        return subject;
     }
 
-    public void setSsubject(String ssubject) {
-        this.ssubject = ssubject == null ? null : ssubject.trim();
+    public void setSubject(String subject) {
+        this.subject = subject == null ? null : subject.trim();
     }
 
     public Byte getStype1() {

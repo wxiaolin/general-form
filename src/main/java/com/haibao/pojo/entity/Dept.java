@@ -3,9 +3,9 @@ package com.haibao.pojo.entity;
 import java.util.Date;
 
 public class Dept {
-    private Integer did;
+    private Integer id;
 
-    private String dname;
+    private String name;
 
     private Integer belong;
 
@@ -19,9 +19,9 @@ public class Dept {
 
     private Date updateTime;
 
-    public Dept(Integer did, String dname, Integer belong, String ddesc, Integer creator, Date createTime, Integer updater, Date updateTime) {
-        this.did = did;
-        this.dname = dname;
+    public Dept(Integer id, String name, Integer belong, String ddesc, Integer creator, Date createTime, Integer updater, Date updateTime) {
+        this.id = id;
+        this.name = name;
         this.belong = belong;
         this.ddesc = ddesc;
         this.creator = creator;
@@ -34,20 +34,20 @@ public class Dept {
         super();
     }
 
-    public Integer getDid() {
-        return did;
+    public Integer getId() {
+        return id;
     }
 
-    public void setDid(Integer did) {
-        this.did = did;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getDname() {
-        return dname;
+    public String getName() {
+        return name;
     }
 
-    public void setDname(String dname) {
-        this.dname = dname == null ? null : dname.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public Integer getBelong() {
@@ -96,23 +96,5 @@ public class Dept {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Dept)) return false;
-
-        Dept dept = (Dept) o;
-
-        if (dname != null ? !dname.equals(dept.dname) : dept.dname != null) return false;
-        return belong != null ? belong.equals(dept.belong) : dept.belong == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = dname != null ? dname.hashCode() : 0;
-        result = 31 * result + (belong != null ? belong.hashCode() : 0);
-        return result;
     }
 }

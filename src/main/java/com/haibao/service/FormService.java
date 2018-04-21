@@ -14,6 +14,6 @@ public interface FormService {
 
     Page<Form> pageList(Integer pageNum);
 
-    Form getForm(Integer fid);
+    Form getForm(Integer id);
 
 }
