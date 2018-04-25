@@ -5,6 +5,7 @@
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="define" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="fstatus" javaType="java.lang.Byte" jdbcType="TINYINT" />
       <arg column="fdesc" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -13,34 +14,14 @@
       <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.haibao.pojo.entity.Form">
-    <constructor>
-      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="fstatus" javaType="java.lang.Byte" jdbcType="TINYINT" />
-      <arg column="fdesc" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="type" javaType="java.lang.Byte" jdbcType="TINYINT" />
-      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="define" javaType="_byte[]" jdbcType="LONGVARBINARY" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    id, name, fstatus, fdesc, dept_id, type, creator, create_time, updater, update_time
+    id, name, define, fstatus, fdesc, dept_id, type, creator, create_time, updater, update_time
   </sql>
-  <sql id="Blob_Column_List">
-    define
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from t_form
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -48,18 +29,19 @@
     select
     count(id)
     from t_form
+    where fstatus != 0
   </select>
-  <select id="selectLimit" resultMap="ResultMapWithBLOBs">
+  <select id="selectLimit" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from t_form
+    where fstatus != 0
     order by create_time desc
     limit #{offset},#{rowCount}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_form
+    update t_form
+    set fstatus = 0
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.haibao.pojo.entity.Form">
@@ -70,7 +52,7 @@
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{fstatus,jdbcType=TINYINT}, 
       #{fdesc,jdbcType=VARCHAR}, #{deptId,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, 
       #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{define,jdbcType=LONGVARBINARY})
+      #{updateTime,jdbcType=TIMESTAMP}, #{define,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.haibao.pojo.entity.Form">
     insert into t_form
@@ -141,7 +123,7 @@
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="define != null">
-        #{define,jdbcType=LONGVARBINARY},
+        #{define,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -176,24 +158,11 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="define != null">
-        define = #{define,jdbcType=LONGVARBINARY},
+        define = #{define,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.haibao.pojo.entity.Form">
-    update t_form
-    set name = #{name,jdbcType=VARCHAR},
-      fstatus = #{fstatus,jdbcType=TINYINT},
-      fdesc = #{fdesc,jdbcType=VARCHAR},
-      dept_id = #{deptId,jdbcType=INTEGER},
-      type = #{type,jdbcType=TINYINT},
-      creator = #{creator,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      updater = #{updater,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      define = #{define,jdbcType=LONGVARBINARY}
-    where id = #{id,jdbcType=INTEGER}
+    and fstatus != 0
   </update>
   <update id="updateByPrimaryKey" parameterType="com.haibao.pojo.entity.Form">
     update t_form
@@ -205,7 +174,9 @@
       creator = #{creator,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       updater = #{updater,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      define = #{define,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
+    and fstatus != 0
   </update>
 </mapper>

@@ -20,7 +20,5 @@ public interface FormDao {
 
     int updateByPrimaryKeySelective(Form record);
 
-    int updateByPrimaryKeyWithBLOBs(Form record);
-
     int updateByPrimaryKey(Form record);
 }

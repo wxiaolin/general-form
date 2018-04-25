@@ -53,7 +53,7 @@
                         <!--/*@thymesVar id="formList" type="java.util.List"*/-->
                         <tr th:each="form : ${formList}">
                             <!--/*@thymesVar id="name" type="java.lang.String"*/-->
-                            <td><a th:href="@{'form/'+${form.id}}" th:text="${form.name}"></a></td>
+                            <td><a th:href="@{${form.id}}" th:text="${form.name}"></a></td>
                             <!--/*@thymesVar id="createTime" type="java.util.Date"*/-->
                             <td th:text="${#dates.format(form.createTime,'yyyy/MM/dd')}">&nbsp;</td>
                         </tr>

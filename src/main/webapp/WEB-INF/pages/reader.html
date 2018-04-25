@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="form" class="form">
+
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script>
+    var define;
+    $.ajax({
+        url: '/form/20',
+        type: 'GET',
+        traditional: true,
+        contentType: "application/json",
+        dataType: 'json',
+        success: function (d) {
+            define = d.date.define;
+        }
+    });
+    console.log(define);
+
+
+    // $("#form").
+</script>
+</body>
+</html>

@@ -7,6 +7,8 @@ public class Form {
 
     private String name;
 
+    private String define;
+
     private Byte fstatus;
 
     private String fdesc;
@@ -23,11 +25,10 @@ public class Form {
 
     private Date updateTime;
 
-    private byte[] define;
-
-    public Form(Integer id, String name, Byte fstatus, String fdesc, Integer deptId, Byte type, Integer creator, Date createTime, Integer updater, Date updateTime, byte[] define) {
+    public Form(Integer id, String name, String define, Byte fstatus, String fdesc, Integer deptId, Byte type, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.id = id;
         this.name = name;
+        this.define = define;
         this.fstatus = fstatus;
         this.fdesc = fdesc;
         this.deptId = deptId;
@@ -36,7 +37,6 @@ public class Form {
         this.createTime = createTime;
         this.updater = updater;
         this.updateTime = updateTime;
-        this.define = define;
     }
 
     public Form() {
@@ -56,7 +56,15 @@ public class Form {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
+    }
+
+    public String getDefine() {
+        return define;
+    }
+
+    public void setDefine(String define) {
+        this.define = define;
     }
 
     public Byte getFstatus() {
@@ -72,7 +80,7 @@ public class Form {
     }
 
     public void setFdesc(String fdesc) {
-        this.fdesc = fdesc == null ? null : fdesc.trim();
+        this.fdesc = fdesc;
     }
 
     public Integer getDeptId() {
@@ -123,11 +131,20 @@ public class Form {
         this.updateTime = updateTime;
     }
 
-    public byte[] getDefine() {
-        return define;
-    }
-
-    public void setDefine(byte[] define) {
-        this.define = define;
+    @Override
+    public String toString() {
+        return "Form{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", fstatus=" + fstatus +
+                ", fdesc='" + fdesc + '\'' +
+                ", deptId=" + deptId +
+                ", type=" + type +
+                ", creator=" + creator +
+                ", createTime=" + createTime +
+                ", updater=" + updater +
+                ", updateTime=" + updateTime +
+                ", define='" + define + '\'' +
+                '}';
     }
 }

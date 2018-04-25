@@ -45,21 +45,8 @@ public class AutoFormController {
     @RequestMapping(value = "/autofill", method = RequestMethod.POST)
     public Result autofill(Integer id, String stuno) throws IOException, ClassNotFoundException {
 
-        Form form = formService.getForm(id);
-        System.out.println(id + " " + stuno);
 
-        ByteArrayInputStream bais = new ByteArrayInputStream(form.getDefine());
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        FormVO formVO = (FormVO) ois.readObject();
-        List<Cell> cells = formVO.getCellList();
-
-        StudentInfo studentInfo = new StudentInfo();
-        studentInfo.setStuNo(stuno);
-        studentInfo = studentServcice.getStudentInfo(studentInfo);
-
-        fillCell(cells, studentInfo);
-
-        return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), formVO);
+        return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), null);
     }
 
 

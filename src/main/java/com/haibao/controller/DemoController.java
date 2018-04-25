@@ -37,6 +37,16 @@ public class DemoController {
     @Autowired
     private NationService nationService;
 
+    @ResponseBody
+    @RequestMapping(value = "sendtext",method = RequestMethod.POST)
+    public Result receiveText(String text){
+
+
+        System.out.println(text);
+
+        return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), null);
+    }
+
     /**
      *  从数据库中读取表定义
      * @return
@@ -47,11 +57,8 @@ public class DemoController {
     @RequestMapping(value = "/readformdb")
     public Result readFormDB() throws IOException, ClassNotFoundException {
         Form form = formService.getForm(3);
-        ByteArrayInputStream bais = new ByteArrayInputStream(form.getDefine());
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        FormVO formVO = (FormVO) ois.readObject();
-        Set set = new TreeSet();
-        return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), formVO);
+        String formDefine = form.getDefine();
+        return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), formDefine);
     }
 
 
@@ -239,7 +246,7 @@ public class DemoController {
         form.setCreator(1);
         form.setCreateTime(new Date());
         form.setName("测试表");
-        form.setDefine(buffer);
+//        form.setDefine(buffer);
         form.setFdesc("测试表");
 
         formService.saveForm(form);

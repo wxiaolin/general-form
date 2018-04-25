@@ -1,16 +1,19 @@
 package com.haibao.controller;
 
 import com.haibao.pojo.entity.Form;
+import com.haibao.pojo.enums.ResultCode;
 import com.haibao.pojo.vo.Page;
+import com.haibao.pojo.vo.Result;
 import com.haibao.service.FormService;
+import org.apache.ibatis.type.IntegerTypeHandler;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,16 +33,40 @@ public class FormController {
         return "maker";
     }
 
-//    @RequestMapping(value = {"list", "list.html"})
-//    public ModelAndView formList(HttpServletRequest req) {
-//        ModelAndView mav = new ModelAndView("list");
-//        List<Form> formList = formService.listForm();
-//        for (Form f : formList) {
-//            Logger.getRootLogger().debug(f.getCreateTime());
-//        }
-//        mav.addObject("formList",formList);
-//        return mav;
-//    }
+    @RequestMapping(value = {"reader", "reader.html"})
+    public String reader() {
+        return "reader";
+    }
+
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.POST)
+    public Result save(@RequestBody Form form) {
+        form.setCreator(1);
+        form.setCreateTime(new Date());
+        int r = formService.saveForm(form);
+        Logger logger = Logger.getRootLogger();
+        logger.debug(form.toString());
+
+        if (r > 0) {
+            return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), form);
+        } else {
+            return new Result(false, ResultCode.FAILS.getCode(), ResultCode.FAILS.getDesc(), form);
+        }
+
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Result get(@PathVariable Integer id) {
+        Form form = formService.getForm(id);
+
+        if (form != null) {
+            return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), form);
+        } else {
+            return new Result(false, ResultCode.FAILS.getCode(), ResultCode.FAILS.getDesc(), null);
+        }
+
+    }
 
     @RequestMapping(value = {"list", "list.html"}, method = RequestMethod.GET)
     public ModelAndView formPageList(HttpServletRequest req, Integer page) {
@@ -49,8 +76,8 @@ public class FormController {
         }
         Page<Form> pageObj = formService.pageList(page);
         List<Form> formList = pageObj.getData();
-        mav.addObject("formList",formList);
-        mav.addObject("pageObj",pageObj);
+        mav.addObject("formList", formList);
+        mav.addObject("pageObj", pageObj);
         return mav;
     }
 

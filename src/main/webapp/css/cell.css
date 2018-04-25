@@ -1,12 +1,26 @@
-
 /* bootstrap自带 */
 /*.text-left{*/
-    /*text-align: left;*/
+/*text-align: left;*/
 /*}*/
 
 .input-group-btn {
     width: auto;
     margin-right: 4px;
+}
+
+#form-dotted-area {
+    max-height: 41px;
+    overflow: hidden;
+}
+
+.cells-wrapper > textarea {
+    resize: none;
+    overflow-y: hidden;
+    border-color: #000000;
+}
+
+.cells-wrapper > textarea, input {
+    float: left;
 }
 
 .form {
@@ -36,26 +50,20 @@
 }
 
 .cell-middle {
-    padding-left: 16px;
-    padding-right: 16px;
     height: 110px;
+    display: table-cell;
+    vertical-align: middle
 }
 
 .cell-big {
-    padding-left: 16px;
-    padding-right: 16px;
     height: 220px;
 }
 
 .cell-bigger {
-    padding-left: 16px;
-    padding-right: 16px;
     height: 330px;
 }
 
 .cell-biggest {
-    padding-left: 16px;
-    padding-right: 16px;
     height: 440px;
 }
 
