@@ -6,16 +6,17 @@ package com.haibao.pojo.enums;
 public enum ResultCode {
 
     SUCCESS(200, "OK"),
-    FAILS(500, "FAILS");
+    ERROR_404(404, "请求资源不存在"),
+    ERROR_500(500, "服务器内部错误");
 
     private int code;
     private String desc;
 
-    public int getCode() {
+    public int code() {
         return code;
     }
 
-    public String getDesc() {
+    public String desc() {
         return desc;
     }
 

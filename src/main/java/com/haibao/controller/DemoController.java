@@ -44,7 +44,7 @@ public class DemoController {
 
         System.out.println(text);
 
-        return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), null);
+        return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), null);
     }
 
     /**
@@ -58,7 +58,7 @@ public class DemoController {
     public Result readFormDB() throws IOException, ClassNotFoundException {
         Form form = formService.getForm(3);
         String formDefine = form.getDefine();
-        return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), formDefine);
+        return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), formDefine);
     }
 
 
@@ -251,7 +251,7 @@ public class DemoController {
 
         formService.saveForm(form);
 
-        return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), null);
+        return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), null);
     }
 
     @ResponseBody

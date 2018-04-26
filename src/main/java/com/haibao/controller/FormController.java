@@ -48,22 +48,30 @@ public class FormController {
         logger.debug(form.toString());
 
         if (r > 0) {
-            return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), form);
+            return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), form);
         } else {
-            return new Result(false, ResultCode.FAILS.getCode(), ResultCode.FAILS.getDesc(), form);
+            return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.desc(), form);
         }
 
     }
 
     @ResponseBody
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Result get(@PathVariable Integer id) {
+    public ModelAndView get(@PathVariable Integer id) {
         Form form = formService.getForm(id);
+        ModelAndView mav = null;
 
         if (form != null) {
-            return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), form);
+            mav = new ModelAndView("form");
+            mav.addObject("form", form);
+            return mav;
         } else {
-            return new Result(false, ResultCode.FAILS.getCode(), ResultCode.FAILS.getDesc(), null);
+            mav = new ModelAndView("/error/error");
+            Result result = new Result();
+            result.setCode(ResultCode.ERROR_404.code());
+            result.setMsg(ResultCode.ERROR_404.desc());
+            mav.addObject("result", result);
+            return mav;
         }
 
     }

@@ -46,7 +46,7 @@ public class AutoFormController {
     public Result autofill(Integer id, String stuno) throws IOException, ClassNotFoundException {
 
 
-        return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), null);
+        return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), null);
     }
 
 

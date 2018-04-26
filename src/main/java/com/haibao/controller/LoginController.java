@@ -34,9 +34,9 @@ public class LoginController {
         User user = loginService.doLogin(userName, password);
         if (user != null) {
             request.getSession().setAttribute(SessionContext.LOGIN_USER.getName(), user);
-            return new Result(true, ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getDesc(), null);
+            return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), null);
         } else {
-            return new Result(false, ResultCode.FAILS.getCode(), ResultCode.FAILS.getDesc(), null);
+            return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.desc(), null);
         }
     }
 
