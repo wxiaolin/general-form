@@ -39,5 +39,4 @@ public class LoginController {
             return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.desc(), null);
         }
     }
-
 }

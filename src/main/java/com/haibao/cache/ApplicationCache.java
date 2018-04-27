@@ -1,4 +1,4 @@
-package com.haibao.service.cache;
+package com.haibao.cache;
 
 import com.haibao.dao.*;
 import com.haibao.pojo.entity.*;

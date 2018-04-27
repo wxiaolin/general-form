@@ -1,6 +1,8 @@
 package com.haibao.controller;
 
+import com.haibao.exception.ParamsException;
 import com.haibao.pojo.entity.Form;
+import com.haibao.pojo.enums.ErrorInfo;
 import com.haibao.pojo.enums.ResultCode;
 import com.haibao.pojo.vo.Page;
 import com.haibao.pojo.vo.Result;
@@ -52,12 +54,11 @@ public class FormController {
         } else {
             return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.desc(), form);
         }
-
     }
 
     @ResponseBody
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ModelAndView get(@PathVariable Integer id) {
+    public ModelAndView get(@PathVariable Integer id) throws ParamsException {
         Form form = formService.getForm(id);
         ModelAndView mav = null;
 
@@ -66,14 +67,14 @@ public class FormController {
             mav.addObject("form", form);
             return mav;
         } else {
-            mav = new ModelAndView("/error/error");
-            Result result = new Result();
-            result.setCode(ResultCode.ERROR_404.code());
-            result.setMsg(ResultCode.ERROR_404.desc());
-            mav.addObject("result", result);
-            return mav;
+//            mav = new ModelAndView("/error/error");
+//            Result result = new Result();
+//            result.setCode(ResultCode.ERROR_404.code());
+//            result.setMsg(ResultCode.ERROR_404.desc());
+//            mav.addObject("result", result);
+//            return mav;
+            throw new ParamsException();
         }
-
     }
 
     @RequestMapping(value = {"list", "list.html"}, method = RequestMethod.GET)
