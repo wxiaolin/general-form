@@ -3,10 +3,9 @@ package com.haibao.controller;
 import com.haibao.pojo.enums.PoliticalStatusCode;
 import com.haibao.pojo.enums.ResultCode;
 import com.haibao.pojo.enums.SexCode;
-import com.haibao.pojo.enums.ViewField;
+import com.haibao.pojo.enums.FormField;
 import com.haibao.pojo.entity.*;
 import com.haibao.pojo.vo.Cell;
-import com.haibao.pojo.vo.FormVO;
 import com.haibao.pojo.vo.Result;
 import com.haibao.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
+ * todo: 文件待删除
  * Created by haibao on 2018/1/29.
  */
 @Controller
@@ -44,8 +42,6 @@ public class AutoFormController {
     @ResponseBody
     @RequestMapping(value = "/autofill", method = RequestMethod.POST)
     public Result autofill(Integer id, String stuno) throws IOException, ClassNotFoundException {
-
-
         return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), null);
     }
 
@@ -62,7 +58,7 @@ public class AutoFormController {
                 // 判空
                 continue;
             } else {
-                ViewField vf = ViewField.valueOf(cell.getKeyy());
+                FormField vf = FormField.valueOf(cell.getKeyy());
                 switch (vf) {
                     case NAME:
                         cell.setValuee(si.getStuName());

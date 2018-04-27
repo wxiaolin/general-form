@@ -24,13 +24,36 @@
     var define = [[${form.define}]];
     // console.log(define);
     $("#form").append($(define));
-    $(".cells-wrapper").each(function(){
+    $(".cells-wrapper").each(function () {
         var obj = $(this).children("input");
         obj.attr("readonly", "readonly");
     });
     /*]]>*/
 </script>
+<script>
+    var names = new Array();
+    $(".cells-wrapper").each(function () {
+        var name = $(this).attr("name");
+        if (typeof(name) == undefined || name == null) {
+        } else {
+            names.push(name);
+        }
+    });
 
+    var json = {"names":names};
+    $.ajax({
+        url: "/filler",
+        type: "GET",
+        traditional: true,
+        data: json,
+        dataType: "json",
+        success: function (d) {
+
+        }
+
+    });
+
+</script>
 
 </body>
 </html>

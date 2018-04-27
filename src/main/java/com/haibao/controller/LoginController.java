@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * 登录相关的Controller
  * Created on 2018/3/18.
  * @author haibao
  */

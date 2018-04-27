@@ -9,6 +9,6 @@
        http://www.springframework.org/schema/context/spring-context.xsd
 ">
 
-    <bean class="com.haibao.exception.resolve.SystemExceptionResolve"></bean>
+    <bean class="com.haibao.exception.resolve.CustomExceptionResolve"></bean>
 
 </beans>

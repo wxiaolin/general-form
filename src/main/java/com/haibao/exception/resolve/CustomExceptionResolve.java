@@ -15,31 +15,31 @@ import javax.servlet.http.HttpServletResponse;
  * @Date: 2018/4/27 0027 上午 9:24
  */
 @Component
-public class SystemExceptionResolve implements HandlerExceptionResolver {
+public class CustomExceptionResolve implements HandlerExceptionResolver {
 
     private static String errorPage = "error/error";
 
     @Override
-    public ModelAndView resolveException(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception ex) {
-        ex.printStackTrace();
+    public ModelAndView resolveException(HttpServletRequest httpServletRequest,
+                                         HttpServletResponse httpServletResponse, Object o, Exception ex) {
 
+        ex.printStackTrace();
         ModelAndView mav = new ModelAndView(errorPage);
         // 参数异常
         if (ex instanceof ParamsException) {
-            ParamsException paramsException = (ParamsException) ex;
             mav.addObject("code", ErrorInfo.ERROR_404.code());
             mav.addObject("msg", ErrorInfo.ERROR_404.msg());
             return mav;
         }
-
         // 未知异常
         if (ex instanceof UnknownException) {
-            UnknownException unknownException = (UnknownException) ex;
             mav.addObject("code", ErrorInfo.ERROR_500.code());
             mav.addObject("msg", ErrorInfo.ERROR_500.msg());
             return mav;
         }
 
+        mav.addObject("code", ErrorInfo.ERROR_500.code());
+        mav.addObject("msg", ErrorInfo.ERROR_500.msg());
         return mav;
     }
 }

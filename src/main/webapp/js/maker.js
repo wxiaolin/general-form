@@ -13,6 +13,7 @@ function setValue(obj) {
 
 function savedefine() {
     var form = $("#form");
+    $("#form-title").attr("value", $("#form-title").val());
     var formName = $("#form-title").val();
     var define = form.html();
     var json = {"name": formName, "define": define};

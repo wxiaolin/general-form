@@ -19,8 +19,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * 表格相关的Controller
  * Created on 2018/3/18.
- *
  * @author haibao
  */
 @Controller
@@ -47,11 +47,11 @@ public class FormController {
         form.setCreateTime(new Date());
         int r = formService.saveForm(form);
         Logger logger = Logger.getRootLogger();
-        logger.debug(form.toString());
-
         if (r > 0) {
+            logger.info("Save the form is successful, "+ form.toString());
             return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), form);
         } else {
+            logger.info("Save the form fails, "+ form.toString());
             return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.desc(), form);
         }
     }
@@ -60,10 +60,8 @@ public class FormController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ModelAndView get(@PathVariable Integer id) throws ParamsException {
         Form form = formService.getForm(id);
-        ModelAndView mav = null;
-
-        if (form != null) {
-            mav = new ModelAndView("form");
+        if (null != form) {
+            ModelAndView mav = new ModelAndView("form");
             mav.addObject("form", form);
             return mav;
         } else {
