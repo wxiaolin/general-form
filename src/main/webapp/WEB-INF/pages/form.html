@@ -30,28 +30,7 @@
     });
     /*]]>*/
 </script>
-<script>
-    var names = new Array();
-    $(".cells-wrapper").each(function () {
-        var name = $(this).attr("name");
-        if (typeof(name) == undefined || name == null) {
-        } else {
-            names.push(name);
-        }
-    });
-
-    var json = {"names":names};
-    $.ajax({
-        url: "/filler",
-        type: "GET",
-        traditional: true,
-        data: json,
-        dataType: "json",
-        success: function (d) {
-            console.log(d);
-        }
-
-    });
+<script src="/js/show.js">
 
 </script>
 

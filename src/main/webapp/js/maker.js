@@ -4,6 +4,7 @@
 
 function setKey(obj) {
     obj.parent().attr("name", obj.val());
+    obj.parent().attr("id", obj.val());
     setValue(obj);
 }
 
