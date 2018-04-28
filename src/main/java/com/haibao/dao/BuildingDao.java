@@ -1,6 +1,6 @@
 package com.haibao.dao;
 
-import com.haibao.pojo.entity.Building;
+import com.haibao.domain.entity.Building;
 
 public interface BuildingDao {
     int deleteByPrimaryKey(Integer id);

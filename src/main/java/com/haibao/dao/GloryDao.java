@@ -1,6 +1,6 @@
 package com.haibao.dao;
 
-import com.haibao.pojo.entity.Glory;
+import com.haibao.domain.entity.Glory;
 
 public interface GloryDao {
     int deleteByPrimaryKey(Integer id);

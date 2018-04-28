@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haibao.dao.FormDao">
-  <resultMap id="BaseResultMap" type="com.haibao.pojo.entity.Form">
+  <resultMap id="BaseResultMap" type="com.haibao.domain.entity.Form">
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -44,7 +44,7 @@
     set fstatus = 0
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.haibao.pojo.entity.Form">
+  <insert id="insert" parameterType="com.haibao.domain.entity.Form">
     insert into t_form (id, name, fstatus, 
       fdesc, dept_id, type, 
       creator, create_time, updater, 
@@ -54,7 +54,7 @@
       #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{define,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.haibao.pojo.entity.Form">
+  <insert id="insertSelective" parameterType="com.haibao.domain.entity.Form">
     insert into t_form
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.pojo.entity.Form">
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.domain.entity.Form">
     update t_form
     <set>
       <if test="name != null">
@@ -164,7 +164,7 @@
     where id = #{id,jdbcType=INTEGER}
     and fstatus != 0
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.haibao.pojo.entity.Form">
+  <update id="updateByPrimaryKey" parameterType="com.haibao.domain.entity.Form">
     update t_form
     set name = #{name,jdbcType=VARCHAR},
       fstatus = #{fstatus,jdbcType=TINYINT},

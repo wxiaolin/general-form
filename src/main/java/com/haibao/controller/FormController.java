@@ -1,13 +1,11 @@
 package com.haibao.controller;
 
 import com.haibao.exception.ParamsException;
-import com.haibao.pojo.entity.Form;
-import com.haibao.pojo.enums.ErrorInfo;
-import com.haibao.pojo.enums.ResultCode;
-import com.haibao.pojo.vo.Page;
-import com.haibao.pojo.vo.Result;
+import com.haibao.domain.entity.Form;
+import com.haibao.domain.enums.ResultCode;
+import com.haibao.domain.vo.Page;
+import com.haibao.domain.vo.Result;
 import com.haibao.service.FormService;
-import org.apache.ibatis.type.IntegerTypeHandler;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

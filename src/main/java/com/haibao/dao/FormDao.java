@@ -1,6 +1,6 @@
 package com.haibao.dao;
 
-import com.haibao.pojo.entity.Form;
+import com.haibao.domain.entity.Form;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.haibao.cache;
 
 import com.haibao.dao.*;
-import com.haibao.pojo.entity.*;
+import com.haibao.domain.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;

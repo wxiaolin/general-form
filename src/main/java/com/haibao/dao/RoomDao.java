@@ -1,6 +1,6 @@
 package com.haibao.dao;
 
-import com.haibao.pojo.entity.Room;
+import com.haibao.domain.entity.Room;
 
 public interface RoomDao {
     int deleteByPrimaryKey(Integer id);

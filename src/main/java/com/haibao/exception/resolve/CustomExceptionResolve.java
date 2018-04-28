@@ -2,7 +2,7 @@ package com.haibao.exception.resolve;
 
 import com.haibao.exception.ParamsException;
 import com.haibao.exception.UnknownException;
-import com.haibao.pojo.enums.ErrorInfo;
+import com.haibao.domain.enums.ErrorInfo;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;

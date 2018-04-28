@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haibao.dao.ClassroomDao">
-  <resultMap id="BaseResultMap" type="com.haibao.pojo.entity.Classroom">
+  <resultMap id="BaseResultMap" type="com.haibao.domain.entity.Classroom">
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -25,7 +25,7 @@
     delete from t_classroom
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.haibao.pojo.entity.Classroom">
+  <insert id="insert" parameterType="com.haibao.domain.entity.Classroom">
     insert into t_classroom (id, name, building_id, 
       creator, create_time, updater, 
       update_time)
@@ -33,7 +33,7 @@
       #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.haibao.pojo.entity.Classroom">
+  <insert id="insertSelective" parameterType="com.haibao.domain.entity.Classroom">
     insert into t_classroom
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -82,7 +82,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.pojo.entity.Classroom">
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.domain.entity.Classroom">
     update t_classroom
     <set>
       <if test="name != null">
@@ -106,7 +106,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.haibao.pojo.entity.Classroom">
+  <update id="updateByPrimaryKey" parameterType="com.haibao.domain.entity.Classroom">
     update t_classroom
     set name = #{name,jdbcType=VARCHAR},
       building_id = #{buildingId,jdbcType=INTEGER},

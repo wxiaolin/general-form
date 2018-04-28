@@ -1,7 +1,7 @@
 package com.haibao.service.impl;
 
 import com.haibao.dao.StudentInfoDao;
-import com.haibao.pojo.entity.StudentInfo;
+import com.haibao.domain.entity.StudentInfo;
 import com.haibao.service.StudentServcice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,17 +17,16 @@ public class StudentServciceImpl implements StudentServcice {
     @Autowired
     private StudentInfoDao studentInfoDao;
 
+    public StudentInfo getStudentInfoById(Integer id) {
+        return studentInfoDao.selectByPrimaryKey(id);
+    }
+
     public StudentInfo getStudentInfo(StudentInfo record) {
-        List<StudentInfo> siList = listStudentInfo(record);
-        if (siList.size()==1) {
-            return siList.get(0);
-        } else {
-            return null;
-        }
+        return studentInfoDao.selectByCriteria(record);
     }
 
     public List<StudentInfo> listStudentInfo(StudentInfo record) {
-        return studentInfoDao.selectByCriteria(record);
+        return studentInfoDao.selectListByCriteria(record);
     }
 
 }

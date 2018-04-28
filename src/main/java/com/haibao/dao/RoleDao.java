@@ -1,6 +1,6 @@
 package com.haibao.dao;
 
-import com.haibao.pojo.entity.Role;
+import com.haibao.domain.entity.Role;
 
 public interface RoleDao {
     int deleteByPrimaryKey(Integer id);

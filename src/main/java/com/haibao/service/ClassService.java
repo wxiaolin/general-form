@@ -1,6 +1,6 @@
 package com.haibao.service;
 
-import com.haibao.pojo.entity.ClassTable;
+import com.haibao.domain.entity.ClassTable;
 
 /**
  * Created by haibao on 2018/1/29.

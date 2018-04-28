@@ -1,7 +1,7 @@
 package com.haibao.service.impl;
 
 import com.haibao.dao.MajorDao;
-import com.haibao.pojo.entity.Major;
+import com.haibao.domain.entity.Major;
 import com.haibao.service.MajorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;

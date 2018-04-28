@@ -1,7 +1,7 @@
 package com.haibao.service.impl;
 
 import com.haibao.dao.ClassTableDao;
-import com.haibao.pojo.entity.ClassTable;
+import com.haibao.domain.entity.ClassTable;
 import com.haibao.service.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;

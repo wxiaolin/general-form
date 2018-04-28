@@ -1,15 +1,15 @@
 package com.haibao.dao;
 
-import com.haibao.pojo.entity.User;
+import com.haibao.domain.entity.User;
 
 public interface UserDao {
-    int deleteByPrimaryKey(Integer aid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(User record);
 
     int insertSelective(User record);
 
-    User selectByPrimaryKey(Integer aid);
+    User selectByPrimaryKey(Integer id);
 
     User selectByCriteria(User record);
 

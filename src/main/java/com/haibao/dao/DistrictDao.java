@@ -1,6 +1,6 @@
 package com.haibao.dao;
 
-import com.haibao.pojo.entity.District;
+import com.haibao.domain.entity.District;
 
 import java.util.List;
 

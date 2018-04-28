@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haibao.dao.NationDao">
-  <resultMap id="BaseResultMap" type="com.haibao.pojo.entity.Nation">
+  <resultMap id="BaseResultMap" type="com.haibao.domain.entity.Nation">
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -20,7 +20,7 @@
     from t_nation
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectAll" resultType="com.haibao.pojo.entity.Nation">
+  <select id="selectAll" resultType="com.haibao.domain.entity.Nation">
     select
     <include refid="Base_Column_List" />
     from t_nation
@@ -29,7 +29,7 @@
     delete from t_nation
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.haibao.pojo.entity.Nation">
+  <insert id="insert" parameterType="com.haibao.domain.entity.Nation">
     insert into t_nation (id, name, creator, 
       create_time, updater, update_time
       )
@@ -37,7 +37,7 @@
       #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.haibao.pojo.entity.Nation">
+  <insert id="insertSelective" parameterType="com.haibao.domain.entity.Nation">
     insert into t_nation
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.pojo.entity.Nation">
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.domain.entity.Nation">
     update t_nation
     <set>
       <if test="name != null">
@@ -101,7 +101,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.haibao.pojo.entity.Nation">
+  <update id="updateByPrimaryKey" parameterType="com.haibao.domain.entity.Nation">
     update t_nation
     set name = #{name,jdbcType=VARCHAR},
       creator = #{creator,jdbcType=INTEGER},

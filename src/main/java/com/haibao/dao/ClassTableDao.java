@@ -1,6 +1,6 @@
 package com.haibao.dao;
 
-import com.haibao.pojo.entity.ClassTable;
+import com.haibao.domain.entity.ClassTable;
 
 import java.util.List;
 

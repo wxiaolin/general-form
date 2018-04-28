@@ -1,6 +1,6 @@
 package com.haibao.init.db;
 
-import com.haibao.pojo.entity.District;
+import com.haibao.domain.entity.District;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.core.io.ClassPathResource;

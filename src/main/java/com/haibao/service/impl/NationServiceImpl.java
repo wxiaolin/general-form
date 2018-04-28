@@ -1,7 +1,7 @@
 package com.haibao.service.impl;
 
 import com.haibao.dao.NationDao;
-import com.haibao.pojo.entity.Nation;
+import com.haibao.domain.entity.Nation;
 import com.haibao.service.NationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;

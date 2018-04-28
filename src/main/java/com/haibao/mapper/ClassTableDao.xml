@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haibao.dao.ClassTableDao">
-  <resultMap id="BaseResultMap" type="com.haibao.pojo.entity.ClassTable">
+  <resultMap id="BaseResultMap" type="com.haibao.domain.entity.ClassTable">
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -23,7 +23,7 @@
     from t_class
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectAll" resultType="com.haibao.pojo.entity.ClassTable">
+  <select id="selectAll" resultType="com.haibao.domain.entity.ClassTable">
     select
     <include refid="Base_Column_List" />
     from t_class
@@ -32,7 +32,7 @@
     delete from t_class
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.haibao.pojo.entity.ClassTable">
+  <insert id="insert" parameterType="com.haibao.domain.entity.ClassTable">
     insert into t_class (id, dept_id, grade, 
       major_id, class_no, creator, 
       create_time, updater, update_time
@@ -42,7 +42,7 @@
       #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.haibao.pojo.entity.ClassTable">
+  <insert id="insertSelective" parameterType="com.haibao.domain.entity.ClassTable">
     insert into t_class
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -103,7 +103,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.pojo.entity.ClassTable">
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.domain.entity.ClassTable">
     update t_class
     <set>
       <if test="deptId != null">
@@ -133,7 +133,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.haibao.pojo.entity.ClassTable">
+  <update id="updateByPrimaryKey" parameterType="com.haibao.domain.entity.ClassTable">
     update t_class
     set dept_id = #{deptId,jdbcType=INTEGER},
       grade = #{grade,jdbcType=DATE},

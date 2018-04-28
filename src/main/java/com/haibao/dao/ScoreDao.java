@@ -1,6 +1,6 @@
 package com.haibao.dao;
 
-import com.haibao.pojo.entity.Score;
+import com.haibao.domain.entity.Score;
 
 public interface ScoreDao {
     int deleteByPrimaryKey(Integer id);

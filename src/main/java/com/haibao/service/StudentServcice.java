@@ -1,6 +1,6 @@
 package com.haibao.service;
 
-import com.haibao.pojo.entity.StudentInfo;
+import com.haibao.domain.entity.StudentInfo;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface StudentServcice {
 
-
+    StudentInfo getStudentInfoById(Integer id);
     StudentInfo getStudentInfo(StudentInfo record);
     List<StudentInfo> listStudentInfo(StudentInfo record);
 

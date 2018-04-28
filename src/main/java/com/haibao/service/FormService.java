@@ -1,9 +1,7 @@
 package com.haibao.service;
 
-import com.haibao.pojo.entity.Form;
-import com.haibao.pojo.vo.Page;
-
-import java.util.List;
+import com.haibao.domain.entity.Form;
+import com.haibao.domain.vo.Page;
 
 /**
  * Created by haibao on 2018/1/30.
