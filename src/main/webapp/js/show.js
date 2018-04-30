@@ -17,8 +17,8 @@ $.ajax({
         for (var i = 0; i < names.length; i++) {
             for (var v in d.data) {
                 if (names[i] == v) {
-                    console.log(d.data[v]);
-                    var id = "#" + names[i] + ":last-child";
+                    var inputArea = $("#"+v+">*").last();
+                    inputArea.val(d.data[v]);
                 }
             }
         }
