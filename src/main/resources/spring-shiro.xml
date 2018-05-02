@@ -18,6 +18,10 @@
         <property name="filterChainDefinitions">
             <value>
                 /login = anon
+                /css/** = anon
+                /js/** = anon
+                /font/** = anon
+                /img/** = anon
                 /** = authc
             </value>
         </property>
