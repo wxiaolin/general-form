@@ -4,6 +4,7 @@ package com.haibao.system.domain.enums;
  * Created by haibao on 2018/3/25.
  */
 public enum ErrorInfo {
+    ERROR_403(403, "身份验证失败"),
     ERROR_404(404, "请求资源不存在"),
     ERROR_500(500, "服务器内部错误");
 
