@@ -10,7 +10,8 @@
 ">
     <!--引入配置属性文件 -->
     <context:property-placeholder location="classpath*:jdbc.properties"/>
-    <context:component-scan base-package="com.haibao.service"/>
+    <context:component-scan base-package="com.haibao.system.service"/>
+    <context:component-scan base-package="com.haibao.business.service"/>
 
     <bean id="cacheManager" class="org.springframework.cache.concurrent.ConcurrentMapCacheManager" />
 
