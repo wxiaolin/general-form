@@ -20,9 +20,12 @@ public class FormServiceImpl implements FormService {
     private FormDao formDao;
 
     public Integer saveForm(Form form) {
-
         return formDao.insertSelective(form);
+    }
 
+    @Override
+    public Integer updateForm(Form form) {
+        return formDao.updateByPrimaryKeySelective(form);
     }
 
     @Override
@@ -34,7 +37,6 @@ public class FormServiceImpl implements FormService {
 //        int pageMax = totalRecord % 10 == 0 ? totalRecord / 10 : totalRecord / 10 + 1;
         int pageMax = PageUtil.getPageMax(totalRecord);
         // 分页查询
-
         List<Form> content = formDao.selectLimit(offset, page.getPageSize());
         page.setCurrentPage(pageNum);
         page.setData(content);

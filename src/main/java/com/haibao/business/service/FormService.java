@@ -10,6 +10,8 @@ public interface FormService {
 
     Integer saveForm(Form form);
 
+    Integer updateForm(Form form);
+
     Page<Form> pageList(Integer pageNum);
 
     Form getForm(Integer id);

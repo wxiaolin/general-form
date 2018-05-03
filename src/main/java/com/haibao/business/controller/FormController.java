@@ -28,23 +28,47 @@ public class FormController {
     @Autowired
     private FormService formService;
 
-    @RequestMapping(value = {"maker", "maker.html"})
-    public String maker() {
+    @RequestMapping(value = {"maker"})
+    public String goMaker() {
         return "maker";
+    }
+
+    @RequestMapping(value = "maker/{id}")
+    public ModelAndView goMaker(@PathVariable Integer id) {
+        ModelAndView mav = new ModelAndView("maker");
+        Form form = formService.getForm(id);
+        mav.addObject("form", form);
+        return mav;
     }
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST)
     public Result save(@RequestBody Form form) {
+        Logger logger = Logger.getLogger(FormController.class);
+        logger.debug("save(), "+form.toString());
         form.setCreator(1);
         form.setCreateTime(new Date());
         int r = formService.saveForm(form);
-        Logger logger = Logger.getRootLogger();
         if (r > 0) {
-            logger.info("Save the form is successful, "+ form.toString());
+            logger.info("表格保存成功： "+ form.toString());
             return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), form);
         } else {
-            logger.info("Save the form fails, "+ form.toString());
+            logger.info("表格保存失败： "+ form.toString());
+            return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.desc(), form);
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.PUT)
+    public Result edit(@RequestBody Form form){
+        Logger logger = Logger.getLogger(FormController.class);
+        logger.debug("edit(), "+form.toString());
+        int r = formService.updateForm(form);
+        if (r > 0) {
+            logger.info("表格更新成功："+ form.toString());
+            return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), form);
+        } else {
+            logger.info("表格更新失败："+ form.toString());
             return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.desc(), form);
         }
     }
@@ -58,17 +82,11 @@ public class FormController {
             mav.addObject("form", form);
             return mav;
         } else {
-//            mav = new ModelAndView("/error/error");
-//            Result result = new Result();
-//            result.setCode(ResultCode.ERROR_404.code());
-//            result.setMsg(ResultCode.ERROR_404.desc());
-//            mav.addObject("result", result);
-//            return mav;
             throw new ParamsException();
         }
     }
 
-    @RequestMapping(value = {"list", "list.html"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"list"}, method = RequestMethod.GET)
     public ModelAndView formPageList(HttpServletRequest req, Integer page) {
         ModelAndView mav = new ModelAndView("list");
         if (null == page) {

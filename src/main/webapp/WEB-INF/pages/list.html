@@ -62,7 +62,8 @@
                             <td>
                                 <!--<span th:if=""></span>-->
                                 <span><a th:href="@{${form.id}}">查看</a></span>
-                                <span shiro:hasRole="admin"><a href="#" th:onclick="'delForm('+${form.id}+')'">删除</a></span>
+                                <span shiro:hasRole="form manager"><a th:href="@{'/form/maker/'+${form.id}}" >编辑</a></span>
+                                <span shiro:hasRole="form manager"><a href="#" th:onclick="'delForm('+${form.id}+')'">删除</a></span>
                             </td>
                         </tr>
                         </tbody>

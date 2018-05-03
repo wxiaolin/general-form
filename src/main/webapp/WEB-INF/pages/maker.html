@@ -94,7 +94,9 @@
                     </div>
                     <div class="input-group ">
                         <div class="input-group-btn float-left">
-                            <button onclick="savedefine()" class="btn btn-making btn-danger btn-flat">保存表格</button>
+                            <button th:onclick="'savedefine(' + ${form == null ? 0 : form.id} + ')'"
+                                    class="btn btn-making btn-danger btn-flat">保存表格
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -121,6 +123,18 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/adminlte.min.js"></script>
 <script src="/js/maker.js"></script>
+<script th:if="${form!=null}" th:inline="javascript">
+    /*<![CDATA[*/
+    var define = [[${form.define}]];
+    // console.log(define);
+    $("#form").empty();
+    $("#form").append($(define));
+    $(".cells-wrapper").each(function () {
+        var obj = $(this).children("input");
+        obj.attr("readonly", "readonly");
+    });
+    /*]]>*/
+</script>
 </body>
 
 </html>

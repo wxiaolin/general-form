@@ -12,25 +12,40 @@ function setValue(obj) {
     obj.attr("value", obj.val());
 }
 
-function savedefine() {
-    var form = $("#form");
-    $("#form-title").attr("value", $("#form-title").val());
-    var formName = $("#form-title").val();
-    var define = form.html();
-    var json = {"name": formName, "define": define};
-    console.log(formName);
-    console.log(define);
-    $.ajax({
-        url: '/form',
-        type: 'POST',
-        traditional: true,
-        data: JSON.stringify(json),
-        contentType: "application/json",
-        dataType: 'json',
-        success: function (d) {
-            console.log(d);
-        }
-    });
+function savedefine(id) {
+    if (id == 0) {
+        var form = $("#form");
+        $("#form-title").attr("value", $("#form-title").val());
+        var formName = $("#form-title").val();
+        var define = form.html();
+        var json = {"name": formName, "define": define};
+        $.ajax({
+            url: '/form',
+            type: 'POST',
+            traditional: true,
+            data: JSON.stringify(json),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function (d) {
+                console.log(d);
+            }
+        });
+    } else {
+        var form = $("#form");
+        var define = form.html();
+        var json = {"id": id, "define": define};
+        $.ajax({
+            url: '/form',
+            type: 'PUT',
+            traditional: true,
+            data: JSON.stringify(json),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function (d) {
+                alert(d.msg);
+            }
+        });
+    }
 }
 
 function mode1Line1() {

@@ -43,11 +43,12 @@ public class FillerController {
     @Autowired
     private UserService userService;
 
+
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public Result filler(HttpServletRequest request, String[] names) throws Exception {
         User user = userService.getUserById(1);
-        Logger.getRootLogger().debug(user.toString());
+        Logger.getLogger(FillerController.class).debug(user.toString());
         StudentInfo studentInfo = new StudentInfo();
         studentInfo.setStuNo(user.getUsername());
         studentInfo = studentServcice.getStudentInfo(studentInfo);
