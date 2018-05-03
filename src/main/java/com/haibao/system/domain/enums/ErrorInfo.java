@@ -1,6 +1,7 @@
 package com.haibao.system.domain.enums;
 
 /**
+ * 错误信息枚举
  * Created by haibao on 2018/3/25.
  */
 public enum ErrorInfo {

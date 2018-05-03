@@ -1,6 +1,7 @@
 package com.haibao.business.domain.enums;
 
 /**
+ * 政治面貌枚举
  * Created by haibao on 2018/1/29.
  */
 public enum PoliticalStatusCode {

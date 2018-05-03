@@ -1,6 +1,7 @@
 package com.haibao.business.domain.enums;
 
 /**
+ * ResultCode枚举
  * Created by haibao on 2018/1/30.
  */
 public enum ResultCode {

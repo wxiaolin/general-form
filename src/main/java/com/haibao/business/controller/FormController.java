@@ -24,15 +24,23 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "form")
 public class FormController {
-
     @Autowired
     private FormService formService;
 
+    /**
+     * 前往表格绘制页面
+     * @return 表格绘制页面
+     */
     @RequestMapping(value = {"maker"})
     public String goMaker() {
         return "maker";
     }
 
+    /**
+     * 前往页面编辑某一表格
+     * @param id
+     * @return 表格绘制（编辑）页面
+     */
     @RequestMapping(value = "maker/{id}")
     public ModelAndView goMaker(@PathVariable Integer id) {
         ModelAndView mav = new ModelAndView("maker");
@@ -41,6 +49,11 @@ public class FormController {
         return mav;
     }
 
+    /**
+     * 保存表格定义
+     * @param form
+     * @return 返回处理结果的Result
+     */
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST)
     public Result save(@RequestBody Form form) {
@@ -58,6 +71,11 @@ public class FormController {
         }
     }
 
+    /**
+     * 根据Id编辑、更新表格
+     * @param form
+     * @return 返回处理结果的Result
+     */
     @ResponseBody
     @RequestMapping(method = RequestMethod.PUT)
     public Result edit(@RequestBody Form form){
@@ -73,6 +91,12 @@ public class FormController {
         }
     }
 
+    /**
+     * 根据Id获取具体表格
+     * @param id
+     * @return 返回表格页
+     * @throws ParamsException
+     */
     @ResponseBody
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ModelAndView get(@PathVariable Integer id) throws ParamsException {
@@ -86,6 +110,12 @@ public class FormController {
         }
     }
 
+    /**
+     * 获取表格列表
+     * @param req
+     * @param page
+     * @return 返回表格列表页
+     */
     @RequestMapping(value = {"list"}, method = RequestMethod.GET)
     public ModelAndView formPageList(HttpServletRequest req, Integer page) {
         ModelAndView mav = new ModelAndView("list");

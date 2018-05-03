@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 表格字段枚举
  * Created by haibao on 2018/2/3.
  */
 public enum FormField {

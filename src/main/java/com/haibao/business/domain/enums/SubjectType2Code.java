@@ -1,6 +1,7 @@
 package com.haibao.business.domain.enums;
 
 /**
+ * 课程类型2 枚举
  * Created by haibao on 2018/1/22.
  */
 public enum SubjectType2Code {

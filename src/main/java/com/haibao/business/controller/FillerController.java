@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 自动填充表格的Controller
  * @Author: caot
  * @Date: 2018/4/27 0027 下午 3:40
  */
@@ -44,6 +45,13 @@ public class FillerController {
     private UserService userService;
 
 
+    /**
+     * 表格内容自动填充
+     * @param request
+     * @param names
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public Result filler(HttpServletRequest request, String[] names) throws Exception {
@@ -54,7 +62,7 @@ public class FillerController {
         studentInfo = studentServcice.getStudentInfo(studentInfo);
         Logger.getRootLogger().debug(studentInfo.toString());
         Map<String, String> map = fill(names, studentInfo);
-        //
+        // jackson.databind.ObjectMapper，可以把map转换成string方便debug
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(map);
         Logger.getRootLogger().debug(json);
@@ -63,18 +71,19 @@ public class FillerController {
 
     /**
      * 填充的方法
-     *
      * @param fields
      * @param studentInfo
      * @return
      */
     private Map<String, String> fill(String[] fields, StudentInfo studentInfo) {
         Map<String, String> map = new HashMap<>();
+        // 迭代需要填充的字段
         for (String field : fields) {
             if (!StringUtil.isEmpty(field)) {
-                Logger.getRootLogger().debug("nullfield= " + field);
+                Logger.getLogger(FillerController.class).info("nullfield= " + field);
                 continue;
             } else {
+                // static FormFieldMap，程序启动的时候把枚举的KV加载进去
                 FormField ff = FormField.FormFieldMap.get(field);
                 if (null != ff) {
                     Logger.getRootLogger().debug("field= " + field);
@@ -165,8 +174,6 @@ public class FillerController {
                 }
             }
         }
-
-
         return map;
     }
 }

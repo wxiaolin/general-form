@@ -1,6 +1,7 @@
 package com.haibao.business.domain.enums;
 
 /**
+ * 学期枚举
  * Created by haibao on 2018/1/22.
  */
 public enum TermCode {

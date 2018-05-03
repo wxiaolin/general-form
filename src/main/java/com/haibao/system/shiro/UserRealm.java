@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * shiro ，自定义Realm
  * @Author: caot
  * @Date: 2018/5/2 0002 下午 3:34
  */
@@ -34,7 +35,6 @@ public class UserRealm extends AuthorizingRealm {
 
     /**
      * 授权
-     *
      * @param principalCollection
      * @return
      */
@@ -65,7 +65,6 @@ public class UserRealm extends AuthorizingRealm {
 
     /**
      * 身份验证
-     *
      * @param authenticationToken
      * @return
      * @throws AuthenticationException
