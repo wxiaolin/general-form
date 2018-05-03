@@ -24,6 +24,13 @@ public interface FormService {
     Integer updateForm(Form form);
 
     /**
+     * 逻辑删除表格
+     * @param id
+     * @return
+     */
+    Integer deleteForm(Integer id);
+
+    /**
      * 获取一页表格列表
      * @param pageNum
      * @return

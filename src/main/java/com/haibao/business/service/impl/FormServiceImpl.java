@@ -19,6 +19,7 @@ public class FormServiceImpl implements FormService {
     @Autowired
     private FormDao formDao;
 
+    @Override
     public Integer saveForm(Form form) {
         return formDao.insertSelective(form);
     }
@@ -26,6 +27,11 @@ public class FormServiceImpl implements FormService {
     @Override
     public Integer updateForm(Form form) {
         return formDao.updateByPrimaryKeySelective(form);
+    }
+
+    @Override
+    public Integer deleteForm(Integer id) {
+        return formDao.deleteByPrimaryKey(id);
     }
 
     @Override
@@ -44,7 +50,6 @@ public class FormServiceImpl implements FormService {
         page.setPageMax(pageMax);
         return page;
     }
-
 
     public Form getForm(Integer id) {
         return formDao.selectByPrimaryKey(id);

@@ -19,6 +19,7 @@ import java.util.List;
 /**
  * 表格相关的Controller
  * Created on 2018/3/18.
+ *
  * @author haibao
  */
 @Controller
@@ -58,36 +59,56 @@ public class FormController {
     @RequestMapping(method = RequestMethod.POST)
     public Result save(@RequestBody Form form) {
         Logger logger = Logger.getLogger(FormController.class);
-        logger.debug("save(), "+form.toString());
+        logger.debug("save(), " + form.toString());
         form.setCreator(1);
         form.setCreateTime(new Date());
         int r = formService.saveForm(form);
         if (r > 0) {
-            logger.info("表格保存成功： "+ form.toString());
+            logger.info("表格保存成功： " + form.toString());
             return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), form);
         } else {
-            logger.info("表格保存失败： "+ form.toString());
+            logger.info("表格保存失败： " + form.toString());
             return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.desc(), form);
         }
     }
 
     /**
      * 根据Id编辑、更新表格
-     * @param form
+     * @param form 自动绑定的表格对象
      * @return 返回处理结果的Result
      */
     @ResponseBody
     @RequestMapping(method = RequestMethod.PUT)
-    public Result edit(@RequestBody Form form){
+    public Result edit(@RequestBody Form form) {
         Logger logger = Logger.getLogger(FormController.class);
-        logger.debug("edit(), "+form.toString());
+        logger.debug("edit(), " + form.toString());
         int r = formService.updateForm(form);
         if (r > 0) {
-            logger.info("表格更新成功："+ form.toString());
+            logger.info("表格更新成功：" + form.toString());
             return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), form);
         } else {
-            logger.info("表格更新失败："+ form.toString());
+            logger.info("表格更新失败：" + form.toString());
             return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.desc(), form);
+        }
+    }
+
+    /**
+     * 根据Id对表格执行逻辑删除
+     * @param id 表格id
+     * @return 返回处理结果的Result
+     */
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.DELETE)
+    public Result delete(Integer id) {
+        Logger logger = Logger.getLogger(FormController.class);
+        logger.debug("delete(), id=" + id);
+        int r = formService.deleteForm(id);
+        if (r > 0) {
+            logger.info("表格删除成功：id=" + id);
+            return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), null);
+        } else {
+            logger.info("表格删除失败：id=" + id);
+            return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.desc(), null);
         }
     }
 
