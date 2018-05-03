@@ -33,11 +33,6 @@ public class FormController {
         return "maker";
     }
 
-    @RequestMapping(value = {"reader", "reader.html"})
-    public String reader() {
-        return "reader";
-    }
-
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST)
     public Result save(@RequestBody Form form) {
