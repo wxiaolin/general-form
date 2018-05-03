@@ -16,16 +16,18 @@
                 <img src="/img/timg1.jpg">
             </div>
             <div class="col-lg-12 form-space">
-                <input type="text" class="form-control radius-none" name="username" placeholder="请输入账户名" required="required"
+                <input type="text" class="form-control radius-none" id="username" name="username" placeholder="请输入账户名"
+                       required="required"
                        autofocus/>
             </div>
             <div class="col-lg-12 form-space">
-                <input type="password" class="form-control radius-none" name="password" placeholder="请输入密码" required="required"
+                <input type="password" class="form-control radius-none" id="password" name="password"
+                       placeholder="请输入密码" required="required"
                        autofocus/>
             </div>
             <div class="col-lg-8 form-space"></div>
             <div class="col-lg-4 form-space">
-                <button type="button" class="btn btn-success col-lg-12 radius-none">登录</button>
+                <button type="button" onclick="doLogin()" class="btn btn-success col-lg-12 radius-none">登录</button>
             </div>
         </div>
     </div>
@@ -34,5 +36,27 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/adminlte.min.js"></script>
+<script>
+    function doLogin() {
+        var params = {
+            username: $("#username").val(),
+            password: $("#password").val()}
+
+        $.ajax({
+            url: "login",
+            type: "POST",
+            traditional: true,
+            data: params,
+            success: function (d) {
+                if(d.success == true){
+                    alert(d.msg);
+                } else {
+                    alert(d.msg);
+                }
+            }
+        });
+
+    }
+</script>
 </body>
 </html>

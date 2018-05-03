@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +26,7 @@
     <header class="main-header" th:replace="common/header::header">
 
     </header>
-    <aside class="main-sidebar" th:replace="common/sidebar::sadebar">
+    <aside class="main-sidebar" th:replace="common/sidebar::sidebar">
 
     </aside>
     <div class="content-wrapper">
@@ -45,8 +47,9 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th class="col-md-10">公告标题</th>
+                            <th class="col-md-8">公告标题</th>
                             <th class="col-md-2">发布日期</th>
+                            <th class="col-md-2">操作</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -56,9 +59,13 @@
                             <td><a th:href="@{${form.id}}" th:text="${form.name}"></a></td>
                             <!--/*@thymesVar id="createTime" type="java.util.Date"*/-->
                             <td th:text="${#dates.format(form.createTime,'yyyy/MM/dd')}">&nbsp;</td>
+                            <td>
+                                <!--<span th:if=""></span>-->
+                                <span><a th:href="@{${form.id}}">查看</a></span>
+                                <span shiro:hasRole="admin"><a href="#" th:onclick="'delForm('+${form.id}+')'">删除</a></span>
+                            </td>
                         </tr>
                         </tbody>
-
                     </table>
                 </div>
                 <div id="form" class="box-footer">
@@ -66,8 +73,7 @@
                         <!--<li><a href="#">&laquo;</a></li>-->
                         <li th:each="i : ${#numbers.sequence(1,pageObj.pageMax+2)}"
                             th:class="${(i)-1==pageObj.currentPage?'active':null}"
-                            th:switch="${i}"
-                        >
+                            th:switch="${i}">
                             <!--/* i==1时输出《 */-->
                             <a class="radius-none"
                                th:case="1" th:text="'&laquo;'"

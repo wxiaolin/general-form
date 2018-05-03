@@ -2,6 +2,8 @@ package com.haibao.system.dao;
 
 import com.haibao.system.domain.entity.Role;
 
+import java.util.List;
+
 public interface RoleDao {
     int deleteByPrimaryKey(Integer id);
 
@@ -10,6 +12,8 @@ public interface RoleDao {
     int insertSelective(Role record);
 
     Role selectByPrimaryKey(Integer id);
+
+    List<Role> selectAll();
 
     int updateByPrimaryKeySelective(Role record);
 

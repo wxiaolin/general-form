@@ -13,9 +13,27 @@
             <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
         </constructor>
     </resultMap>
+    <!--<resultMap id="withRoleMap" type="com.haibao.system.domain.entity.User">-->
+        <!--<id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>-->
+        <!--<result property="username" column="username" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+        <!--<result property="password" column="password" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+        <!--<result property="astatus" column="astatus" javaType="java.lang.Byte" jdbcType="TINYINT"/>-->
+        <!--<result property="creator" column="creator" javaType="java.lang.Integer" jdbcType="INTEGER"/>-->
+        <!--<result property="createTime" column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>-->
+        <!--<result property="updater" column="updater" javaType="java.lang.Integer" jdbcType="INTEGER"/>-->
+        <!--<result property="updateTime" column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>-->
+        <!--<collection property="rolse" ofType="com.haibao.system.domain.entity.Role">-->
+            <!--<id property="id" column="id" />-->
+            <!--<result property="role" column="role"/>-->
+            <!--<result property="creator" column="creator" />-->
+            <!--<result property="createTime" column="create_time" />-->
+            <!--<result property="updater" column="updater" />-->
+            <!--<result property="updateTime" column="update_time" />-->
+        <!--</collection>-->
+    <!--</resultMap>-->
     <sql id="Base_Column_List">
     id, username, password,  astatus, creator, create_time, updater, update_time
-  </sql>
+    </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
