@@ -6,7 +6,9 @@ import com.haibao.business.domain.enums.ResultCode;
 import com.haibao.business.domain.vo.Page;
 import com.haibao.business.domain.vo.Result;
 import com.haibao.business.service.FormService;
+import com.haibao.system.domain.enums.ErrorInfo;
 import org.apache.log4j.Logger;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -99,9 +101,13 @@ public class FormController {
      */
     @ResponseBody
     @RequestMapping(method = RequestMethod.DELETE)
+//    public Result delete(Integer id, HttpServletRequest req) {
     public Result delete(@RequestBody Form form, HttpServletRequest req) {
         Logger logger = Logger.getLogger(FormController.class);
         Integer id = form.getId();
+        if (id == null) {
+            return new Result(false, ErrorInfo.ERROR_400.code(), ErrorInfo.ERROR_400.msg(), null);
+        }
         logger.debug("delete(), id=" + id);
         int r = formService.deleteForm(id);
         if (r > 0) {
@@ -120,7 +126,7 @@ public class FormController {
      * @throws ParamsException
      */
     @ResponseBody
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public ModelAndView get(@PathVariable Integer id) throws ParamsException {
         Form form = formService.getForm(id);
         if (null != form) {

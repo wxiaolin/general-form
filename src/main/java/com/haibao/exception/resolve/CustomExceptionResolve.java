@@ -3,6 +3,7 @@ package com.haibao.exception.resolve;
 import com.haibao.exception.ParamsException;
 import com.haibao.exception.UnknownException;
 import com.haibao.system.domain.enums.ErrorInfo;
+import org.apache.shiro.authz.AuthorizationException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,6 +26,11 @@ public class CustomExceptionResolve implements HandlerExceptionResolver {
 
         ex.printStackTrace();
         ModelAndView mav = new ModelAndView(errorPage);
+        if (ex instanceof AuthorizationException) {
+            mav.addObject("code", ErrorInfo.ERROR_403.code());
+            mav.addObject("mag", ErrorInfo.ERROR_403.msg());
+            return mav;
+        }
         // 参数异常
         if (ex instanceof ParamsException) {
             mav.addObject("code", ErrorInfo.ERROR_404.code());

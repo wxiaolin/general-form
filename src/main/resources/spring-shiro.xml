@@ -20,8 +20,8 @@
                 / = anon
                 /index.html = anon
                 /form/list = anon
-                /form/* = anon
                 /form/maker = roles[form manager]
+                /form/* = anon
                 /login = anon
                 /css/** = anon
                 /js/** = anon
