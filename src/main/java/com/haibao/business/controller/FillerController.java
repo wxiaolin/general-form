@@ -10,7 +10,7 @@ import com.haibao.business.service.*;
 import com.haibao.business.domain.vo.Result;
 import com.haibao.system.domain.entity.User;
 import com.haibao.system.service.UserService;
-import com.haibao.utils.StringUtil;
+import com.haibao.utils.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -79,7 +79,7 @@ public class FillerController {
         Map<String, String> map = new HashMap<>();
         // 迭代需要填充的字段
         for (String field : fields) {
-            if (!StringUtil.isEmpty(field)) {
+            if (!StringUtils.isEmpty(field)) {
                 Logger.getLogger(FillerController.class).info("nullfield= " + field);
                 continue;
             } else {

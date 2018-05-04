@@ -8,7 +8,7 @@ import java.util.List;
  * @Author: caot
  * @Date: 2018/4/9 0009 下午 2:03
  */
-public class PageUtil {
+public class PageUtils {
 
 
     /**

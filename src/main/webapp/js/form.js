@@ -5,10 +5,12 @@ function delForm(id) {
         url: "/form",
         type: "DELETE",
         traditional: true,
-        data: params,
+        contentType: "application/json",
+        data: JSON.stringify(params),
         success: function (d) {
-            alert(d.msg);
-            window.location.reload();
+            if (d.success==true) {
+                window.location.reload();
+            }
         }
     });
 }

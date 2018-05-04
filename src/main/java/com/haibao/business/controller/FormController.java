@@ -94,13 +94,14 @@ public class FormController {
 
     /**
      * 根据Id对表格执行逻辑删除
-     * @param id 表格id
+     * @param form 表格对象
      * @return 返回处理结果的Result
      */
     @ResponseBody
     @RequestMapping(method = RequestMethod.DELETE)
-    public Result delete(Integer id) {
+    public Result delete(@RequestBody Form form, HttpServletRequest req) {
         Logger logger = Logger.getLogger(FormController.class);
+        Integer id = form.getId();
         logger.debug("delete(), id=" + id);
         int r = formService.deleteForm(id);
         if (r > 0) {

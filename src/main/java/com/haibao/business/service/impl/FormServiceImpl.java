@@ -4,7 +4,7 @@ import com.haibao.business.dao.FormDao;
 import com.haibao.business.domain.entity.Form;
 import com.haibao.business.domain.vo.Page;
 import com.haibao.business.service.FormService;
-import com.haibao.utils.PageUtil;
+import com.haibao.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +41,7 @@ public class FormServiceImpl implements FormService {
         // 查记录总数
         int totalRecord = formDao.selectCount();
 //        int pageMax = totalRecord % 10 == 0 ? totalRecord / 10 : totalRecord / 10 + 1;
-        int pageMax = PageUtil.getPageMax(totalRecord);
+        int pageMax = PageUtils.getPageMax(totalRecord);
         // 分页查询
         List<Form> content = formDao.selectLimit(offset, page.getPageSize());
         page.setCurrentPage(pageNum);
