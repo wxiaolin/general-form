@@ -12,7 +12,7 @@
             <div class="pull-left info">
                 <!--/*@thymesVar id="loginUser" type="com.haibao.system.domain.po.LoginUser"*/-->
                 <!--/*@thymesVar id="RoleCode" type="com.haibao.system.domain.enums.RoleCode"*/-->
-                <p th:text="${session.loginUser} == null ? '游客': ${session.loginUser}"></p>
+                <p th:text="${session.currentUser} == null ? '游客': ${session.currentUser.username}"></p>
                 <!--<p th:text="${session.loginUser}==null ? '游客': (${loginUser.loginAccount.roleId}==${RoleCode.STUDENT.code}?loginUser.userInfo.stuName:'admin')"></p>-->
                 <!--<p th:text="${session.loginUser}"></p>-->
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>

@@ -1,6 +1,7 @@
 package com.haibao.system.controller;
 
 import com.haibao.business.domain.enums.ResultCode;
+import com.haibao.business.domain.enums.SessionContext;
 import com.haibao.business.domain.vo.Result;
 import com.haibao.system.domain.entity.User;
 import com.haibao.system.domain.enums.ErrorInfo;
@@ -34,26 +35,25 @@ public class LoginController {
         return "login";
     }
 
+    /**
+     * 登陆操作
+     * @param username 用户名
+     * @param password
+     * @return Result对象的json
+     */
     @RequestMapping(value = "login", method = RequestMethod.POST)
     @ResponseBody
-    public Result doLogin(String username, String password, HttpServletRequest request) throws Exception {
+    public Result doLogin(String username, String password) {
         Logger.getLogger(LoginController.class).debug("username = " + username + ", password =" + password);
-        // todo: 登录部分封装service
-        try {
-            UsernamePasswordToken token = new UsernamePasswordToken();
-            token.setUsername(username);
-//            char[] pwdMd5 = new Md5Hash(password).toString().toCharArray();
-//            token.setPassword(pwdMd5);
-            token.setPassword(password.toCharArray());
-            Subject currentUser = SecurityUtils.getSubject();
-            if (!currentUser.isAuthenticated()) {
-                currentUser.login(token);
-            }
-            String user = (String) currentUser.getPrincipal();
-            Logger.getLogger(LoginController.class).debug("user = " + user);
-            request.getSession().setAttribute("loginUser", user);
+        if (username == null && password == null) {
+            Logger.getLogger(LoginController.class).info("登录失败, username=" + username + ", password=" + password);
+            return new Result(false, ErrorInfo.ERROR_403.code(), ErrorInfo.ERROR_403.msg(), null);
+        }
+        boolean loginResult = loginService.doLogin(username, password);
+        if (loginResult){
+            Logger.getLogger(LoginController.class).info("登录成功，username= " + username);
             return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), null);
-        } catch (Exception e) {
+        } else {
             Logger.getLogger(LoginController.class).info("登录失败, username=" + username + ", password=" + password);
             return new Result(false, ErrorInfo.ERROR_403.code(), ErrorInfo.ERROR_403.msg(), null);
         }

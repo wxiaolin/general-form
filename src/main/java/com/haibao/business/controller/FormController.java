@@ -96,12 +96,12 @@ public class FormController {
 
     /**
      * 根据Id对表格执行逻辑删除
+     * RequestBody Form form，不直接用Integet id，因为springmvc框架不能很好的处理GET/POST外的请求，所以直接绑定到Form对象上。
      * @param form 表格对象
      * @return 返回处理结果的Result
      */
     @ResponseBody
     @RequestMapping(method = RequestMethod.DELETE)
-//    public Result delete(Integer id, HttpServletRequest req) {
     public Result delete(@RequestBody Form form, HttpServletRequest req) {
         Logger logger = Logger.getLogger(FormController.class);
         Integer id = form.getId();

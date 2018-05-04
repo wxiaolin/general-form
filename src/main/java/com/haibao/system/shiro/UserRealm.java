@@ -1,5 +1,6 @@
 package com.haibao.system.shiro;
 
+import com.haibao.business.domain.enums.SessionContext;
 import com.haibao.system.dao.RoleDao;
 import com.haibao.system.dao.UserDao;
 import com.haibao.system.dao.UserRoleDao;
@@ -7,10 +8,12 @@ import com.haibao.system.domain.entity.Role;
 import com.haibao.system.domain.entity.User;
 import com.haibao.system.domain.entity.UserRole;
 import org.apache.log4j.Logger;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -76,6 +79,8 @@ public class UserRealm extends AuthorizingRealm {
         user.setUsername(token.getUsername());
         user = userDao.selectByCriteria(user);
         if (user.getId() != null) {
+            Session session = SecurityUtils.getSubject().getSession();
+            session.setAttribute(SessionContext.CURRENT_USER.string(), user);
             return new SimpleAuthenticationInfo(user.getUsername(), user.getPassword(), getName());
         }
         return null;

@@ -14,5 +14,5 @@ public interface LoginService {
      * @param password
      * @return
      */
-    User doLogin(String userName, String password);
+    boolean doLogin(String userName, String password);
 }
