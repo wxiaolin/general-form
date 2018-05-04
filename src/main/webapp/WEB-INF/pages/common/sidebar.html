@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <aside class="main-sidebar" th:fragment="sidebar">
     <section class="sidebar">
         <!-- Sidebar user panel (optional) -->
@@ -10,8 +12,9 @@
             <div class="pull-left info">
                 <!--/*@thymesVar id="loginUser" type="com.haibao.system.domain.po.LoginUser"*/-->
                 <!--/*@thymesVar id="RoleCode" type="com.haibao.system.domain.enums.RoleCode"*/-->
-                <!--<p th:text="${loginUser}==null ? '游客': (${loginUser.loginAccount.roleId}==${RoleCode.STUDENT.code}?loginUser.userInfo.stuName:'admin')"></p>-->
-                <p th:text="${session.loginUser}"></p>
+                <p th:text="${session.loginUser} == null ? '游客': ${session.loginUser}"></p>
+                <!--<p th:text="${session.loginUser}==null ? '游客': (${loginUser.loginAccount.roleId}==${RoleCode.STUDENT.code}?loginUser.userInfo.stuName:'admin')"></p>-->
+                <!--<p th:text="${session.loginUser}"></p>-->
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
             <div class="pull-right">
@@ -23,14 +26,14 @@
 
         <!-- search form (Optional) -->
         <!--<form action="#" method="get" class="sidebar-form">-->
-            <!--<div class="input-group">-->
-                <!--<input type="text" name="q" class="form-control" placeholder="Search...">-->
-                <!--<span class="input-group-btn">-->
-              					<!--<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i-->
-                                        <!--class="fa fa-search"></i>-->
-              					<!--</button>-->
-            				<!--</span>-->
-            <!--</div>-->
+        <!--<div class="input-group">-->
+        <!--<input type="text" name="q" class="form-control" placeholder="Search...">-->
+        <!--<span class="input-group-btn">-->
+        <!--<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i-->
+        <!--class="fa fa-search"></i>-->
+        <!--</button>-->
+        <!--</span>-->
+        <!--</div>-->
         <!--</form>-->
         <!-- /.search form -->
 
@@ -41,7 +44,7 @@
             <li>
                 <a href="/form/list"><i class="fa fa-link"></i><span>查看表格列表</span></a>
             </li>
-            <li class="treeview">
+            <li shiro:hasRole="form manager" class="treeview">
                 <a href="#"><i class="fa fa-link"></i><span>表格管理</span>
                     <span class="pull-right-container">
                 					<i class="fa fa-angle-left pull-right"></i>
@@ -55,7 +58,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview">
+            <li shiro:hasRole="admin" class="treeview">
                 <a href="#"><i class="fa fa-link"></i><span>系统管理</span>
                     <span class="pull-right-container">
                 					<i class="fa fa-angle-left pull-right"></i>

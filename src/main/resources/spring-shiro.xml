@@ -17,10 +17,15 @@
         <property name="unauthorizedUrl" value="/error/error"/>
         <property name="filterChainDefinitions">
             <value>
+                / = anon
+                /index.html = anon
+                /form/list = anon
+                /form/* = anon
+                /form/maker = roles[form manager]
                 /login = anon
                 /css/** = anon
                 /js/** = anon
-                /font/** = anon
+                /fonts/** = anon
                 /img/** = anon
                 /** = authc
             </value>

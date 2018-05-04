@@ -5,7 +5,7 @@ package com.haibao.utils;
  *
  * @author haibao
  */
-public class StringUtil {
+public class StringUtils {
 
     /**
      * 判断字符串是否为空
