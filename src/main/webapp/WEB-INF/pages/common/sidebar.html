@@ -24,19 +24,6 @@
             </div>
         </div>
 
-        <!-- search form (Optional) -->
-        <!--<form action="#" method="get" class="sidebar-form">-->
-        <!--<div class="input-group">-->
-        <!--<input type="text" name="q" class="form-control" placeholder="Search...">-->
-        <!--<span class="input-group-btn">-->
-        <!--<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i-->
-        <!--class="fa fa-search"></i>-->
-        <!--</button>-->
-        <!--</span>-->
-        <!--</div>-->
-        <!--</form>-->
-        <!-- /.search form -->
-
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">功能列表</li>
@@ -54,7 +41,7 @@
                         <a href="/form/maker">表格绘制</a>
                     </li>
                     <li>
-                        <a href="#">表格一览</a>
+                        <a href="/form/list">表格一览</a>
                     </li>
                 </ul>
             </li>
@@ -66,13 +53,22 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="#">表格管理</a>
-                    </li>
-                    <li>
                         <a href="#">网站公告管理</a>
                     </li>
-                    <li>
-                        <a href="#">用户管理</a>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-link"></i><span>用户管理</span>
+                            <span class="pull-right-container">
+                					<i class="fa fa-angle-left pull-right"></i>
+              					</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="#">用户状态管理</a>
+                                <a href="#">用户角色管理</a>
+                                <a href="#">用户批注册</a>
+                                <a href="#">密码重置</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </li>
