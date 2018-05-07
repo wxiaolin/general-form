@@ -1,10 +1,6 @@
 package com.haibao.system.service.impl;
 
-import com.haibao.business.domain.vo.Result;
-import com.haibao.system.controller.LoginController;
 import com.haibao.system.dao.UserDao;
-import com.haibao.system.domain.entity.User;
-import com.haibao.system.domain.enums.ErrorInfo;
 import com.haibao.system.service.LoginService;
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;

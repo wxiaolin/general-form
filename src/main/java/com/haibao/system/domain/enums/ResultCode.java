@@ -1,4 +1,4 @@
-package com.haibao.business.domain.enums;
+package com.haibao.system.domain.enums;
 
 /**
  * ResultCode枚举
@@ -7,24 +7,25 @@ package com.haibao.business.domain.enums;
 public enum ResultCode {
 
     SUCCESS(200, "OK"),
+    ERROR_400(400,"参数绑定错误"),
+    ERROR_403(403, "身份验证失败"),
     ERROR_404(404, "请求资源不存在"),
     ERROR_500(500, "服务器内部错误");
 
     private int code;
-    private String desc;
+    private String msg;
 
     public int code() {
         return code;
     }
 
-    public String desc() {
-        return desc;
+    public String msg() {
+        return msg;
     }
 
     ResultCode(int code, String desc) {
-
         this.code = code;
-        this.desc = desc;
+        this.msg = desc;
     }
 
 }

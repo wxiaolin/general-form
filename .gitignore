@@ -6,3 +6,4 @@ src/main/resources/jdbc.properties
 .project
 src/main/resources/专业班级表.xlsx
 generalformsystem.iml
+*.log*

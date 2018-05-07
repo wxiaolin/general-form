@@ -1,14 +1,12 @@
 package com.haibao.business.controller;
 
-import com.haibao.exception.ParamsException;
+import com.haibao.exception.NoSuchResourceException;
 import com.haibao.business.domain.entity.Form;
-import com.haibao.business.domain.enums.ResultCode;
+import com.haibao.system.domain.enums.ResultCode;
 import com.haibao.business.domain.vo.Page;
 import com.haibao.business.domain.vo.Result;
 import com.haibao.business.service.FormService;
-import com.haibao.system.domain.enums.ErrorInfo;
 import org.apache.log4j.Logger;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -32,28 +30,39 @@ public class FormController {
 
     /**
      * 前往表格绘制页面
+     *
      * @return 表格绘制页面
      */
     @RequestMapping(value = {"maker"})
     public String goMaker() {
+        Logger logger = Logger.getLogger(FormController.class);
+        logger.debug("进入goMaker() ");
         return "maker";
     }
 
     /**
      * 前往页面编辑某一表格
+     *
      * @param id
      * @return 表格绘制（编辑）页面
      */
     @RequestMapping(value = "maker/{id}")
-    public ModelAndView goMaker(@PathVariable Integer id) {
+    public ModelAndView goMaker(@PathVariable Integer id) throws NoSuchResourceException {
+        Logger logger = Logger.getLogger(FormController.class);
+        logger.debug("进入goMaker(int), id=" + id);
         ModelAndView mav = new ModelAndView("maker");
         Form form = formService.getForm(id);
-        mav.addObject("form", form);
-        return mav;
+        if (null != form) {
+            mav.addObject("form", form);
+            return mav;
+        } else {
+            throw new NoSuchResourceException();
+        }
     }
 
     /**
      * 保存表格定义
+     *
      * @param form
      * @return 返回处理结果的Result
      */
@@ -61,21 +70,22 @@ public class FormController {
     @RequestMapping(method = RequestMethod.POST)
     public Result save(@RequestBody Form form) {
         Logger logger = Logger.getLogger(FormController.class);
-        logger.debug("save(), " + form.toString());
+        logger.debug("进入save(), " + form.toString());
         form.setCreator(1);
         form.setCreateTime(new Date());
         int r = formService.saveForm(form);
         if (r > 0) {
             logger.info("表格保存成功： " + form.toString());
-            return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), form);
+            return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.msg(), form);
         } else {
             logger.info("表格保存失败： " + form.toString());
-            return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.desc(), form);
+            return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.msg(), form);
         }
     }
 
     /**
      * 根据Id编辑、更新表格
+     *
      * @param form 自动绑定的表格对象
      * @return 返回处理结果的Result
      */
@@ -83,20 +93,21 @@ public class FormController {
     @RequestMapping(method = RequestMethod.PUT)
     public Result edit(@RequestBody Form form) {
         Logger logger = Logger.getLogger(FormController.class);
-        logger.debug("edit(), " + form.toString());
+        logger.debug("进入edit(), " + form.toString());
         int r = formService.updateForm(form);
         if (r > 0) {
             logger.info("表格更新成功：" + form.toString());
-            return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), form);
+            return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.msg(), form);
         } else {
             logger.info("表格更新失败：" + form.toString());
-            return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.desc(), form);
+            return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.msg(), form);
         }
     }
 
     /**
      * 根据Id对表格执行逻辑删除
      * RequestBody Form form，不直接用Integet id，因为springmvc框架不能很好的处理GET/POST外的请求，所以直接绑定到Form对象上。
+     *
      * @param form 表格对象
      * @return 返回处理结果的Result
      */
@@ -104,42 +115,43 @@ public class FormController {
     @RequestMapping(method = RequestMethod.DELETE)
     public Result delete(@RequestBody Form form, HttpServletRequest req) {
         Logger logger = Logger.getLogger(FormController.class);
+        logger.debug("进入delete(), " + form.toString());
         Integer id = form.getId();
         if (id == null) {
-            return new Result(false, ErrorInfo.ERROR_400.code(), ErrorInfo.ERROR_400.msg(), null);
+            return new Result(false, ResultCode.ERROR_400.code(), ResultCode.ERROR_400.msg(), null);
         }
-        logger.debug("delete(), id=" + id);
         int r = formService.deleteForm(id);
         if (r > 0) {
             logger.info("表格删除成功：id=" + id);
-            return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), null);
+            return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.msg(), null);
         } else {
             logger.info("表格删除失败：id=" + id);
-            return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.desc(), null);
+            return new Result(false, ResultCode.ERROR_500.code(), ResultCode.ERROR_500.msg(), null);
         }
     }
 
     /**
      * 根据Id获取具体表格
+     *
      * @param id
      * @return 返回表格页
-     * @throws ParamsException
+     * @throws NoSuchResourceException
      */
-    @ResponseBody
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
-    public ModelAndView get(@PathVariable Integer id) throws ParamsException {
+    public ModelAndView get(@PathVariable Integer id) throws NoSuchResourceException {
         Form form = formService.getForm(id);
         if (null != form) {
             ModelAndView mav = new ModelAndView("form");
             mav.addObject("form", form);
             return mav;
         } else {
-            throw new ParamsException();
+            throw new NoSuchResourceException();
         }
     }
 
     /**
      * 获取表格列表
+     *
      * @param req
      * @param page
      * @return 返回表格列表页
@@ -147,7 +159,7 @@ public class FormController {
     @RequestMapping(value = {"list"}, method = RequestMethod.GET)
     public ModelAndView formPageList(HttpServletRequest req, Integer page) {
         ModelAndView mav = new ModelAndView("list");
-        if (null == page) {
+        if (null == page || 0 > page) {
             page = 1;
         }
         Page<Form> pageObj = formService.pageList(page);
@@ -156,5 +168,4 @@ public class FormController {
         mav.addObject("pageObj", pageObj);
         return mav;
     }
-
 }

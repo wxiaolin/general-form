@@ -13,24 +13,15 @@
             <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
         </constructor>
     </resultMap>
-    <!--<resultMap id="withRoleMap" type="com.haibao.system.domain.entity.User">-->
-        <!--<id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>-->
-        <!--<result property="username" column="username" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
-        <!--<result property="password" column="password" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
-        <!--<result property="astatus" column="astatus" javaType="java.lang.Byte" jdbcType="TINYINT"/>-->
-        <!--<result property="creator" column="creator" javaType="java.lang.Integer" jdbcType="INTEGER"/>-->
-        <!--<result property="createTime" column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>-->
-        <!--<result property="updater" column="updater" javaType="java.lang.Integer" jdbcType="INTEGER"/>-->
-        <!--<result property="updateTime" column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>-->
-        <!--<collection property="rolse" ofType="com.haibao.system.domain.entity.Role">-->
-            <!--<id property="id" column="id" />-->
-            <!--<result property="role" column="role"/>-->
-            <!--<result property="creator" column="creator" />-->
-            <!--<result property="createTime" column="create_time" />-->
-            <!--<result property="updater" column="updater" />-->
-            <!--<result property="updateTime" column="update_time" />-->
-        <!--</collection>-->
-    <!--</resultMap>-->
+    <resultMap id="withRoleMap" type="com.haibao.system.domain.entity.User">
+        <id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="username" column="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="astatus" column="astatus" javaType="java.lang.Byte" jdbcType="TINYINT"/>
+        <collection property="roles" ofType="com.haibao.system.domain.entity.Role">
+            <id property="id" column="rid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <result property="role" column="role" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        </collection>
+    </resultMap>
     <sql id="Base_Column_List">
     id, username, password,  astatus, creator, create_time, updater, update_time
     </sql>
@@ -39,6 +30,28 @@
         <include refid="Base_Column_List"/>
         from t_user
         where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectUsersHaveRolesLimit" resultMap="withRoleMap">
+        select u.id,u.username,u.astatus,r.id rid,r.role from t_user u
+        left join t_user_role ur on u.id = ur.user_id
+        left join t_role r on r.id = ur.role_id
+        and r.role != 'user'
+        and r.role != 'admin'
+        order by u.username desc
+        limit #{offset},#{rowCount}
+    </select>
+    <select id="selectLimit" resultMap="withRoleMap">
+        select u.id,u.username,u.astatus,r.id rid,r.role from t_user u
+        left join t_user_role ur on u.id = ur.user_id
+        left join t_role r on r.id = ur.role_id
+        and r.role != 'admin'
+        order by u.username desc
+        limit #{offset},#{rowCount}
+    </select>
+    <select id="selectCount" resultType="java.lang.Integer">
+        select
+        count(id)
+        from t_user
     </select>
     <select id="selectByCriteria" parameterType="com.haibao.system.domain.entity.User" resultMap="BaseResultMap">
         select
@@ -49,15 +62,24 @@
                 #{id,jdbcType=INTEGER}
             </if>
             <if test="username != null">
+                and
                 #{username,jdbcType=VARCHAR}
             </if>
             <if test="password != null">
+                and
                 #{password,jdbcType=VARCHAR}
             </if>
             <if test="astatus != null">
+                and
                 #{astatus,jdbcType=TINYINT}
             </if>
         </trim>
+    </select>
+    <select id="selectByUsernameWithRole" parameterType="java.lang.String" resultMap="withRoleMap">
+        select u.id,u.username,u.astatus,r.id rid,r.role from t_user u
+        left join t_user_role ur on u.id = ur.user_id
+        left join t_role r on r.id = ur.role_id
+        where username = #{username,jdbcType=VARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_user

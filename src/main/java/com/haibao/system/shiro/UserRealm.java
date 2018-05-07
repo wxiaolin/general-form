@@ -24,6 +24,7 @@ import java.util.Set;
 
 /**
  * shiro ，自定义Realm
+ *
  * @Author: caot
  * @Date: 2018/5/2 0002 下午 3:34
  */
@@ -38,6 +39,7 @@ public class UserRealm extends AuthorizingRealm {
 
     /**
      * 授权
+     *
      * @param principalCollection
      * @return
      */
@@ -48,19 +50,10 @@ public class UserRealm extends AuthorizingRealm {
         Set<String> roleNames = new HashSet<String>();
         Set<String> permissions = new HashSet<String>();
         String username = (String) principalCollection.fromRealm(getName()).iterator().next();
-        User user = new User();
-        user.setUsername(username);
-        // todo: 应做关联查询
-        user = userDao.selectByCriteria(user);
-        List<Role> roles = roleDao.selectAll();
-        List<UserRole> userRoles = userRoleDao.selectByUserId(user.getId());
-        for (UserRole ur : userRoles) {
-            for (Role r : roles) {
-                if (r.getId() == ur.getRoleId()) {
-                    Logger.getLogger(UserRealm.class).debug(r.getRole());
-                    roleNames.add(r.getRole());
-                }
-            }
+        User user = userDao.selectByUsernameWithRole(username);
+        for (Role r : user.getRoles()) {
+            Logger.getLogger(UserRealm.class).debug(r.getRole());
+            roleNames.add(r.getRole());
         }
         info.addRoles(roleNames);
         return info;
@@ -68,6 +61,7 @@ public class UserRealm extends AuthorizingRealm {
 
     /**
      * 身份验证
+     *
      * @param authenticationToken
      * @return
      * @throws AuthenticationException

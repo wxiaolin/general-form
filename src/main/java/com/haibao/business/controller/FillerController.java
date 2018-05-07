@@ -2,13 +2,11 @@ package com.haibao.business.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.haibao.business.domain.entity.*;
-import com.haibao.business.domain.enums.FormField;
-import com.haibao.business.domain.enums.PoliticalStatusCode;
-import com.haibao.business.domain.enums.ResultCode;
-import com.haibao.business.domain.enums.SexCode;
+import com.haibao.business.domain.enums.*;
 import com.haibao.business.service.*;
 import com.haibao.business.domain.vo.Result;
 import com.haibao.system.domain.entity.User;
+import com.haibao.system.domain.enums.ResultCode;
 import com.haibao.system.service.UserService;
 import com.haibao.utils.StringUtils;
 import org.apache.log4j.Logger;
@@ -23,6 +21,7 @@ import java.util.Map;
 
 /**
  * 自动填充表格的Controller
+ *
  * @Author: caot
  * @Date: 2018/4/27 0027 下午 3:40
  */
@@ -47,6 +46,7 @@ public class FillerController {
 
     /**
      * 表格内容自动填充
+     *
      * @param request
      * @param names
      * @return
@@ -55,38 +55,42 @@ public class FillerController {
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public Result filler(HttpServletRequest request, String[] names) throws Exception {
-        User user = userService.getUserById(1);
-        Logger.getLogger(FillerController.class).debug(user.toString());
+        User user = (User) request.getSession().getAttribute(SessionContext.CURRENT_USER.string());
+        Logger logger = Logger.getLogger(FillerController.class);
+        logger.debug("进入filler(), " + user.toString());
+
         StudentInfo studentInfo = new StudentInfo();
         studentInfo.setStuNo(user.getUsername());
         studentInfo = studentServcice.getStudentInfo(studentInfo);
-        Logger.getRootLogger().debug(studentInfo.toString());
+        logger.debug(studentInfo.toString());
         Map<String, String> map = fill(names, studentInfo);
         // jackson.databind.ObjectMapper，可以把map转换成string方便debug
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(map);
-        Logger.getRootLogger().debug(json);
-        return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.desc(), map);
+        logger.debug(json);
+        return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.msg(), map);
     }
 
     /**
      * 填充的方法
+     *
      * @param fields
      * @param studentInfo
      * @return
      */
     private Map<String, String> fill(String[] fields, StudentInfo studentInfo) {
         Map<String, String> map = new HashMap<>();
+        Logger logger = Logger.getLogger(FillerController.class);
         // 迭代需要填充的字段
         for (String field : fields) {
             if (!StringUtils.isEmpty(field)) {
-                Logger.getLogger(FillerController.class).info("nullfield= " + field);
+                logger.debug("nullfield= " + field);
                 continue;
             } else {
                 // static FormFieldMap，程序启动的时候把枚举的KV加载进去
                 FormField ff = FormField.FormFieldMap.get(field);
                 if (null != ff) {
-                    Logger.getRootLogger().debug("field= " + field);
+                    logger.debug("field= " + field);
                     switch (ff) {
                         case NAME:
                             map.put(field, studentInfo.getName());

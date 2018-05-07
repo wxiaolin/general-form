@@ -27,6 +27,7 @@
                 /js/** = anon
                 /fonts/** = anon
                 /img/** = anon
+                /admin/** = roles[admin]
                 /** = authc
             </value>
         </property>
