@@ -129,6 +129,16 @@
     // console.log(define);
     $("#form").empty();
     $("#form").append($(define));
+    var divs = $(".cells-wrapper");
+    console.log(divs.length);
+    divs.each(function () {
+        $(this).children("input").blur(function () {
+            setKey($(this));
+        })
+        $(this).children("textarea").blur(function () {
+            setValue($(this));
+        })
+    })
     // $(".cells-wrapper").each(function () {
     //     var obj = $(this).children("input");
     //     obj.attr("readonly", "readonly");
