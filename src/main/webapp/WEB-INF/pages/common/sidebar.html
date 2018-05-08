@@ -40,6 +40,20 @@
                     </li>
                 </ul>
             </li>
+            <li shiro:hasRole="form manager" class="treeview">
+                <a href="#"><span class="glyphicon glyphicon-th-list"></span><span>个人帐号管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span></a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="/user/editor">帐号维护</a>
+                    </li>
+                    <li>
+                        <a href="#">功能待开发...</a>
+                    </li>
+                </ul>
+            </li>
             <li shiro:hasRole="admin" class="treeview">
                 <a href="#"><span class="glyphicon glyphicon-th-list"></span><span>系统管理</span>
                     <span class="pull-right-container">
