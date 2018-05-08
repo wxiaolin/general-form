@@ -10,7 +10,7 @@ public class User {
 
     private String password;
 
-    private Byte astatus;
+    private Integer astatus;
 
     private Integer creator;
 
@@ -22,7 +22,7 @@ public class User {
 
     private List<Role> roles;
 
-    public User(Integer id, String username, String password, Byte astatus, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public User(Integer id, String username, String password, Integer astatus, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -61,11 +61,11 @@ public class User {
         this.password = password;
     }
 
-    public Byte getAstatus() {
+    public Integer getAstatus() {
         return astatus;
     }
 
-    public void setAstatus(Byte astatus) {
+    public void setAstatus(Integer astatus) {
         this.astatus = astatus;
     }
 

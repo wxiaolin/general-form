@@ -14,11 +14,15 @@ public interface UserDao {
 
     int selectCount();
 
+    int selectCountFuzzy(@Param("str") String str);
+
     User selectByPrimaryKey(Integer id);
 
     User selectByCriteria(User record);
 
     User selectByUsernameWithRole(String username);
+
+    List<User> selectByUsernameWithRoleFuzzyLimit(@Param("str") String str,@Param("offset") int offset, @Param("rowCount") int rowCount);
 
 //    List<User> selectByUsernameWithRole(String username);
 

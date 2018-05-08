@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Page<User> pageList(int pageNum) {
+    public Page<User> pageUserList(int pageNum) {
         int offset = (pageNum - 1) * 10;
         Page<User> page = new Page();
         // 查记录总数
@@ -42,12 +42,47 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> listUsersHaveRole(int offset, int rowCount) {
-        return userDao.selectUsersHaveRolesLimit(offset, rowCount);
+    public Page<User> pageUserListSearch(String str, int pageNum) {
+        int offset = (pageNum - 1) * 10;
+        Page<User> page = new Page();
+        // 查记录总数
+        int totalRecord = userDao.selectCountFuzzy(str);
+//        int pageMax = totalRecord % 10 == 0 ? totalRecord / 10 : totalRecord / 10 + 1;
+        int pageMax = PageUtils.getPageMax(totalRecord);
+        // 分页查询
+        List<User> content = userDao.selectByUsernameWithRoleFuzzyLimit(str, offset, page.getPageSize());
+        page.setCurrentPage(pageNum);
+        page.setData(content);
+        page.setTotalRecord(totalRecord);
+        page.setPageMax(pageMax);
+        return page;
+    }
+
+    @Override
+    public Page<User> pageUsersHaveRole(int pageNum) {
+        int offset = (pageNum - 1) * 10;
+        Page<User> page = new Page();
+        // 查记录总数
+        int totalRecord = userDao.selectCount();
+//        int pageMax = totalRecord % 10 == 0 ? totalRecord / 10 : totalRecord / 10 + 1;
+        int pageMax = PageUtils.getPageMax(totalRecord);
+        // 分页查询
+        List<User> content = userDao.selectUsersHaveRolesLimit(offset, page.getPageSize());
+        page.setCurrentPage(pageNum);
+        page.setData(content);
+        page.setTotalRecord(totalRecord);
+        page.setPageMax(pageMax);
+        return page;
     }
 
     @Override
     public int editUser(User user) {
+        return userDao.updateByPrimaryKeySelective(user);
+    }
+
+    @Override
+    public int resetPw(User user) {
+        user.setPassword("123456");
         return userDao.updateByPrimaryKeySelective(user);
     }
 }

@@ -57,16 +57,4 @@ public class LoginController {
         }
     }
 
-    /**
-     * 登出
-     * @return 返回到登陆界面
-     */
-    @RequestMapping(value = "logout")
-    public ModelAndView logout() {
-        Logger logger = Logger.getLogger(LoginController.class);
-        logger.debug("进入logout()");
-        Subject currentUser = SecurityUtils.getSubject();
-        currentUser.logout();
-        return new ModelAndView("login");
-    }
 }

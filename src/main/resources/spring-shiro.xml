@@ -24,10 +24,12 @@
                 /form/* = anon
                 /login = anon
                 /css/** = anon
+                /js/admin.js = roles[admin]
                 /js/** = anon
                 /fonts/** = anon
                 /img/** = anon
                 /admin/** = roles[admin]
+                /logout = logout
                 /** = authc
             </value>
         </property>

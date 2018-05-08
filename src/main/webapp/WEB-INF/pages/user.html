@@ -4,7 +4,7 @@
       xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>用户状态管理-通用表格系统</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/ionicons.min.css">
@@ -35,9 +35,13 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">系统用户一览</div>
-                    <!--<div class="panel-body">-->
-                        <!--<p></p>-->
-                    <!--</div>-->
+                    <div class="panel-body form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control float-left" id="queryUsername" placeholder="输入要查找的用户">
+                        </div>
+                        <button class="btn btn-default radius-none" onclick="searchUsers()">搜索</button>
+                        <button class="btn btn-default radius-none" onclick="searchUsersWithAuthc()">查看有权限的用户</button>
+                    </div>
                     <table class="table">
                         <thead>
                         <tr>
@@ -64,7 +68,21 @@
                                 </span>
                             </td>
                             <td>
-                                <span><a href="#" th:onclick="'delForm('+${user.id}+')'">查看</a></span>
+                                <span>
+                                    <a href="#" th:onclick="'resetPw('+${user.id}+')'">[重置密码]</a>
+                                </span>
+                                <span th:if="${user.astatus==0}">
+                                    <a href="#" th:onclick="'changeState('+${user.id}+',1)'">[解冻]</a>
+                                </span>
+                                <span th:if="${user.astatus==1}">
+                                    <a href="#" th:onclick="'changeState('+${user.id}+',0)'">[冻结]</a>
+                                </span>
+                                <span th:if="${user.roles.size()==1}">
+                                    <a href="#" th:onclick="'addRole('+${user.id}+',3)'">[授权表格管理员]</a>
+                                </span>
+                                <span th:if="${user.roles.size()==2}">
+                                    <a href="#" th:onclick="'delRole('+${user.id}+',3)'">[取消授权]</a>
+                                </span>
                             </td>
                         </tr>
                         </tbody>
@@ -104,5 +122,6 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/adminlte.min.js"></script>
 <script src="/js/form.js"></script>
+<script src="/js/admin.js"></script>
 </body>
 </html>

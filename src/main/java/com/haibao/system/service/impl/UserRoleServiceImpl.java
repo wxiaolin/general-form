@@ -22,6 +22,6 @@ public class UserRoleServiceImpl implements UserRoleService {
 
     @Override
     public int delete(UserRole userRole) {
-        return userRoleDao.deleteByPrimaryKey(userRole.getId());
+        return userRoleDao.deleteByPrecise(userRole);
     }
 }

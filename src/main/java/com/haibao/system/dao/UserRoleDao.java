@@ -7,6 +7,8 @@ import java.util.List;
 public interface UserRoleDao {
     int deleteByPrimaryKey(Integer id);
 
+    int deleteByPrecise(UserRole record);
+
     int insert(UserRole record);
 
     int insertSelective(UserRole record);

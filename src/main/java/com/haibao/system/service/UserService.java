@@ -24,13 +24,20 @@ public interface UserService {
      * @param pageNum
      * @return
      */
-    Page<User> pageList(int pageNum);
+    Page<User> pageUserList(int pageNum);
+
+    /**
+     * 模糊查询某一页的用户
+     * @param pageNum
+     * @return
+     */
+    Page<User> pageUserListSearch(String str, int pageNum);
 
     /**
      * 查询具备权限角色的用户
      * @return
      */
-    List<User> listUsersHaveRole(int offset, int rowCount);
+    Page<User> pageUsersHaveRole(int pageNum);
 
     /**
      * 更新用户账户信息
@@ -38,4 +45,11 @@ public interface UserService {
      * @return
      */
     int editUser(User user);
+
+    /**
+     * 重置密码
+     * @param user
+     * @return
+     */
+    int resetPw(User user);
 }

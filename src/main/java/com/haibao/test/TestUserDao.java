@@ -54,4 +54,14 @@ public class TestUserDao {
         Logger.getLogger(this.getClass()).debug(json);
     }
 
+    @Test
+    public void testSelectByUsernameWithRoleFuzzy() throws JsonProcessingException {
+        //        List<User> user = userDao.selectByUsernameWithRole("2014103040103");
+        List<User> user = userDao.selectByUsernameWithRoleFuzzyLimit("2014",0,10);
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(user);
+//        Logger.getLogger(this.getClass()).debug("用户的角色数量"+user.getRoles().size());
+        Logger.getLogger(this.getClass()).debug(json);
+    }
+
 }
