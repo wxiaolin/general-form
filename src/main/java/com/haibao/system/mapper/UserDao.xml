@@ -154,7 +154,7 @@
         update t_user
         <set>
             <if test="username != null">
-                user = #{username,jdbcType=VARCHAR},
+                username = #{username,jdbcType=VARCHAR},
             </if>
             <if test="password != null">
                 password = #{password,jdbcType=VARCHAR},
