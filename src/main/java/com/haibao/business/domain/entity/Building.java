@@ -7,21 +7,9 @@ public class Building {
 
     private String name;
 
-    private Integer creator;
-
-    private Date createTime;
-
-    private Integer updater;
-
-    private Date updateTime;
-
-    public Building(Integer id, String name, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public Building(Integer id, String name) {
         this.id = id;
         this.name = name;
-        this.creator = creator;
-        this.createTime = createTime;
-        this.updater = updater;
-        this.updateTime = updateTime;
     }
 
     public Building() {
@@ -44,35 +32,4 @@ public class Building {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getCreator() {
-        return creator;
-    }
-
-    public void setCreator(Integer creator) {
-        this.creator = creator;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getUpdater() {
-        return updater;
-    }
-
-    public void setUpdater(Integer updater) {
-        this.updater = updater;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
 }

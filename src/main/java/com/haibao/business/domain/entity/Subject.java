@@ -13,24 +13,13 @@ public class Subject {
 
     private Integer deptId;
 
-    private Integer creator;
 
-    private Date createTime;
-
-    private Integer updater;
-
-    private Date updateTime;
-
-    public Subject(Integer id, String subject, Byte stype1, Byte stype2, Integer deptId, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public Subject(Integer id, String subject, Byte stype1, Byte stype2, Integer deptId) {
         this.id = id;
         this.subject = subject;
         this.stype1 = stype1;
         this.stype2 = stype2;
         this.deptId = deptId;
-        this.creator = creator;
-        this.createTime = createTime;
-        this.updater = updater;
-        this.updateTime = updateTime;
     }
 
     public Subject() {
@@ -77,35 +66,4 @@ public class Subject {
         this.deptId = deptId;
     }
 
-    public Integer getCreator() {
-        return creator;
-    }
-
-    public void setCreator(Integer creator) {
-        this.creator = creator;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getUpdater() {
-        return updater;
-    }
-
-    public void setUpdater(Integer updater) {
-        this.updater = updater;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
 }

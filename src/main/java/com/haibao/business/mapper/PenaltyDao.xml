@@ -8,14 +8,10 @@
       <arg column="fk_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="level" javaType="java.lang.Byte" jdbcType="TINYINT" />
       <arg column="pdesc" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    id, identity, fk_id, level, pdesc, creator, create_time, updater, update_time
+    id, identity, fk_id, level, pdesc
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -29,12 +25,9 @@
   </delete>
   <insert id="insert" parameterType="com.haibao.business.domain.entity.Penalty">
     insert into t_penalty (id, identity, fk_id, 
-      level, pdesc, creator, 
-      create_time, updater, update_time
-      )
+      level, pdesc)
     values (#{id,jdbcType=INTEGER}, #{identity,jdbcType=TINYINT}, #{fkId,jdbcType=INTEGER}, 
-      #{level,jdbcType=TINYINT}, #{pdesc,jdbcType=VARCHAR}, #{creator,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}
+      #{level,jdbcType=TINYINT}, #{pdesc,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.haibao.business.domain.entity.Penalty">
@@ -55,18 +48,6 @@
       <if test="pdesc != null">
         pdesc,
       </if>
-      <if test="creator != null">
-        creator,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="updater != null">
-        updater,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -83,18 +64,6 @@
       </if>
       <if test="pdesc != null">
         #{pdesc,jdbcType=VARCHAR},
-      </if>
-      <if test="creator != null">
-        #{creator,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updater != null">
-        #{updater,jdbcType=INTEGER},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -113,18 +82,6 @@
       <if test="pdesc != null">
         pdesc = #{pdesc,jdbcType=VARCHAR},
       </if>
-      <if test="creator != null">
-        creator = #{creator,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updater != null">
-        updater = #{updater,jdbcType=INTEGER},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -133,11 +90,7 @@
     set identity = #{identity,jdbcType=TINYINT},
       fk_id = #{fkId,jdbcType=INTEGER},
       level = #{level,jdbcType=TINYINT},
-      pdesc = #{pdesc,jdbcType=VARCHAR},
-      creator = #{creator,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      updater = #{updater,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      pdesc = #{pdesc,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

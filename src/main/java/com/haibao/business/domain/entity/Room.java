@@ -9,22 +9,11 @@ public class Room {
 
     private Integer buildingId;
 
-    private Integer creator;
 
-    private Date createTime;
-
-    private Integer updater;
-
-    private Date updateTime;
-
-    public Room(Integer id, String name, Integer buildingId, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public Room(Integer id, String name, Integer buildingId) {
         this.id = id;
         this.name = name;
         this.buildingId = buildingId;
-        this.creator = creator;
-        this.createTime = createTime;
-        this.updater = updater;
-        this.updateTime = updateTime;
     }
 
     public Room() {
@@ -55,35 +44,4 @@ public class Room {
         this.buildingId = buildingId;
     }
 
-    public Integer getCreator() {
-        return creator;
-    }
-
-    public void setCreator(Integer creator) {
-        this.creator = creator;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getUpdater() {
-        return updater;
-    }
-
-    public void setUpdater(Integer updater) {
-        this.updater = updater;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
 }

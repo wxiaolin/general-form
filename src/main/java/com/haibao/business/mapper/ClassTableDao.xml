@@ -8,14 +8,10 @@
       <arg column="grade" javaType="java.util.Date" jdbcType="DATE" />
       <arg column="major_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="class_no" javaType="java.lang.Byte" jdbcType="TINYINT" />
-      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    id, dept_id, grade, major_id, class_no, creator, create_time, updater, update_time
+    id, dept_id, grade, major_id, class_no
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
@@ -34,12 +30,10 @@
   </delete>
   <insert id="insert" parameterType="com.haibao.business.domain.entity.ClassTable">
     insert into t_class (id, dept_id, grade, 
-      major_id, class_no, creator, 
-      create_time, updater, update_time
+      major_id, class_no
       )
     values (#{id,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{grade,jdbcType=DATE}, 
-      #{majorId,jdbcType=INTEGER}, #{classNo,jdbcType=TINYINT}, #{creator,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}
+      #{majorId,jdbcType=INTEGER}, #{classNo,jdbcType=TINYINT}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.haibao.business.domain.entity.ClassTable">
@@ -60,18 +54,6 @@
       <if test="classNo != null">
         class_no,
       </if>
-      <if test="creator != null">
-        creator,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="updater != null">
-        updater,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -88,18 +70,6 @@
       </if>
       <if test="classNo != null">
         #{classNo,jdbcType=TINYINT},
-      </if>
-      <if test="creator != null">
-        #{creator,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updater != null">
-        #{updater,jdbcType=INTEGER},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -118,18 +88,6 @@
       <if test="classNo != null">
         class_no = #{classNo,jdbcType=TINYINT},
       </if>
-      <if test="creator != null">
-        creator = #{creator,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updater != null">
-        updater = #{updater,jdbcType=INTEGER},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -138,11 +96,7 @@
     set dept_id = #{deptId,jdbcType=INTEGER},
       grade = #{grade,jdbcType=DATE},
       major_id = #{majorId,jdbcType=INTEGER},
-      class_no = #{classNo,jdbcType=TINYINT},
-      creator = #{creator,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      updater = #{updater,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      class_no = #{classNo,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

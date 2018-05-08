@@ -53,7 +53,6 @@ public class DistrictInit {
                 district.setBelong(belongCity);
                 // 2 县级行政区
                 district.setRank((byte) 2);
-                district.setCreator(1);
                 districtList.add(district);
             }
             if (row.getLastCellNum() == 3) {
@@ -73,7 +72,6 @@ public class DistrictInit {
                 district.setBelong(belongProv);
                 district.setRank((byte) 1);
                 // 1 市级行政区
-                district.setCreator(1);
                 districtList.add(district);
                 belongCity = district.getId();
             }
@@ -94,7 +92,6 @@ public class DistrictInit {
                 district.setBelong(belongCountry);
                 // 0，省级行政区
                 district.setRank((byte) 0);
-                district.setCreator(1);
                 districtList.add(district);
                 belongProv = district.getId();
             }

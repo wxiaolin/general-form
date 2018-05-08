@@ -7,14 +7,10 @@
       <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="rank" javaType="java.lang.Byte" jdbcType="TINYINT" />
       <arg column="belong" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    id, name, rank, belong, creator, create_time, updater, update_time
+    id, name, rank, belong
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -33,11 +29,9 @@
   </delete>
   <insert id="insert" parameterType="com.haibao.business.domain.entity.District">
     insert into t_district (id, name, rank, 
-      belong, creator, create_time, 
-      updater, update_time)
+      belong)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{rank,jdbcType=TINYINT}, 
-      #{belong,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})
+      #{belong,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.haibao.business.domain.entity.District">
     insert into t_district
@@ -54,18 +48,6 @@
       <if test="belong != null">
         belong,
       </if>
-      <if test="creator != null">
-        creator,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="updater != null">
-        updater,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -79,18 +61,6 @@
       </if>
       <if test="belong != null">
         #{belong,jdbcType=INTEGER},
-      </if>
-      <if test="creator != null">
-        #{creator,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updater != null">
-        #{updater,jdbcType=INTEGER},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -106,18 +76,6 @@
       <if test="belong != null">
         belong = #{belong,jdbcType=INTEGER},
       </if>
-      <if test="creator != null">
-        creator = #{creator,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updater != null">
-        updater = #{updater,jdbcType=INTEGER},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -125,11 +83,7 @@
     update t_district
     set name = #{name,jdbcType=VARCHAR},
       rank = #{rank,jdbcType=TINYINT},
-      belong = #{belong,jdbcType=INTEGER},
-      creator = #{creator,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      updater = #{updater,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      belong = #{belong,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

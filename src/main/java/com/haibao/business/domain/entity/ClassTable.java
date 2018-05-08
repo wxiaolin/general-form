@@ -13,24 +13,12 @@ public class ClassTable {
 
     private Byte classNo;
 
-    private Integer creator;
-
-    private Date createTime;
-
-    private Integer updater;
-
-    private Date updateTime;
-
-    public ClassTable(Integer id, Integer deptId, Date grade, Integer majorId, Byte classNo, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public ClassTable(Integer id, Integer deptId, Date grade, Integer majorId, Byte classNo) {
         this.id = id;
         this.deptId = deptId;
         this.grade = grade;
         this.majorId = majorId;
         this.classNo = classNo;
-        this.creator = creator;
-        this.createTime = createTime;
-        this.updater = updater;
-        this.updateTime = updateTime;
     }
 
     public ClassTable() {
@@ -77,35 +65,4 @@ public class ClassTable {
         this.classNo = classNo;
     }
 
-    public Integer getCreator() {
-        return creator;
-    }
-
-    public void setCreator(Integer creator) {
-        this.creator = creator;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getUpdater() {
-        return updater;
-    }
-
-    public void setUpdater(Integer updater) {
-        this.updater = updater;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
 }
