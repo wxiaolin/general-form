@@ -7,6 +7,7 @@ import com.haibao.business.service.*;
 import com.haibao.business.domain.vo.Result;
 import com.haibao.system.domain.entity.User;
 import com.haibao.system.domain.enums.ResultCode;
+import com.haibao.system.domain.enums.SessionContext;
 import com.haibao.system.service.UserService;
 import com.haibao.utils.StringUtils;
 import org.apache.log4j.Logger;

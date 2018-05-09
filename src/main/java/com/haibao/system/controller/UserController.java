@@ -1,6 +1,6 @@
 package com.haibao.system.controller;
 
-import com.haibao.business.domain.enums.SessionContext;
+import com.haibao.system.domain.enums.SessionContext;
 import com.haibao.business.domain.vo.Result;
 import com.haibao.system.domain.entity.User;
 import com.haibao.system.domain.enums.ResultCode;

@@ -1,4 +1,4 @@
-package com.haibao.business.domain.enums;
+package com.haibao.system.domain.enums;
 
 /**
  * 会话枚举

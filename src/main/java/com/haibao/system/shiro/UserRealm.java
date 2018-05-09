@@ -1,12 +1,11 @@
 package com.haibao.system.shiro;
 
-import com.haibao.business.domain.enums.SessionContext;
+import com.haibao.system.domain.enums.SessionContext;
 import com.haibao.system.dao.RoleDao;
 import com.haibao.system.dao.UserDao;
 import com.haibao.system.dao.UserRoleDao;
 import com.haibao.system.domain.entity.Role;
 import com.haibao.system.domain.entity.User;
-import com.haibao.system.domain.entity.UserRole;
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -19,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
