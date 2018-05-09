@@ -9,7 +9,7 @@ public class Score {
 
     private String ayear;
 
-    private Byte semester;
+    private Integer semester;
 
     private Float score1;
 
@@ -25,7 +25,7 @@ public class Score {
 
     private Date updateTime;
 
-    public Score(Integer id, Integer stuId, String ayear, Byte semester, Float score1, Float score2, Integer subjectId, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public Score(Integer id, Integer stuId, String ayear, Integer semester, Float score1, Float score2, Integer subjectId, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.id = id;
         this.stuId = stuId;
         this.ayear = ayear;
@@ -67,11 +67,11 @@ public class Score {
         this.ayear = ayear == null ? null : ayear.trim();
     }
 
-    public Byte getSemester() {
+    public Integer getSemester() {
         return semester;
     }
 
-    public void setSemester(Byte semester) {
+    public void setSemester(Integer semester) {
         this.semester = semester;
     }
 

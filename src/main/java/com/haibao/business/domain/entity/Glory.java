@@ -11,9 +11,9 @@ public class Glory {
 
     private String deptId;
 
-    private Byte level;
+    private Integer level;
 
-    private Byte type;
+    private Integer type;
 
     private Integer creator;
 
@@ -23,7 +23,7 @@ public class Glory {
 
     private Date updateTime;
 
-    public Glory(Integer id, String awardee, String name, String deptId, Byte level, Byte type, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public Glory(Integer id, String awardee, String name, String deptId, Integer level, Integer type, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.id = id;
         this.awardee = awardee;
         this.name = name;
@@ -72,19 +72,19 @@ public class Glory {
         this.deptId = deptId == null ? null : deptId.trim();
     }
 
-    public Byte getLevel() {
+    public Integer getLevel() {
         return level;
     }
 
-    public void setLevel(Byte level) {
+    public void setLevel(Integer level) {
         this.level = level;
     }
 
-    public Byte getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Byte type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 

@@ -7,14 +7,14 @@ public class Subject {
 
     private String subject;
 
-    private Byte stype1;
+    private Integer stype1;
 
-    private Byte stype2;
+    private Integer stype2;
 
     private Integer deptId;
 
 
-    public Subject(Integer id, String subject, Byte stype1, Byte stype2, Integer deptId) {
+    public Subject(Integer id, String subject, Integer stype1, Integer stype2, Integer deptId) {
         this.id = id;
         this.subject = subject;
         this.stype1 = stype1;
@@ -42,19 +42,19 @@ public class Subject {
         this.subject = subject == null ? null : subject.trim();
     }
 
-    public Byte getStype1() {
+    public Integer getStype1() {
         return stype1;
     }
 
-    public void setStype1(Byte stype1) {
+    public void setStype1(Integer stype1) {
         this.stype1 = stype1;
     }
 
-    public Byte getStype2() {
+    public Integer getStype2() {
         return stype2;
     }
 
-    public void setStype2(Byte stype2) {
+    public void setStype2(Integer stype2) {
         this.stype2 = stype2;
     }
 

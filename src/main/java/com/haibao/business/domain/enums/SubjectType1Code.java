@@ -5,18 +5,18 @@ package com.haibao.business.domain.enums;
  * Created by haibao on 2018/1/22.
  */
 public enum SubjectType1Code {
-    REQUIRED((byte) 0, "必修课"),
-    OPTIONAL((byte) 1, "选修课");
+    REQUIRED( 0, "必修课"),
+    OPTIONAL( 1, "选修课");
 
-    SubjectType1Code(byte code, String desc) {
+    SubjectType1Code(int code, String desc) {
         this.code = code;
         this.desc = desc;
     }
 
-    private byte code;
+    private int code;
     private String desc;
 
-    public byte code() {
+    public int code() {
         return code;
     }
 

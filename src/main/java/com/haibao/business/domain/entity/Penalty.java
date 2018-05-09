@@ -5,16 +5,16 @@ import java.util.Date;
 public class Penalty {
     private Integer id;
 
-    private Byte identity;
+    private Integer identity;
 
     private Integer fkId;
 
-    private Byte level;
+    private Integer level;
 
     private String pdesc;
 
 
-    public Penalty(Integer id, Byte identity, Integer fkId, Byte level, String pdesc) {
+    public Penalty(Integer id, Integer identity, Integer fkId, Integer level, String pdesc) {
         this.id = id;
         this.identity = identity;
         this.fkId = fkId;
@@ -34,11 +34,11 @@ public class Penalty {
         this.id = id;
     }
 
-    public Byte getIdentity() {
+    public Integer getIdentity() {
         return identity;
     }
 
-    public void setIdentity(Byte identity) {
+    public void setIdentity(Integer identity) {
         this.identity = identity;
     }
 
@@ -50,11 +50,11 @@ public class Penalty {
         this.fkId = fkId;
     }
 
-    public Byte getLevel() {
+    public Integer getLevel() {
         return level;
     }
 
-    public void setLevel(Byte level) {
+    public void setLevel(Integer level) {
         this.level = level;
     }
 

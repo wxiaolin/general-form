@@ -52,7 +52,7 @@ public class DistrictInit {
                 district.setName(cell3.getStringCellValue().trim());
                 district.setBelong(belongCity);
                 // 2 县级行政区
-                district.setRank((byte) 2);
+                district.setRank( 2);
                 districtList.add(district);
             }
             if (row.getLastCellNum() == 3) {
@@ -70,7 +70,7 @@ public class DistrictInit {
                 }
                 district.setName(cell2.getStringCellValue().trim());
                 district.setBelong(belongProv);
-                district.setRank((byte) 1);
+                district.setRank( 1);
                 // 1 市级行政区
                 districtList.add(district);
                 belongCity = district.getId();
@@ -91,7 +91,7 @@ public class DistrictInit {
                 district.setName(cell1.getStringCellValue().trim());
                 district.setBelong(belongCountry);
                 // 0，省级行政区
-                district.setRank((byte) 0);
+                district.setRank( 0);
                 districtList.add(district);
                 belongProv = district.getId();
             }
@@ -111,7 +111,7 @@ public class DistrictInit {
         for (District d : districtList) {
             statement.setInt(1,d.getId());
             statement.setString(2,d.getName());
-            statement.setByte(3,d.getRank());
+            statement.setInt(3,d.getRank());
             statement.setInt(4,d.getBelong());
             statement.setInt(5,1);
             statement.addBatch();

@@ -6,14 +6,14 @@ package com.haibao.system.domain.enums;
  */
 public enum AccountStatusCode {
 
-    INVALID((byte)0, "失效"),
-    NORMAL((byte)1, "正常"),
-    FROZEN((byte)2, "冻结");
+    INVALID(0, "失效"),
+    NORMAL(1, "正常"),
+    FROZEN(2, "冻结");
 
-    private byte code;
+    private int code;
     private String desc;
 
-    public byte code() {
+    public int code() {
         return code;
     }
 
@@ -21,7 +21,7 @@ public enum AccountStatusCode {
         return desc;
     }
 
-    AccountStatusCode(byte code, String desc) {
+    AccountStatusCode(int code, String desc) {
 
         this.code = code;
         this.desc = desc;

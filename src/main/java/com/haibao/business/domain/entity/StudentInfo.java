@@ -9,7 +9,7 @@ public class StudentInfo {
 
     private String stuNo;
 
-    private Byte sex;
+    private Integer sex;
 
     private Date birthday;
 
@@ -21,11 +21,11 @@ public class StudentInfo {
 
     private String mobile;
 
-    private Byte psId;
+    private Integer psId;
 
     private Date regdate;
 
-    private Byte sstatus;
+    private Integer sstatus;
 
     private Integer deptId;
 
@@ -51,7 +51,7 @@ public class StudentInfo {
 
     private Date updateTime;
 
-    public StudentInfo(Integer id, String name, String stuNo, Byte sex, Date birthday, Integer crid, Integer nation, String address, String mobile, Byte psId, Date regdate, Byte sstatus, Integer deptId, Integer majorId, Integer minorId1, Integer minorId2, Date grade, Integer classId, Integer apartment, Integer room, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public StudentInfo(Integer id, String name, String stuNo, Integer sex, Date birthday, Integer crid, Integer nation, String address, String mobile, Integer psId, Date regdate, Integer sstatus, Integer deptId, Integer majorId, Integer minorId1, Integer minorId2, Date grade, Integer classId, Integer apartment, Integer room, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.id = id;
         this.name = name;
         this.stuNo = stuNo;
@@ -106,11 +106,11 @@ public class StudentInfo {
         this.stuNo = stuNo == null ? null : stuNo.trim();
     }
 
-    public Byte getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(Byte sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
@@ -154,11 +154,11 @@ public class StudentInfo {
         this.mobile = mobile == null ? null : mobile.trim();
     }
 
-    public Byte getPsId() {
+    public Integer getPsId() {
         return psId;
     }
 
-    public void setPsId(Byte psId) {
+    public void setPsId(Integer psId) {
         this.psId = psId;
     }
 
@@ -170,11 +170,11 @@ public class StudentInfo {
         this.regdate = regdate;
     }
 
-    public Byte getSstatus() {
+    public Integer getSstatus() {
         return sstatus;
     }
 
-    public void setSstatus(Byte sstatus) {
+    public void setSstatus(Integer sstatus) {
         this.sstatus = sstatus;
     }
 

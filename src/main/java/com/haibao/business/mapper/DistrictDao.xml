@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.haibao.business.domain.entity.District">
       <id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <result property="name" column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <result property="rank" column="rank" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <result property="rank" column="rank" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <result property="belong" column="belong" javaType="java.lang.Integer" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -28,7 +28,7 @@
   <insert id="insert" parameterType="com.haibao.business.domain.entity.District">
     insert into t_district (id, name, rank, 
       belong)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{rank,jdbcType=TINYINT}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{rank,jdbcType=INTEGER},
       #{belong,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.haibao.business.domain.entity.District">
@@ -55,7 +55,7 @@
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="rank != null">
-        #{rank,jdbcType=TINYINT},
+        #{rank,jdbcType=INTEGER},
       </if>
       <if test="belong != null">
         #{belong,jdbcType=INTEGER},
@@ -69,7 +69,7 @@
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="rank != null">
-        rank = #{rank,jdbcType=TINYINT},
+        rank = #{rank,jdbcType=INTEGER},
       </if>
       <if test="belong != null">
         belong = #{belong,jdbcType=INTEGER},
@@ -80,7 +80,7 @@
   <update id="updateByPrimaryKey" parameterType="com.haibao.business.domain.entity.District">
     update t_district
     set name = #{name,jdbcType=VARCHAR},
-      rank = #{rank,jdbcType=TINYINT},
+      rank = #{rank,jdbcType=INTEGER},
       belong = #{belong,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>

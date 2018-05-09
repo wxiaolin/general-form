@@ -11,9 +11,9 @@ public class ClassTable {
 
     private Integer majorId;
 
-    private Byte classNo;
+    private Integer classNo;
 
-    public ClassTable(Integer id, Integer deptId, Date grade, Integer majorId, Byte classNo) {
+    public ClassTable(Integer id, Integer deptId, Date grade, Integer majorId, Integer classNo) {
         this.id = id;
         this.deptId = deptId;
         this.grade = grade;
@@ -57,11 +57,11 @@ public class ClassTable {
         this.majorId = majorId;
     }
 
-    public Byte getClassNo() {
+    public Integer getClassNo() {
         return classNo;
     }
 
-    public void setClassNo(Byte classNo) {
+    public void setClassNo(Integer classNo) {
         this.classNo = classNo;
     }
 

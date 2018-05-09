@@ -5,15 +5,15 @@
         <id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="name" column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
         <result property="stuNo" column="stu_no" javaType="java.lang.String" jdbcType="CHAR"/>
-        <result property="sex" column="sex" javaType="java.lang.Byte" jdbcType="TINYINT"/>
+        <result property="sex" column="sex" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="birthday" column="birthday" javaType="java.util.Date" jdbcType="DATE"/>
         <result property="crid" column="crid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="nation" column="nation" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="address" column="address" javaType="java.lang.String" jdbcType="VARCHAR"/>
         <result property="mobile" column="mobile" javaType="java.lang.String" jdbcType="CHAR"/>
-        <result property="psId" column="ps_id" javaType="java.lang.Byte" jdbcType="TINYINT"/>
+        <result property="psId" column="ps_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="regdate" column="regdate" javaType="java.util.Date" jdbcType="DATE"/>
-        <result property="sstatus" column="sstatus" javaType="java.lang.Byte" jdbcType="TINYINT"/>
+        <result property="sstatus" column="sstatus" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="deptId" column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="majorId" column="major_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="minorId1" column="minor_id1" javaType="java.lang.Integer" jdbcType="INTEGER"/>
@@ -53,7 +53,7 @@
             </if>
             <if test="sex != null">
                 and
-                sex = #{sex,jdbcType=TINYINT}
+                sex = #{sex,jdbcType=INTEGER}
             </if>
             <if test="birthday != null">
                 and
@@ -77,7 +77,7 @@
             </if>
             <if test="psId != null">
                 and
-                ps_id = #{psId,jdbcType=TINYINT}
+                ps_id = #{psId,jdbcType=INTEGER}
             </if>
             <if test="regdate != null">
                 and
@@ -85,7 +85,7 @@
             </if>
             <if test="sstatus != null">
                 and
-                sstatus = #{sstatus,jdbcType=TINYINT}
+                sstatus = #{sstatus,jdbcType=INTEGER}
             </if>
             <if test="deptId != null">
                 and
@@ -136,7 +136,7 @@
             </if>
             <if test="sex != null">
                 and
-                sex = #{sex,jdbcType=TINYINT}
+                sex = #{sex,jdbcType=INTEGER}
             </if>
             <if test="birthday != null">
                 and
@@ -160,7 +160,7 @@
             </if>
             <if test="psId != null">
                 and
-                ps_id = #{psId,jdbcType=TINYINT}
+                ps_id = #{psId,jdbcType=INTEGER}
             </if>
             <if test="regdate != null">
                 and
@@ -168,7 +168,7 @@
             </if>
             <if test="sstatus != null">
                 and
-                sstatus = #{sstatus,jdbcType=TINYINT}
+                sstatus = #{sstatus,jdbcType=INTEGER}
             </if>
             <if test="deptId != null">
                 and
@@ -218,9 +218,9 @@
       room, creator, create_time,
       updater, update_time)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{stuNo,jdbcType=CHAR},
-      #{sex,jdbcType=TINYINT}, #{birthday,jdbcType=DATE}, #{crid,jdbcType=INTEGER}, #{nation,jdbcType=INTEGER},
-      #{address,jdbcType=VARCHAR}, #{mobile,jdbcType=CHAR}, #{psId,jdbcType=TINYINT},
-      #{regdate,jdbcType=DATE}, #{sstatus,jdbcType=TINYINT}, #{deptId,jdbcType=INTEGER},
+      #{sex,jdbcType=INTEGER}, #{birthday,jdbcType=DATE}, #{crid,jdbcType=INTEGER}, #{nation,jdbcType=INTEGER},
+      #{address,jdbcType=VARCHAR}, #{mobile,jdbcType=CHAR}, #{psId,jdbcType=INTEGER},
+      #{regdate,jdbcType=DATE}, #{sstatus,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER},
       #{majorId,jdbcType=INTEGER}, #{minorId1,jdbcType=INTEGER}, #{minorId2,jdbcType=INTEGER},
       #{grade,jdbcType=DATE}, #{classId,jdbcType=INTEGER}, #{apartment,jdbcType=INTEGER},
       #{room,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
@@ -313,7 +313,7 @@
                 #{stuNo,jdbcType=CHAR},
             </if>
             <if test="sex != null">
-                #{sex,jdbcType=TINYINT},
+                #{sex,jdbcType=INTEGER},
             </if>
             <if test="birthday != null">
                 #{birthday,jdbcType=DATE},
@@ -331,13 +331,13 @@
                 #{mobile,jdbcType=CHAR},
             </if>
             <if test="psId != null">
-                #{psId,jdbcType=TINYINT},
+                #{psId,jdbcType=INTEGER},
             </if>
             <if test="regdate != null">
                 #{regdate,jdbcType=DATE},
             </if>
             <if test="sstatus != null">
-                #{sstatus,jdbcType=TINYINT},
+                #{sstatus,jdbcType=INTEGER},
             </if>
             <if test="deptId != null">
                 #{deptId,jdbcType=INTEGER},
@@ -387,7 +387,7 @@
                 stu_no = #{stuNo,jdbcType=CHAR},
             </if>
             <if test="sex != null">
-                sex = #{sex,jdbcType=TINYINT},
+                sex = #{sex,jdbcType=INTEGER},
             </if>
             <if test="birthday != null">
                 birthday = #{birthday,jdbcType=DATE},
@@ -405,13 +405,13 @@
                 mobile = #{mobile,jdbcType=CHAR},
             </if>
             <if test="psId != null">
-                ps_id = #{psId,jdbcType=TINYINT},
+                ps_id = #{psId,jdbcType=INTEGER},
             </if>
             <if test="regdate != null">
                 regdate = #{regdate,jdbcType=DATE},
             </if>
             <if test="sstatus != null">
-                sstatus = #{sstatus,jdbcType=TINYINT},
+                sstatus = #{sstatus,jdbcType=INTEGER},
             </if>
             <if test="deptId != null">
                 dept_id = #{deptId,jdbcType=INTEGER},
@@ -456,15 +456,15 @@
     update t_student_info
     set name = #{name,jdbcType=VARCHAR},
       stu_no = #{stuNo,jdbcType=CHAR},
-      sex = #{sex,jdbcType=TINYINT},
+      sex = #{sex,jdbcType=INTEGER},
       birthday = #{birthday,jdbcType=DATE},
       crid = #{crid,jdbcType=INTEGER},
       nation = #{nation,jdbcType=INTEGER},
       address = #{address,jdbcType=VARCHAR},
       mobile = #{mobile,jdbcType=CHAR},
-      ps_id = #{psId,jdbcType=TINYINT},
+      ps_id = #{psId,jdbcType=INTEGER},
       regdate = #{regdate,jdbcType=DATE},
-      sstatus = #{sstatus,jdbcType=TINYINT},
+      sstatus = #{sstatus,jdbcType=INTEGER},
       dept_id = #{deptId,jdbcType=INTEGER},
       major_id = #{majorId,jdbcType=INTEGER},
       minor_id1 = #{minorId1,jdbcType=INTEGER},

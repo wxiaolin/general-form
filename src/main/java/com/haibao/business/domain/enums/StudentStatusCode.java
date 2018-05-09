@@ -6,19 +6,19 @@ package com.haibao.business.domain.enums;
  */
 public enum StudentStatusCode {
 
-    IN_SCHOOL((byte) 0, "在读"),
-    GRADUATE((byte) 1, "毕业"),
-    SUSPEND_SCHOOL((byte) 2, "休学");
+    IN_SCHOOL( 0, "在读"),
+    GRADUATE( 1, "毕业"),
+    SUSPEND_SCHOOL( 2, "休学");
 
-    StudentStatusCode(byte code, String desc) {
+    StudentStatusCode(int code, String desc) {
         this.code = code;
         this.desc = desc;
     }
 
-    private byte code;
+    private int code;
     private String desc;
 
-    public byte code() {
+    public int code() {
         return code;
     }
 

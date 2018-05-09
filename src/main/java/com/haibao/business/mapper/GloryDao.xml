@@ -6,8 +6,8 @@
       <result property="awardee" column="awardee" javaType="java.lang.String" jdbcType="VARCHAR" />
       <result property="name" column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
       <result property="deptId" column="dept_id" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <result property="level" column="level" javaType="java.lang.Byte" jdbcType="TINYINT" />
-      <result property="type" column="type" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <result property="level" column="level" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="type" column="type" javaType="java.lang.Integer" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List">
     id, awardee, name, dept_id, level, type
@@ -26,7 +26,7 @@
     insert into t_glory (id, awardee, name, 
       dept_id, level, type)
     values (#{id,jdbcType=INTEGER}, #{awardee,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{deptId,jdbcType=VARCHAR}, #{level,jdbcType=TINYINT}, #{type,jdbcType=TINYINT})
+      #{deptId,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, #{type,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.haibao.business.domain.entity.Glory">
     insert into t_glory
@@ -64,10 +64,10 @@
         #{deptId,jdbcType=VARCHAR},
       </if>
       <if test="level != null">
-        #{level,jdbcType=TINYINT},
+        #{level,jdbcType=INTEGER},
       </if>
       <if test="type != null">
-        #{type,jdbcType=TINYINT},
+        #{type,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -84,10 +84,10 @@
         dept_id = #{deptId,jdbcType=VARCHAR},
       </if>
       <if test="level != null">
-        level = #{level,jdbcType=TINYINT},
+        level = #{level,jdbcType=INTEGER},
       </if>
       <if test="type != null">
-        type = #{type,jdbcType=TINYINT},
+        type = #{type,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -97,8 +97,8 @@
     set awardee = #{awardee,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
       dept_id = #{deptId,jdbcType=VARCHAR},
-      level = #{level,jdbcType=TINYINT},
-      type = #{type,jdbcType=TINYINT}
+      level = #{level,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

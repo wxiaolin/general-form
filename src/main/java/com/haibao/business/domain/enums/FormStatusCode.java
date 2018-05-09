@@ -5,13 +5,13 @@ package com.haibao.business.domain.enums;
  * Created by haibao on 2018/1/22.
  */
 public enum FormStatusCode {
-    INVALID((byte)0, "失效"),
-    NORMAL((byte)1, "正常");
+    INVALID(0, "失效"),
+    NORMAL(1, "正常");
 
-    private byte code;
+    private int code;
     private String desc;
 
-    public byte code() {
+    public int code() {
         return code;
     }
 
@@ -19,7 +19,7 @@ public enum FormStatusCode {
         return desc;
     }
 
-    FormStatusCode(byte code, String desc) {
+    FormStatusCode(int code, String desc) {
         this.code = code;
         this.desc = desc;
     }

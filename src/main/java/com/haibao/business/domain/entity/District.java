@@ -7,12 +7,12 @@ public class District {
 
     private String name;
 
-    private Byte rank;
+    private Integer rank;
 
     private Integer belong;
 
 
-    public District(Integer id, String name, Byte rank, Integer belong) {
+    public District(Integer id, String name, Integer rank, Integer belong) {
         this.id = id;
         this.name = name;
         this.rank = rank;
@@ -39,11 +39,11 @@ public class District {
         this.name = name == null ? null : name.trim();
     }
 
-    public Byte getRank() {
+    public Integer getRank() {
         return rank;
     }
 
-    public void setRank(Byte rank) {
+    public void setRank(Integer rank) {
         this.rank = rank;
     }
 

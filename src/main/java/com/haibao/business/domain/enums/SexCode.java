@@ -6,13 +6,13 @@ package com.haibao.business.domain.enums;
  */
 public enum SexCode {
 
-    MALE((byte) 0,"男"),
-    FAMALE((byte)1,"女");
+    MALE( 0,"男"),
+    FAMALE(1,"女");
 
-    private byte code;
+    private int code;
     private String desc;
 
-    public byte code() {
+    public int code() {
         return code;
     }
 
@@ -20,7 +20,7 @@ public enum SexCode {
         return desc;
     }
 
-    SexCode(byte code, String desc) {
+    SexCode(int code, String desc) {
 
         this.code = code;
         this.desc = desc;

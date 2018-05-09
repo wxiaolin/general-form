@@ -5,10 +5,10 @@
       <id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <result property="name" column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
       <result property="define" column="define" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <result property="fstatus" column="fstatus" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <result property="fstatus" column="fstatus" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <result property="fdesc" column="fdesc" javaType="java.lang.String" jdbcType="VARCHAR" />
       <result property="deptId" column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <result property="type" column="type" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <result property="type" column="type" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <result property="creator" column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <result property="createTime" column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <result property="updater" column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -47,8 +47,8 @@
       fdesc, dept_id, type, 
       creator, create_time, updater, 
       update_time, define)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{fstatus,jdbcType=TINYINT}, 
-      #{fdesc,jdbcType=VARCHAR}, #{deptId,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{fstatus,jdbcType=INTEGER},
+      #{fdesc,jdbcType=VARCHAR}, #{deptId,jdbcType=INTEGER}, #{type,jdbcType=INTEGER},
       #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=INTEGER}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{define,jdbcType=VARCHAR})
   </insert>
@@ -97,7 +97,7 @@
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="fstatus != null">
-        #{fstatus,jdbcType=TINYINT},
+        #{fstatus,jdbcType=INTEGER},
       </if>
       <if test="fdesc != null">
         #{fdesc,jdbcType=VARCHAR},
@@ -106,7 +106,7 @@
         #{deptId,jdbcType=INTEGER},
       </if>
       <if test="type != null">
-        #{type,jdbcType=TINYINT},
+        #{type,jdbcType=INTEGER},
       </if>
       <if test="creator != null">
         #{creator,jdbcType=INTEGER},
@@ -132,7 +132,7 @@
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="fstatus != null">
-        fstatus = #{fstatus,jdbcType=TINYINT},
+        fstatus = #{fstatus,jdbcType=INTEGER},
       </if>
       <if test="fdesc != null">
         fdesc = #{fdesc,jdbcType=VARCHAR},
@@ -141,7 +141,7 @@
         dept_id = #{deptId,jdbcType=INTEGER},
       </if>
       <if test="type != null">
-        type = #{type,jdbcType=TINYINT},
+        type = #{type,jdbcType=INTEGER},
       </if>
       <if test="creator != null">
         creator = #{creator,jdbcType=INTEGER},
@@ -165,10 +165,10 @@
   <update id="updateByPrimaryKey" parameterType="com.haibao.business.domain.entity.Form">
     update t_form
     set name = #{name,jdbcType=VARCHAR},
-      fstatus = #{fstatus,jdbcType=TINYINT},
+      fstatus = #{fstatus,jdbcType=INTEGER},
       fdesc = #{fdesc,jdbcType=VARCHAR},
       dept_id = #{deptId,jdbcType=INTEGER},
-      type = #{type,jdbcType=TINYINT},
+      type = #{type,jdbcType=INTEGER},
       creator = #{creator,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       updater = #{updater,jdbcType=INTEGER},

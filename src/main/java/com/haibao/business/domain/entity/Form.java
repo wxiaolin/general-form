@@ -9,13 +9,13 @@ public class Form {
 
     private String define;
 
-    private Byte fstatus;
+    private Integer fstatus;
 
     private String fdesc;
 
     private Integer deptId;
 
-    private Byte type;
+    private Integer type;
 
     private Integer creator;
 
@@ -25,7 +25,7 @@ public class Form {
 
     private Date updateTime;
 
-    public Form(Integer id, String name, String define, Byte fstatus, String fdesc, Integer deptId, Byte type, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    public Form(Integer id, String name, String define, Integer fstatus, String fdesc, Integer deptId, Integer type, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.id = id;
         this.name = name;
         this.define = define;
@@ -67,11 +67,11 @@ public class Form {
         this.define = define;
     }
 
-    public Byte getFstatus() {
+    public Integer getFstatus() {
         return fstatus;
     }
 
-    public void setFstatus(Byte fstatus) {
+    public void setFstatus(Integer fstatus) {
         this.fstatus = fstatus;
     }
 
@@ -91,11 +91,11 @@ public class Form {
         this.deptId = deptId;
     }
 
-    public Byte getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Byte type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 

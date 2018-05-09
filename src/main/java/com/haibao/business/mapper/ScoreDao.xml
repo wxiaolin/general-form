@@ -5,7 +5,7 @@
       <id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <result property="stuId" column="stu_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <result property="ayear" column="ayear" javaType="java.lang.String" jdbcType="CHAR" />
-      <result property="semester" column="semester" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <result property="semester" column="semester" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <result property="score1" column="score1" javaType="java.lang.Float" jdbcType="REAL" />
       <result property="score2" column="score2" javaType="java.lang.Float" jdbcType="REAL" />
       <result property="subjectId" column="subject_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -34,7 +34,7 @@
       subject_id, creator, create_time, 
       updater, update_time)
     values (#{id,jdbcType=INTEGER}, #{stuId,jdbcType=INTEGER}, #{ayear,jdbcType=CHAR}, 
-      #{semester,jdbcType=TINYINT}, #{score1,jdbcType=REAL}, #{score2,jdbcType=REAL}, 
+      #{semester,jdbcType=INTEGER}, #{score1,jdbcType=REAL}, #{score2,jdbcType=REAL},
       #{subjectId,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
@@ -86,7 +86,7 @@
         #{ayear,jdbcType=CHAR},
       </if>
       <if test="semester != null">
-        #{semester,jdbcType=TINYINT},
+        #{semester,jdbcType=INTEGER},
       </if>
       <if test="score1 != null">
         #{score1,jdbcType=REAL},
@@ -121,7 +121,7 @@
         ayear = #{ayear,jdbcType=CHAR},
       </if>
       <if test="semester != null">
-        semester = #{semester,jdbcType=TINYINT},
+        semester = #{semester,jdbcType=INTEGER},
       </if>
       <if test="score1 != null">
         score1 = #{score1,jdbcType=REAL},
@@ -151,7 +151,7 @@
     update t_score
     set stu_id = #{stuId,jdbcType=INTEGER},
       ayear = #{ayear,jdbcType=CHAR},
-      semester = #{semester,jdbcType=TINYINT},
+      semester = #{semester,jdbcType=INTEGER},
       score1 = #{score1,jdbcType=REAL},
       score2 = #{score2,jdbcType=REAL},
       subject_id = #{subjectId,jdbcType=INTEGER},

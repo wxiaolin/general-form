@@ -5,13 +5,13 @@ package com.haibao.business.domain.enums;
  * Created by haibao on 2018/1/22.
  */
 public enum IdentityCode {
-    STUDENT((byte) 0, "学生"),
-    TEACHER((byte) 1, "教师"),
-    EMPLOYEE((byte) 2, "员工");
-    private byte code;
+    STUDENT( 0, "学生"),
+    TEACHER( 1, "教师"),
+    EMPLOYEE( 2, "员工");
+    private int code;
     private String desc;
 
-    public byte code() {
+    public int code() {
         return code;
     }
 
@@ -19,7 +19,7 @@ public enum IdentityCode {
         return desc;
     }
 
-    IdentityCode(byte code, String desc) {
+    IdentityCode(int code, String desc) {
         this.code = code;
         this.desc = desc;
     }

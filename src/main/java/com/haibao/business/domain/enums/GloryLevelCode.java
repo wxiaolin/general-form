@@ -5,24 +5,24 @@ package com.haibao.business.domain.enums;
  * Created by haibao on 2018/1/22.
  */
 public enum GloryLevelCode {
-    INTERNATIONAL((byte) 0, "国际级"),
-    NATION((byte) 1, "国家级"),
-    PROVINCE((byte) 2, "省级"),
-    CITY((byte) 3, "市级"),
-    COLLEGE((byte) 4, "院级"),
-    DEPARTMENT((byte) 5, "系级");
+    INTERNATIONAL( 0, "国际级"),
+    NATION( 1, "国家级"),
+    PROVINCE( 2, "省级"),
+    CITY( 3, "市级"),
+    COLLEGE( 4, "院级"),
+    DEPARTMENT( 5, "系级");
 
 
 
-    GloryLevelCode(byte code, String desc) {
+    GloryLevelCode(int code, String desc) {
         this.code = code;
         this.desc = desc;
     }
 
-    private byte code;
+    private int code;
     private String desc;
 
-    public byte code() {
+    public int code() {
         return code;
     }
 

@@ -3,9 +3,9 @@
 <mapper namespace="com.haibao.business.dao.PenaltyDao">
   <resultMap id="BaseResultMap" type="com.haibao.business.domain.entity.Penalty">
       <id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <result property="identity" column="identity" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <result property="identity" column="identity" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <result property="fkId" column="fk_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <result property="level" column="level" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <result property="level" column="level" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <result property="pdesc" column="pdesc" javaType="java.lang.String" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -24,8 +24,8 @@
   <insert id="insert" parameterType="com.haibao.business.domain.entity.Penalty">
     insert into t_penalty (id, identity, fk_id, 
       level, pdesc)
-    values (#{id,jdbcType=INTEGER}, #{identity,jdbcType=TINYINT}, #{fkId,jdbcType=INTEGER}, 
-      #{level,jdbcType=TINYINT}, #{pdesc,jdbcType=VARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{identity,jdbcType=INTEGER}, #{fkId,jdbcType=INTEGER},
+      #{level,jdbcType=INTEGER}, #{pdesc,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.haibao.business.domain.entity.Penalty">
@@ -52,13 +52,13 @@
         #{id,jdbcType=INTEGER},
       </if>
       <if test="identity != null">
-        #{identity,jdbcType=TINYINT},
+        #{identity,jdbcType=INTEGER},
       </if>
       <if test="fkId != null">
         #{fkId,jdbcType=INTEGER},
       </if>
       <if test="level != null">
-        #{level,jdbcType=TINYINT},
+        #{level,jdbcType=INTEGER},
       </if>
       <if test="pdesc != null">
         #{pdesc,jdbcType=VARCHAR},
@@ -69,13 +69,13 @@
     update t_penalty
     <set>
       <if test="identity != null">
-        identity = #{identity,jdbcType=TINYINT},
+        identity = #{identity,jdbcType=INTEGER},
       </if>
       <if test="fkId != null">
         fk_id = #{fkId,jdbcType=INTEGER},
       </if>
       <if test="level != null">
-        level = #{level,jdbcType=TINYINT},
+        level = #{level,jdbcType=INTEGER},
       </if>
       <if test="pdesc != null">
         pdesc = #{pdesc,jdbcType=VARCHAR},
@@ -85,9 +85,9 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.haibao.business.domain.entity.Penalty">
     update t_penalty
-    set identity = #{identity,jdbcType=TINYINT},
+    set identity = #{identity,jdbcType=INTEGER},
       fk_id = #{fkId,jdbcType=INTEGER},
-      level = #{level,jdbcType=TINYINT},
+      level = #{level,jdbcType=INTEGER},
       pdesc = #{pdesc,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

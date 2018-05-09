@@ -6,14 +6,14 @@ package com.haibao.business.domain.enums;
  */
 public enum PoliticalStatusCode {
 
-    QUN_ZHONG((byte) 0, "群众"),
-    GONG_QING_TUAN_YUAN((byte) 1, "共青团员"),
-    ZHONG_GONG_DANG_YUAN((byte) 2, "中共党员");
+    QUN_ZHONG( 0, "群众"),
+    GONG_QING_TUAN_YUAN( 1, "共青团员"),
+    ZHONG_GONG_DANG_YUAN( 2, "中共党员");
 
-    private byte code;
+    private int code;
     private String desc;
 
-    public byte code() {
+    public int code() {
         return code;
     }
 
@@ -21,7 +21,7 @@ public enum PoliticalStatusCode {
         return desc;
     }
 
-    PoliticalStatusCode(byte code, String desc) {
+    PoliticalStatusCode(int code, String desc) {
         this.code = code;
         this.desc = desc;
     }
