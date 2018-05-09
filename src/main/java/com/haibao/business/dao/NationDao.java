@@ -7,7 +7,6 @@ import java.util.List;
 public interface NationDao {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(Nation record);
 
     int insertSelective(Nation record);
 
@@ -18,5 +17,4 @@ public interface NationDao {
 
     int updateByPrimaryKeySelective(Nation record);
 
-    int updateByPrimaryKey(Nation record);
 }

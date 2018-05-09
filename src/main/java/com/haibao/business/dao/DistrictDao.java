@@ -7,7 +7,6 @@ import java.util.List;
 public interface DistrictDao {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(District record);
 
     int insertSelective(District record);
 
@@ -17,5 +16,4 @@ public interface DistrictDao {
 
     int updateByPrimaryKeySelective(District record);
 
-    int updateByPrimaryKey(District record);
 }

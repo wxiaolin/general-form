@@ -6,6 +6,7 @@ package com.haibao.business.domain.enums;
  */
 public enum SessionContext {
 
+    PERSONAL_DETAILS("personalDetails"),
     CURRENT_USER("currentUser");
 
     private String string;

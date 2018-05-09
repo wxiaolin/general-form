@@ -23,12 +23,6 @@
     delete from t_nation
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.haibao.business.domain.entity.Nation">
-    insert into t_nation (id, name
-      )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}
-      )
-  </insert>
   <insert id="insertSelective" parameterType="com.haibao.business.domain.entity.Nation">
     insert into t_nation
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -55,11 +49,6 @@
         name = #{name,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.haibao.business.domain.entity.Nation">
-    update t_nation
-    set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

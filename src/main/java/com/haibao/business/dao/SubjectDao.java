@@ -5,7 +5,6 @@ import com.haibao.business.domain.entity.Subject;
 public interface SubjectDao {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(Subject record);
 
     int insertSelective(Subject record);
 
@@ -13,5 +12,4 @@ public interface SubjectDao {
 
     int updateByPrimaryKeySelective(Subject record);
 
-    int updateByPrimaryKey(Subject record);
 }

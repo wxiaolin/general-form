@@ -7,8 +7,6 @@ import java.util.List;
 public interface ClassTableDao {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(ClassTable record);
-
     int insertSelective(ClassTable record);
 
     ClassTable selectByPrimaryKey(Integer id);
@@ -17,5 +15,4 @@ public interface ClassTableDao {
 
     int updateByPrimaryKeySelective(ClassTable record);
 
-    int updateByPrimaryKey(ClassTable record);
 }

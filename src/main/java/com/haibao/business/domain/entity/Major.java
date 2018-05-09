@@ -5,14 +5,14 @@ import java.util.Date;
 public class Major {
     private Integer id;
 
-    private String major;
+    private String name;
 
     private Integer deptId;
 
 
-    public Major(Integer id, String ajor, Integer deptId) {
+    public Major(Integer id, String name, Integer deptId) {
         this.id = id;
-        this.major = ajor;
+        this.name = name;
         this.deptId = deptId;
     }
 
@@ -28,12 +28,12 @@ public class Major {
         this.id = id;
     }
 
-    public String getMajor() {
-        return major;
+    public String getName() {
+        return name;
     }
 
-    public void setMajor(String major) {
-        this.major = major;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getDeptId() {

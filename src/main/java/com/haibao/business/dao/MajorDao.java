@@ -7,7 +7,6 @@ import java.util.List;
 public interface MajorDao {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(Major record);
 
     int insertSelective(Major record);
 
@@ -18,5 +17,4 @@ public interface MajorDao {
 
     int updateByPrimaryKeySelective(Major record);
 
-    int updateByPrimaryKey(Major record);
 }

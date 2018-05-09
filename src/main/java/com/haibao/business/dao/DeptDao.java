@@ -7,7 +7,6 @@ import java.util.List;
 public interface DeptDao {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(Dept record);
 
     int insertSelective(Dept record);
 
@@ -17,5 +16,4 @@ public interface DeptDao {
 
     int updateByPrimaryKeySelective(Dept record);
 
-    int updateByPrimaryKey(Dept record);
 }

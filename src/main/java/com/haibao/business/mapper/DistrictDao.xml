@@ -25,12 +25,6 @@
     delete from t_district
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.haibao.business.domain.entity.District">
-    insert into t_district (id, name, rank, 
-      belong)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{rank,jdbcType=INTEGER},
-      #{belong,jdbcType=INTEGER})
-  </insert>
   <insert id="insertSelective" parameterType="com.haibao.business.domain.entity.District">
     insert into t_district
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -75,13 +69,6 @@
         belong = #{belong,jdbcType=INTEGER},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.haibao.business.domain.entity.District">
-    update t_district
-    set name = #{name,jdbcType=VARCHAR},
-      rank = #{rank,jdbcType=INTEGER},
-      belong = #{belong,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

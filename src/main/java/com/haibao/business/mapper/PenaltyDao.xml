@@ -21,13 +21,6 @@
     delete from t_penalty
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.haibao.business.domain.entity.Penalty">
-    insert into t_penalty (id, identity, fk_id, 
-      level, pdesc)
-    values (#{id,jdbcType=INTEGER}, #{identity,jdbcType=INTEGER}, #{fkId,jdbcType=INTEGER},
-      #{level,jdbcType=INTEGER}, #{pdesc,jdbcType=VARCHAR}
-      )
-  </insert>
   <insert id="insertSelective" parameterType="com.haibao.business.domain.entity.Penalty">
     insert into t_penalty
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -81,14 +74,6 @@
         pdesc = #{pdesc,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.haibao.business.domain.entity.Penalty">
-    update t_penalty
-    set identity = #{identity,jdbcType=INTEGER},
-      fk_id = #{fkId,jdbcType=INTEGER},
-      level = #{level,jdbcType=INTEGER},
-      pdesc = #{pdesc,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

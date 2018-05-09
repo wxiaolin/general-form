@@ -15,7 +15,7 @@ public class StudentInfo {
 
     private Integer crid;
 
-    private Integer nation;
+    private Integer nationId;
 
     private String address;
 
@@ -39,9 +39,9 @@ public class StudentInfo {
 
     private Integer classId;
 
-    private Integer apartment;
+    private Integer apartmentId;
 
-    private Integer room;
+    private Integer roomId;
 
     private Integer creator;
 
@@ -51,14 +51,22 @@ public class StudentInfo {
 
     private Date updateTime;
 
-    public StudentInfo(Integer id, String name, String stuNo, Integer sex, Date birthday, Integer crid, Integer nation, String address, String mobile, Integer psId, Date regdate, Integer sstatus, Integer deptId, Integer majorId, Integer minorId1, Integer minorId2, Date grade, Integer classId, Integer apartment, Integer room, Integer creator, Date createTime, Integer updater, Date updateTime) {
+    private District district;
+    private Nation nation;
+    private Dept dept;
+    private Major major;
+    private ClassTable classTable;
+    private Building apartment;
+    private Room room;
+
+    public StudentInfo(Integer id, String name, String stuNo, Integer sex, Date birthday, Integer crid, Integer nationId, String address, String mobile, Integer psId, Date regdate, Integer sstatus, Integer deptId, Integer majorId, Integer minorId1, Integer minorId2, Date grade, Integer classId, Integer apartmentId, Integer roomId, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.id = id;
         this.name = name;
         this.stuNo = stuNo;
         this.sex = sex;
         this.birthday = birthday;
         this.crid = crid;
-        this.nation = nation;
+        this.nationId = nationId;
         this.address = address;
         this.mobile = mobile;
         this.psId = psId;
@@ -70,8 +78,8 @@ public class StudentInfo {
         this.minorId2 = minorId2;
         this.grade = grade;
         this.classId = classId;
-        this.apartment = apartment;
-        this.room = room;
+        this.apartmentId = apartmentId;
+        this.roomId = roomId;
         this.creator = creator;
         this.createTime = createTime;
         this.updater = updater;
@@ -130,12 +138,12 @@ public class StudentInfo {
         this.crid = crid;
     }
 
-    public Integer getNation() {
-        return nation;
+    public Integer getNationId() {
+        return nationId;
     }
 
-    public void setNation(Integer nation) {
-        this.nation = nation;
+    public void setNationId(Integer nationId) {
+        this.nationId = nationId;
     }
 
     public String getAddress() {
@@ -226,20 +234,20 @@ public class StudentInfo {
         this.classId = classId;
     }
 
-    public Integer getApartment() {
-        return apartment;
+    public Integer getApartmentId() {
+        return apartmentId;
     }
 
-    public void setApartment(Integer apartment) {
-        this.apartment = apartment;
+    public void setApartmentId(Integer apartmentId) {
+        this.apartmentId = apartmentId;
     }
 
-    public Integer getRoom() {
-        return room;
+    public Integer getRoomId() {
+        return roomId;
     }
 
-    public void setRoom(Integer room) {
-        this.room = room;
+    public void setRoomId(Integer roomId) {
+        this.roomId = roomId;
     }
 
     public Integer getCreator() {
@@ -274,6 +282,62 @@ public class StudentInfo {
         this.updateTime = updateTime;
     }
 
+    public District getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(District district) {
+        this.district = district;
+    }
+
+    public Nation getNation() {
+        return nation;
+    }
+
+    public void setNation(Nation nation) {
+        this.nation = nation;
+    }
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
+
+    public Major getMajor() {
+        return major;
+    }
+
+    public void setMajor(Major major) {
+        this.major = major;
+    }
+
+    public ClassTable getClassTable() {
+        return classTable;
+    }
+
+    public void setClassTable(ClassTable classTable) {
+        this.classTable = classTable;
+    }
+
+    public Building getApartment() {
+        return apartment;
+    }
+
+    public void setApartment(Building apartment) {
+        this.apartment = apartment;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
     @Override
     public String toString() {
         return "StudentInfo{" +
@@ -283,7 +347,7 @@ public class StudentInfo {
                 ", sex=" + sex +
                 ", birthday=" + birthday +
                 ", crid=" + crid +
-                ", nation=" + nation +
+                ", nation=" + nationId +
                 ", address='" + address + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", psId=" + psId +
@@ -295,8 +359,8 @@ public class StudentInfo {
                 ", minorId2=" + minorId2 +
                 ", grade=" + grade +
                 ", classId=" + classId +
-                ", apartment=" + apartment +
-                ", room=" + room +
+                ", apartmentId=" + apartmentId +
+                ", roomId=" + roomId +
                 ", creator=" + creator +
                 ", createTime=" + createTime +
                 ", updater=" + updater +

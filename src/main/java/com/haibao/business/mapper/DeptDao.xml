@@ -25,12 +25,6 @@
     delete from t_dept
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.haibao.business.domain.entity.Dept">
-    insert into t_dept
-    (id, name, belong, ddesc)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{belong,jdbcType=INTEGER}, 
-      #{ddesc,jdbcType=VARCHAR})
-  </insert>
   <insert id="insertSelective" parameterType="com.haibao.business.domain.entity.Dept">
     insert into t_dept
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -75,13 +69,6 @@
         ddesc = #{ddesc,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.haibao.business.domain.entity.Dept">
-    update t_dept
-    set name = #{name,jdbcType=VARCHAR},
-      belong = #{belong,jdbcType=INTEGER},
-      ddesc = #{ddesc,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

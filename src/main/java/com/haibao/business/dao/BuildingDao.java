@@ -11,5 +11,4 @@ public interface BuildingDao {
 
     int updateByPrimaryKeySelective(Building record);
 
-    int updateByPrimaryKey(Building record);
 }

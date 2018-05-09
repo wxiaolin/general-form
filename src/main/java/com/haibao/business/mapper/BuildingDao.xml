@@ -46,9 +46,4 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.haibao.business.domain.entity.Building">
-    update t_building
-    set name = #{name,jdbcType=VARCHAR},
-    where id = #{id,jdbcType=INTEGER}
-  </update>
 </mapper>

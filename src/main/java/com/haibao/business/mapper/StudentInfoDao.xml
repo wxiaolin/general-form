@@ -8,7 +8,7 @@
         <result property="sex" column="sex" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="birthday" column="birthday" javaType="java.util.Date" jdbcType="DATE"/>
         <result property="crid" column="crid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-        <result property="nation" column="nation" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="nationId" column="nation_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="address" column="address" javaType="java.lang.String" jdbcType="VARCHAR"/>
         <result property="mobile" column="mobile" javaType="java.lang.String" jdbcType="CHAR"/>
         <result property="psId" column="ps_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
@@ -20,16 +20,72 @@
         <result property="minorId2" column="minor_id2" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="grade" column="grade" javaType="java.util.Date" jdbcType="DATE"/>
         <result property="classId" column="class_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-        <result property="apartment" column="apartment" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-        <result property="room" column="room" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="apartmentId" column="apartment_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="roomId" column="room_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="creator" column="creator" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="createTime" column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
         <result property="updater" column="updater" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="updateTime" column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
     </resultMap>
+    <resultMap id="withDetailedMap" type="com.haibao.business.domain.entity.StudentInfo">
+        <id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="name" column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="stuNo" column="stu_no" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="sex" column="sex" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="birthday" column="birthday" javaType="java.util.Date" jdbcType="DATE"/>
+        <result property="crid" column="crid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="nationId" column="nation_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="address" column="address" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="mobile" column="mobile" javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="psId" column="ps_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="regdate" column="regdate" javaType="java.util.Date" jdbcType="DATE"/>
+        <result property="deptId" column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="majorId" column="major_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="grade" column="grade" javaType="java.util.Date" jdbcType="DATE"/>
+        <result property="classId" column="class_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="apartmentId" column="apartment_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="roomId" column="room_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <association property="district" javaType="com.haibao.business.domain.entity.District">
+            <id property="id" column="diid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <result property="name" column="diname" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <result property="rank" column="rank" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <result property="belong" column="belong" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        </association>
+        <association property="nation" javaType="com.haibao.business.domain.entity.Nation">
+            <id property="id" column="nid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <result property="name" column="nname" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </association>
+        <association property="dept" javaType="com.haibao.business.domain.entity.Dept">
+            <id property="id" column="deid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <result property="name" column="dename" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <result property="belong" column="belong" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <result property="ddesc" column="ddesc" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </association>
+        <association property="major" javaType="com.haibao.business.domain.entity.Major">
+            <id property="id" column="mid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <result property="name" column="mname" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <result property="deptId" column="mdept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        </association>
+        <association property="classTable" javaType="com.haibao.business.domain.entity.ClassTable">
+            <id property="id" column="cid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <result property="deptId" column="cdept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <result property="grade" column="cgrade" javaType="java.util.Date" jdbcType="DATE" />
+            <result property="majorId" column="cmajor_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <result property="classNo" column="class_no" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        </association>
+        <association property="apartment" javaType="com.haibao.business.domain.entity.Building">
+            <id property="id" column="aid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <result property="name" column="aname" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </association>
+        <association property="room" javaType="com.haibao.business.domain.entity.Room">
+            <id property="id" column="rid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <result property="name" column="rname" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <result property="buildingId" column="rbuilding_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        </association>
+    </resultMap>
     <sql id="Base_Column_List">
-    id, name, stu_no, sex, birthday, crid, nation, address, mobile, ps_id, regdate,
-    sstatus, dept_id, major_id, minor_id1, minor_id2, grade, class_id, apartment, room,
+    id, `name`, stu_no, sex, birthday, crid, nation_id, address, mobile, ps_id, regdate,
+    sstatus, dept_id, major_id, minor_id1, minor_id2, grade, class_id, apartment_id, room_id,
     creator, create_time, updater, update_time
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -38,6 +94,25 @@
         from t_student_info
         where id = #{id,jdbcType=INTEGER}
     </select>
+    <select id="selectByStuNoDetailed" parameterType="java.lang.String" resultMap="withDetailedMap">
+        select sif.*,
+        di.`id` diid,di.`name` diname,
+        n.`id` nid,n.`name` nname,
+        de.`id` deid, de.`name` dename,
+        m.`id` mid, m.`name` mname, m.`dept_id` mdept_id,
+        cl.`id` cid,cl.`dept_id` cdept_id,cl.`grade` cgrade,cl.`major_id` cmajor_id ,cl.`class_no` ,
+        bu.`id` aid, bu.`name` aname,
+        r.`id` rid,r.`name` rname,r.`building_id` rbuilding_id
+        from t_student_info sif
+        LEFT JOIN t_district di on sif.crid = di.id
+        LEFT JOIN t_nation n on sif.nation_id = n.id
+        LEFT JOIN t_dept de on sif.dept_id = de.id
+        LEFT JOIN t_major m on sif.major_id = m.id
+        LEFT JOIN t_class cl on sif.class_id = cl.id
+        LEFT JOIN t_building bu on sif.apartment_id = bu.id
+        LEFT JOIN t_room r on sif.room_id = r.id
+        where sif.stu_no = #{stuNo}
+    </select>
     <select id="selectListByCriteria" parameterType="com.haibao.business.domain.entity.StudentInfo"
             resultMap="BaseResultMap">
         select
@@ -45,7 +120,7 @@
         from t_student_info
         <trim prefix="where" suffix="" prefixOverrides="and">
             <if test="name != null">
-                name = #{name,jdbcType=VARCHAR}
+                `name` = #{name,jdbcType=VARCHAR}
             </if>
             <if test="stuNo != null">
                 and
@@ -63,9 +138,9 @@
                 and
                 crid = #{crid,jdbcType=INTEGER}
             </if>
-            <if test="nation != null">
+            <if test="nationId != null">
                 and
-                nation = #{nation,jdbcType=INTEGER}
+                nation_id = #{nationId,jdbcType=INTEGER}
             </if>
             <if test="address != null">
                 and
@@ -111,13 +186,13 @@
                 and
                 class_id = #{classId,jdbcType=INTEGER}
             </if>
-            <if test="apartment != null">
+            <if test="apartmentId != null">
                 and
-                apartment = #{apartment,jdbcType=INTEGER}
+                apartment_id = #{apartmentId,jdbcType=INTEGER}
             </if>
-            <if test="room != null">
+            <if test="roomId != null">
                 and
-                room = #{room,jdbcType=INTEGER}
+                room_id = #{roomId,jdbcType=INTEGER}
             </if>
         </trim>
     </select>
@@ -128,7 +203,7 @@
         from t_student_info
         <trim prefix="where" suffix="" prefixOverrides="and">
             <if test="name != null">
-                name = #{name,jdbcType=VARCHAR}
+                `name` = #{name,jdbcType=VARCHAR}
             </if>
             <if test="stuNo != null">
                 and
@@ -146,9 +221,9 @@
                 and
                 crid = #{crid,jdbcType=INTEGER}
             </if>
-            <if test="nation != null">
+            <if test="nationId != null">
                 and
-                nation = #{nation,jdbcType=INTEGER}
+                nation_id = #{nationId,jdbcType=INTEGER}
             </if>
             <if test="address != null">
                 and
@@ -194,13 +269,13 @@
                 and
                 class_id = #{classId,jdbcType=INTEGER}
             </if>
-            <if test="apartment != null">
+            <if test="apartmentId != null">
                 and
-                apartment = #{apartment,jdbcType=INTEGER}
+                apartment_id = #{apartmentId,jdbcType=INTEGER}
             </if>
-            <if test="room != null">
+            <if test="roomId != null">
                 and
-                room = #{room,jdbcType=INTEGER}
+                room_id = #{roomId,jdbcType=INTEGER}
             </if>
         </trim>
     </select>
@@ -208,24 +283,6 @@
     delete from t_student_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.haibao.business.domain.entity.StudentInfo">
-    insert into t_student_info (id, name, stu_no,
-      sex, birthday, crid, nation,
-      address, mobile, ps_id,
-      regdate, sstatus, dept_id,
-      major_id, minor_id1, minor_id2,
-      grade, class_id, apartment,
-      room, creator, create_time,
-      updater, update_time)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{stuNo,jdbcType=CHAR},
-      #{sex,jdbcType=INTEGER}, #{birthday,jdbcType=DATE}, #{crid,jdbcType=INTEGER}, #{nation,jdbcType=INTEGER},
-      #{address,jdbcType=VARCHAR}, #{mobile,jdbcType=CHAR}, #{psId,jdbcType=INTEGER},
-      #{regdate,jdbcType=DATE}, #{sstatus,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER},
-      #{majorId,jdbcType=INTEGER}, #{minorId1,jdbcType=INTEGER}, #{minorId2,jdbcType=INTEGER},
-      #{grade,jdbcType=DATE}, #{classId,jdbcType=INTEGER}, #{apartment,jdbcType=INTEGER},
-      #{room,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
-      #{updater,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})
-  </insert>
     <insert id="insertSelective" parameterType="com.haibao.business.domain.entity.StudentInfo">
         insert into t_student_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -233,7 +290,7 @@
                 id,
             </if>
             <if test="name != null">
-                name,
+                `name`,
             </if>
             <if test="stuNo != null">
                 stu_no,
@@ -247,8 +304,8 @@
             <if test="crid != null">
                 crid,
             </if>
-            <if test="nation != null">
-                nation,
+            <if test="nationId != null">
+                nation_id,
             </if>
             <if test="address != null">
                 address,
@@ -283,11 +340,11 @@
             <if test="classId != null">
                 class_id,
             </if>
-            <if test="apartment != null">
-                apartment,
+            <if test="apartmentId != null">
+                apartment_id,
             </if>
-            <if test="room != null">
-                room,
+            <if test="roomId != null">
+                room_id,
             </if>
             <if test="creator != null">
                 creator,
@@ -321,8 +378,8 @@
             <if test="crid != null">
                 #{crid,jdbcType=INTEGER},
             </if>
-            <if test="nation != null">
-                #{nation,jdbcType=INTEGER},
+            <if test="nationId != null">
+                #{nationId,jdbcType=INTEGER},
             </if>
             <if test="address != null">
                 #{address,jdbcType=VARCHAR},
@@ -357,11 +414,11 @@
             <if test="classId != null">
                 #{classId,jdbcType=INTEGER},
             </if>
-            <if test="apartment != null">
-                #{apartment,jdbcType=INTEGER},
+            <if test="apartmentId != null">
+                #{apartmentId,jdbcType=INTEGER},
             </if>
-            <if test="room != null">
-                #{room,jdbcType=INTEGER},
+            <if test="roomId != null">
+                #{roomId,jdbcType=INTEGER},
             </if>
             <if test="creator != null">
                 #{creator,jdbcType=INTEGER},
@@ -381,7 +438,7 @@
         update t_student_info
         <set>
             <if test="name != null">
-                name = #{name,jdbcType=VARCHAR},
+                `name` = #{name,jdbcType=VARCHAR},
             </if>
             <if test="stuNo != null">
                 stu_no = #{stuNo,jdbcType=CHAR},
@@ -395,8 +452,8 @@
             <if test="crid != null">
                 crid = #{crid,jdbcType=INTEGER},
             </if>
-            <if test="nation != null">
-                nation = #{nation,jdbcType=INTEGER},
+            <if test="nationId != null">
+                nation_id = #{nationId,jdbcType=INTEGER},
             </if>
             <if test="address != null">
                 address = #{address,jdbcType=VARCHAR},
@@ -431,11 +488,11 @@
             <if test="classId != null">
                 class_id = #{classId,jdbcType=INTEGER},
             </if>
-            <if test="apartment != null">
-                apartment = #{apartment,jdbcType=INTEGER},
+            <if test="apartmentId != null">
+                apartment_id = #{apartmentId,jdbcType=INTEGER},
             </if>
-            <if test="room != null">
-                room = #{room,jdbcType=INTEGER},
+            <if test="roomId != null">
+                room_id = #{roomId,jdbcType=INTEGER},
             </if>
             <if test="creator != null">
                 creator = #{creator,jdbcType=INTEGER},
@@ -452,31 +509,4 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.haibao.business.domain.entity.StudentInfo">
-    update t_student_info
-    set name = #{name,jdbcType=VARCHAR},
-      stu_no = #{stuNo,jdbcType=CHAR},
-      sex = #{sex,jdbcType=INTEGER},
-      birthday = #{birthday,jdbcType=DATE},
-      crid = #{crid,jdbcType=INTEGER},
-      nation = #{nation,jdbcType=INTEGER},
-      address = #{address,jdbcType=VARCHAR},
-      mobile = #{mobile,jdbcType=CHAR},
-      ps_id = #{psId,jdbcType=INTEGER},
-      regdate = #{regdate,jdbcType=DATE},
-      sstatus = #{sstatus,jdbcType=INTEGER},
-      dept_id = #{deptId,jdbcType=INTEGER},
-      major_id = #{majorId,jdbcType=INTEGER},
-      minor_id1 = #{minorId1,jdbcType=INTEGER},
-      minor_id2 = #{minorId2,jdbcType=INTEGER},
-      grade = #{grade,jdbcType=DATE},
-      class_id = #{classId,jdbcType=INTEGER},
-      apartment = #{apartment,jdbcType=INTEGER},
-      room = #{room,jdbcType=INTEGER},
-      creator = #{creator,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      updater = #{updater,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
 </mapper>

@@ -10,6 +10,8 @@ import com.haibao.system.domain.enums.ResultCode;
 import com.haibao.system.service.UserService;
 import com.haibao.utils.StringUtils;
 import org.apache.log4j.Logger;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -59,9 +61,12 @@ public class FillerController {
         Logger logger = Logger.getLogger(FillerController.class);
         logger.debug("进入filler(), " + user.toString());
 
-        StudentInfo studentInfo = new StudentInfo();
-        studentInfo.setStuNo(user.getUsername());
-        studentInfo = studentServcice.getStudentInfo(studentInfo);
+        Session session = SecurityUtils.getSubject().getSession();
+        StudentInfo studentInfo = (StudentInfo) session.getAttribute(SessionContext.PERSONAL_DETAILS.string());
+        if (null == studentInfo){
+            studentInfo = studentServcice.getStudentInfoDetailed(user.getUsername());
+            session.setAttribute(SessionContext.PERSONAL_DETAILS.string(), studentInfo);
+        }
         logger.debug(studentInfo.toString());
         Map<String, String> map = fill(names, studentInfo);
         // jackson.databind.ObjectMapper，可以把map转换成string方便debug
@@ -106,38 +111,34 @@ public class FillerController {
                             map.put(field, studentInfo.getSstatus() + "");
                             break;
                         case DEPT:
-                            Dept dept = deptService.getDept(studentInfo.getDeptId());
-                            map.put(field, dept.getName());
+                            map.put(field, studentInfo.getDept().getName());
                             break;
                         case MAJOR:
-                            Major major = majorService.getMajor(studentInfo.getMajorId());
-                            map.put(field, major.getMajor());
+                            map.put(field, studentInfo.getMajor().getName());
                             break;
                         case MINOR_1:
                             Major minor1 = majorService.getMajor(studentInfo.getMinorId1());
-                            map.put(field, minor1.getMajor());
+                            map.put(field, minor1.getName());
                             break;
                         case MINOR_2:
                             Major minor2 = majorService.getMajor(studentInfo.getMinorId2());
-                            map.put(field, minor2.getMajor());
+                            map.put(field, minor2.getName());
                             break;
                         case GRADE:
                             SimpleDateFormat pattern1 = new SimpleDateFormat("yyyy");
                             map.put(field, pattern1.format(studentInfo.getGrade()));
                             break;
                         case CLASSES:
-                            ClassTable classTable = classService.getClassTable(studentInfo.getClassId());
-                            Major major1 = majorService.getMajor(classTable.getMajorId());
                             SimpleDateFormat pattern2 = new SimpleDateFormat("yyyy");
-                            String grade = pattern2.format(classTable.getGrade());
-                            String className = grade + "级" + major1.getMajor() + classTable.getClassNo();
+                            String grade = pattern2.format(studentInfo.getClassTable().getGrade());
+                            String className = grade + "级" + studentInfo.getMajor().getName() + studentInfo.getClassTable().getClassNo() + "班";
                             map.put(field, className);
                             break;
                         case APARTMENT:
-                            ;
+                            map.put(field, studentInfo.getApartment().getName());;
                             break;
                         case ROOM:
-                            ;
+                            map.put(field, studentInfo.getRoom().getName());
                             break;
                         case SEX:
                             if (SexCode.MALE.code() == studentInfo.getSex()) {
@@ -158,8 +159,8 @@ public class FillerController {
                             map.put(field, cr);
                             break;
                         case NATION:
-                            Nation nation = nationService.getNation(studentInfo.getNation());
-                            map.put(field, nation.getName());
+                            Nation nation = nationService.getNation(studentInfo.getNationId());
+                            map.put(field, studentInfo.getNation().getName());
                             break;
                         case ADDRESS:
                             map.put(field, studentInfo.getAddress());

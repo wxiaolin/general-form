@@ -8,7 +8,6 @@ import java.util.List;
 public interface FormDao {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(Form record);
 
     int insertSelective(Form record);
 
@@ -20,5 +19,4 @@ public interface FormDao {
 
     int updateByPrimaryKeySelective(Form record);
 
-    int updateByPrimaryKey(Form record);
 }

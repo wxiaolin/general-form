@@ -5,7 +5,7 @@ import com.haibao.business.domain.entity.CollegeArea;
 public interface CollegeAreaDao {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(CollegeArea record);
+
 
     int insertSelective(CollegeArea record);
 
@@ -13,5 +13,5 @@ public interface CollegeAreaDao {
 
     int updateByPrimaryKeySelective(CollegeArea record);
 
-    int updateByPrimaryKey(CollegeArea record);
+
 }
