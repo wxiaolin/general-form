@@ -15,4 +15,13 @@ public interface DeptService {
      */
     Dept getDept(Integer did);
 
+    /**
+     * 根据系部名称获取系部
+     * @param name
+     * @return
+     */
+    Dept getDeptByName(String name);
+
+
+
 }

@@ -29,7 +29,5 @@ public class TestStudentInfo {
         String json = mapper.writeValueAsString(user);
 //        Logger.getLogger(this.getClass()).debug("用户的角色数量"+user.getRoles().size());
         Logger.getLogger(this.getClass()).debug(json);
-
-
     }
 }

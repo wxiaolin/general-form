@@ -13,14 +13,6 @@ public class ClassTable {
 
     private Integer classNo;
 
-    public ClassTable(Integer id, Integer deptId, Date grade, Integer majorId, Integer classNo) {
-        this.id = id;
-        this.deptId = deptId;
-        this.grade = grade;
-        this.majorId = majorId;
-        this.classNo = classNo;
-    }
-
     public ClassTable() {
         super();
     }

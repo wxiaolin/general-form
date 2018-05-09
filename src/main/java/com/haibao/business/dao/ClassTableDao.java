@@ -5,8 +5,6 @@ import com.haibao.business.domain.entity.ClassTable;
 import java.util.List;
 
 public interface ClassTableDao {
-    int deleteByPrimaryKey(Integer id);
-
     int insertSelective(ClassTable record);
 
     ClassTable selectByPrimaryKey(Integer id);

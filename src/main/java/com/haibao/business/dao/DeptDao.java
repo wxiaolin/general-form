@@ -12,6 +12,8 @@ public interface DeptDao {
 
     Dept selectByPrimaryKey(Integer id);
 
+    Dept selectByName(String name);
+
     List<Dept> selectAll();
 
     int updateByPrimaryKeySelective(Dept record);

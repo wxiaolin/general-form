@@ -13,4 +13,10 @@ public interface DistrictService {
      * @return
      */
     District getDistrict(Integer did);
+    /**
+     * 根据行政区名称获取行政区
+     * @param name
+     * @return
+     */
+    District getDeptByName(String name);
 }

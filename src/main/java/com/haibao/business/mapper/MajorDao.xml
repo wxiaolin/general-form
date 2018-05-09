@@ -15,10 +15,16 @@
     from t_major
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectAll" resultType="com.haibao.business.domain.entity.Dept">
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from t_dept
+    from t_major
+    where name = #{name,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_major
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_major

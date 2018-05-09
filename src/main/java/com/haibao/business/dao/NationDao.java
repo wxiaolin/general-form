@@ -12,6 +12,8 @@ public interface NationDao {
 
     Nation selectByPrimaryKey(Integer id);
 
+    Nation selectByName(String name);
+
     List<Nation> selectAll();
 
 

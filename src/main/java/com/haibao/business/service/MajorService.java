@@ -14,4 +14,10 @@ public interface MajorService {
      * @return
      */
     Major getMajor(Integer mid);
+    /**
+     * 根据专业名称获取专业
+     * @param name
+     * @return
+     */
+    Major getDeptByName(String name);
 }

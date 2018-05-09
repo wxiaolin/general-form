@@ -12,6 +12,8 @@ public interface DistrictDao {
 
     District selectByPrimaryKey(Integer id);
 
+    District selectByName(String name);
+
     List<District> selectAll();
 
     int updateByPrimaryKeySelective(District record);

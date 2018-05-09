@@ -13,4 +13,11 @@ public interface NationService {
      * @return
      */
     Nation getNation(Integer nid);
+
+    /**
+     * 根据民族名称获取民族
+     * @param name
+     * @return
+     */
+    Nation getDeptByName(String name);
 }
