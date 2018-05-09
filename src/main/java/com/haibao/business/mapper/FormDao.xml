@@ -2,19 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haibao.business.dao.FormDao">
   <resultMap id="BaseResultMap" type="com.haibao.business.domain.entity.Form">
-    <constructor>
-      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="define" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="fstatus" javaType="java.lang.Byte" jdbcType="TINYINT" />
-      <arg column="fdesc" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="type" javaType="java.lang.Byte" jdbcType="TINYINT" />
-      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
+      <id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="name" column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="define" column="define" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="fstatus" column="fstatus" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <result property="fdesc" column="fdesc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="deptId" column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="type" column="type" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <result property="creator" column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="createTime" column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <result property="updater" column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="updateTime" column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List">
     id, name, define, fstatus, fdesc, dept_id, type, creator, create_time, updater, update_time

@@ -2,14 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haibao.business.dao.GloryDao">
   <resultMap id="BaseResultMap" type="com.haibao.business.domain.entity.Glory">
-    <constructor>
-      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="awardee" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="dept_id" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="level" javaType="java.lang.Byte" jdbcType="TINYINT" />
-      <arg column="type" javaType="java.lang.Byte" jdbcType="TINYINT" />
-    </constructor>
+      <id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="awardee" column="awardee" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="name" column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="deptId" column="dept_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="level" column="level" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <result property="type" column="type" javaType="java.lang.Byte" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List">
     id, awardee, name, dept_id, level, type

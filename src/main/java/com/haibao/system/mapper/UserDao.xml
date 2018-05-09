@@ -2,21 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haibao.system.dao.UserDao">
     <resultMap id="BaseResultMap" type="com.haibao.system.domain.entity.User">
-        <constructor>
-            <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <arg column="astatus" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
-            <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
-        </constructor>
-    </resultMap>
-    <resultMap id="withRoleMap" type="com.haibao.system.domain.entity.User">
         <id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         <result property="username" column="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="password" column="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
         <result property="astatus" column="astatus" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="creator" column="creator" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="updater" column="updater" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="updateTime" column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <resultMap id="withRoleMap" type="com.haibao.system.domain.entity.User" extends="BaseResultMap">
         <collection property="roles" ofType="com.haibao.system.domain.entity.Role">
             <id property="id" column="rid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <result property="role" column="role" javaType="java.lang.String" jdbcType="VARCHAR"/>

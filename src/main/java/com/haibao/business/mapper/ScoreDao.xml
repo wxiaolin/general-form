@@ -2,19 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haibao.business.dao.ScoreDao">
   <resultMap id="BaseResultMap" type="com.haibao.business.domain.entity.Score">
-    <constructor>
-      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="stu_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="ayear" javaType="java.lang.String" jdbcType="CHAR" />
-      <arg column="semester" javaType="java.lang.Byte" jdbcType="TINYINT" />
-      <arg column="score1" javaType="java.lang.Float" jdbcType="REAL" />
-      <arg column="score2" javaType="java.lang.Float" jdbcType="REAL" />
-      <arg column="subject_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
+      <id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="stuId" column="stu_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="ayear" column="ayear" javaType="java.lang.String" jdbcType="CHAR" />
+      <result property="semester" column="semester" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <result property="score1" column="score1" javaType="java.lang.Float" jdbcType="REAL" />
+      <result property="score2" column="score2" javaType="java.lang.Float" jdbcType="REAL" />
+      <result property="subjectId" column="subject_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="creator" column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="createTime" column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <result property="updater" column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="updateTime" column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List">
     id, stu_id, ayear, semester, score1, score2, subject_id, creator, create_time, updater, 

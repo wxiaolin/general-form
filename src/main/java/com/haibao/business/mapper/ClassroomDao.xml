@@ -2,11 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haibao.business.dao.ClassroomDao">
   <resultMap id="BaseResultMap" type="com.haibao.business.domain.entity.Classroom">
-    <constructor>
-      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="building_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-    </constructor>
+      <id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="name" column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="buildingId" column="building_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List">
     id, name, building_id

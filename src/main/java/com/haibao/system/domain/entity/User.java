@@ -1,5 +1,7 @@
 package com.haibao.system.domain.entity;
 
+import com.haibao.business.domain.entity.StudentInfo;
+
 import java.util.Date;
 import java.util.List;
 
@@ -21,6 +23,8 @@ public class User {
     private Date updateTime;
 
     private List<Role> roles;
+
+    private StudentInfo studentInfo;
 
     public User(Integer id, String username, String password, Integer astatus, Integer creator, Date createTime, Integer updater, Date updateTime) {
         this.id = id;
@@ -109,6 +113,13 @@ public class User {
         this.roles = roles;
     }
 
+    public StudentInfo getStudentInfo() {
+        return studentInfo;
+    }
+
+    public void setStudentInfo(StudentInfo studentInfo) {
+        this.studentInfo = studentInfo;
+    }
 
     @Override
     public String toString() {
@@ -121,7 +132,8 @@ public class User {
                 ", createTime=" + createTime +
                 ", updater=" + updater +
                 ", updateTime=" + updateTime +
-                ", userRoles=" + roles +
+                ", roles=" + roles +
+                ", studentInfo=" + studentInfo +
                 '}';
     }
 }
