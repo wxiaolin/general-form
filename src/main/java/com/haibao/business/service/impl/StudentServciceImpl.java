@@ -29,4 +29,9 @@ public class StudentServciceImpl implements StudentServcice {
         return studentInfoDao.selectListByCriteria(record);
     }
 
+    @Override
+    public StudentInfo getStudentInfoDetailed(String stuNo) {
+        return studentInfoDao.selectByStuNoDetailed(stuNo);
+    }
+
 }

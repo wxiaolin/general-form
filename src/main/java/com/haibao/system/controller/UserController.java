@@ -27,6 +27,17 @@ public class UserController {
     private UserService userService;
 
     /**
+     * 前往个人信息页面
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView goUserInfo() {
+        Logger.getLogger(this.getClass()).debug("进入goUserInfo()");
+        ModelAndView mav = new ModelAndView("userInfo");
+        return mav;
+    }
+
+    /**
      * 前往个人账号维护页面
      * @return
      */

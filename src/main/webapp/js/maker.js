@@ -27,7 +27,7 @@ function savedefine(id) {
             contentType: "application/json",
             dataType: 'json',
             success: function (d) {
-                console.log(d);
+                alert(d.msg);
             }
         });
     } else {
@@ -83,6 +83,7 @@ function mode1Line2() {
     textarea2.blur(function () {
         setValue($(this));
     });
+    var wrap2 = $('<div class="cells-wrapper float-left"></div>');
     var input3 = $('<input />');
     input3.blur(function () {
         setKey($(this));
@@ -97,9 +98,10 @@ function mode1Line2() {
     });
     wrap.append(input1);
     wrap.append(textarea2);
-    wrap.append(input3);
-    wrap.append(textarea4);
+    wrap2.append(input3);
+    wrap2.append(textarea4);
     $("#form-field-area").append(wrap);
+    $("#form-field-area").append(wrap2);
 }
 
 function mode1Line3() {
@@ -205,11 +207,13 @@ function mode2Line3() {
         setValue($(this));
     });
     var wrap = $('<div class="cells-wrapper float-left"></div>');
+    var wrap2 = $('<div class="cells-wrapper float-left"></div>');
     wrap.append(input1);
     wrap.append(textarea2);
-    wrap.append(input3);
-    wrap.append(textarea4);
+    wrap2.append(input3);
+    wrap2.append(textarea4);
     $("#form-field-area").append(wrap);
+    $("#form-field-area").append(wrap2);
 }
 
 /* 大格子*/

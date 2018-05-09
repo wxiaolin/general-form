@@ -36,8 +36,8 @@
 }
 
 .cell {
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding-top: 24px;
+    padding-bottom: 24px;
     box-sizing: border-box;
     border-style: solid;
     border-width: 1px;

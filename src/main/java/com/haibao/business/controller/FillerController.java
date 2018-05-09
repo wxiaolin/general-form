@@ -34,18 +34,11 @@ public class FillerController {
     @Autowired
     private StudentServcice studentServcice;
     @Autowired
-    private DeptService deptService;
-    @Autowired
     private MajorService majorService;
-    @Autowired
-    private ClassService classService;
     @Autowired
     private DistrictService districtService;
     @Autowired
     private NationService nationService;
-    @Autowired
-    private UserService userService;
-
 
     /**
      * 表格内容自动填充
@@ -129,11 +122,14 @@ public class FillerController {
                             SimpleDateFormat pattern1 = new SimpleDateFormat("yyyy");
                             map.put(field, pattern1.format(studentInfo.getGrade()));
                             break;
-                        case CLASSES:
+                        case CLASS_NAME:
                             SimpleDateFormat pattern2 = new SimpleDateFormat("yyyy");
                             String grade = pattern2.format(studentInfo.getClassTable().getGrade());
                             String className = grade + "级" + studentInfo.getMajor().getName() + studentInfo.getClassTable().getClassNo() + "班";
                             map.put(field, className);
+                            break;
+                        case CLASS_NO:
+                            map.put(field, studentInfo.getClassTable().getClassNo() +"");
                             break;
                         case APARTMENT:
                             map.put(field, studentInfo.getApartment().getName());;
@@ -148,9 +144,13 @@ public class FillerController {
                                 map.put(field, SexCode.FAMALE.desc());
                             }
                             break;
-                        case BIRTHDAY:
+                        case BIRTHDAY_yyyyMM:
                             SimpleDateFormat pattern3 = new SimpleDateFormat("yyyy-MM");
                             map.put(field, pattern3.format(studentInfo.getBirthday()));
+                            break;
+                        case BIRTHDAY_yyyyMMdd:
+                            SimpleDateFormat pattern4 = new SimpleDateFormat("yyyy-MM-dd");
+                            map.put(field, pattern4.format(studentInfo.getBirthday()));
                             break;
                         case CENSUS_REGISTER:
                             District area = districtService.getDistrict(studentInfo.getCrid());

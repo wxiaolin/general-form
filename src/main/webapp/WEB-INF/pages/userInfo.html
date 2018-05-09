@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>账号信息维护-通用表格系统</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/ionicons.min.css">
+    <link rel="stylesheet" href="/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/css/skins/skin-blue.min.css">
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header" th:replace="common/header::header">
+    </header>
+    <aside class="main-sidebar" th:replace="common/sidebar::sidebar">
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                账号信息维护
+                <small>若以下个人信息有误，请联系学院工作人员。</small>
+            </h1>
+        </section>
+        <section class="content container-fluid">
+            <div class="box box-danger direct-chat direct-chat-danger">
+                <div class="panel panel-default">
+                    <div class="panel-heading">账号信息</div>
+                    <div class="panel-body">
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="username">用户名：</label>
+                                <input type="text" class="float-left form-control child-vertical-align"
+                                       id="username" th:value="${session.currentUser.username}" readonly>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="name">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</label>
+                                <input type="text" class="float-left form-control child-vertical-align"
+                                       id="name" th:value="${session.personalDetails.name}" readonly>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="sex">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</label>
+                                <input type="text" class="float-left form-control child-vertical-align"
+                                       id="sex" th:value="${session.personalDetails.sex==0?'男':'女'}" readonly>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="birthday">出生日期：</label>
+                                <input type="text" class="float-left form-control child-vertical-align"
+                                       id="birthday"
+                                       th:value="${#dates.format(session.personalDetails.birthday,'yyyy/MM/dd')}"
+                                       readonly>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="nation">民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族：</label>
+                                <input type="text" class="float-left form-control child-vertical-align"
+                                       id="nation" th:value="${session.personalDetails.nation.name}" readonly>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="district">籍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贯：</label>
+                                <input type="text" class="float-left form-control child-vertical-align"
+                                       id="district" th:value="${session.personalDetails.district.name}"
+                                       readonly>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="address">家庭地址：</label>
+                                <input type="text" class="float-left form-control child-vertical-align"
+                                       id="address" th:value="${session.personalDetails.address}"
+                                       readonly>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="mobile">联系方式：</label>
+                                <input type="text" class="float-left form-control child-vertical-align"
+                                       id="mobile" th:value="${session.personalDetails.mobile}"
+                                       readonly>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="regdate">入学日期：</label>
+                                <input type="text" class="float-left form-control child-vertical-align"
+                                       id="regdate"
+                                       th:value="${#dates.format(session.personalDetails.regdate,'yyyy/MM/dd')}"
+                                       readonly>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="dept">系&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;部：</label>
+                                <input type="text"
+                                       class="float-left form-control child-vertical-align"
+                                       id="dept" th:value="${session.personalDetails.dept.name}"
+                                       readonly>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="grade">年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级：</label>
+                                <input type="text"
+                                       class="float-left form-control child-vertical-align"
+                                       id="grade"
+                                       th:value="${#dates.format(session.personalDetails.grade,'yyyy')}"
+                                       readonly>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="major">专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：</label>
+                                <input type="text"
+                                       class="float-left form-control child-vertical-align"
+                                       id="major"
+                                       th:value="${session.personalDetails.major.name}"
+                                       readonly>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="classNo">班&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级：</label>
+                                <input type="text"
+                                       class="float-left form-control child-vertical-align"
+                                       id="classNo"
+                                       th:value="${session.personalDetails.classTable.classNo}"
+                                       readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="main-footer" th:replace="common/footer::footer">
+    </footer>
+    <div class="control-sidebar-bg"></div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/adminlte.min.js"></script>
+<script>
+    function editPw(username) {
+        var newPw = $("#newPw").val();
+        var checkPw = $("#checkPw").val();
+        if (newPw != checkPw) {
+            alert("请确认密码一致");
+            return;
+        }
+        var json = {
+            "username": username,
+            "password": checkPw
+        }
+        $.ajax({
+            url: "/user",
+            type: "PUT",
+            contentType: "application/json",
+            traditional: true,
+            data: JSON.stringify(json),
+            success: function (d) {
+                alert(d.msg);
+            }
+        })
+    }
+</script>
+</body>
+</html>

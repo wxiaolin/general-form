@@ -40,7 +40,7 @@
                             <div class="form-group parent-relative">
                                 <label class="float-left" for="username">用户名：</label>
                                 <input type="text" class="float-left form-control child-vertical-align"
-                                       id="username" th:placeholder="${session.currentUser.username}" readonly>
+                                       id="username" th:value="${session.currentUser.username}" readonly>
                             </div>
                         </div>
                         <hr/>
@@ -94,9 +94,9 @@
             url: "/user",
             type: "PUT",
             contentType: "application/json",
-            traditional:true,
+            traditional: true,
             data: JSON.stringify(json),
-            success:function (d) {
+            success: function (d) {
                 alert(d.msg);
             }
         })

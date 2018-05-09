@@ -31,4 +31,11 @@ public interface StudentServcice {
      */
     List<StudentInfo> listStudentInfo(StudentInfo record);
 
+    /**
+     * 根据学号（帐号）获取详细的个人信息
+     * @param stuNo
+     * @return
+     */
+    StudentInfo getStudentInfoDetailed(String stuNo);
+
 }
