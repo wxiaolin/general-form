@@ -78,19 +78,4 @@ public class UserRealm extends AuthorizingRealm {
         return null;
     }
 
-    /**
-     * @param username
-     * @param info
-     */
-    private void addRole(String username, SimpleAuthorizationInfo info) {
-
-    }
-
-    /**
-     * @param username
-     * @param info
-     */
-    private void addPermission(String username, SimpleAuthorizationInfo info) {
-
-    }
 }

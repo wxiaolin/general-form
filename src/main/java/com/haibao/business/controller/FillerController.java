@@ -82,7 +82,7 @@ public class FillerController {
         Logger logger = Logger.getLogger(FillerController.class);
         // 迭代需要填充的字段
         for (String field : fields) {
-            if (!StringUtils.isEmpty(field)) {
+            if (StringUtils.isEmpty(field)) {
                 logger.debug("nullfield= " + field);
                 continue;
             } else {

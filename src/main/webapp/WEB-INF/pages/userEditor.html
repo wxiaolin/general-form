@@ -46,10 +46,19 @@
                         <hr/>
                         <div class="form-inline">
                             <div class="form-group parent-relative">
+                                <label class="float-left" for="newPw">旧&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+                                <input type="password" class="float-left form-control child-vertical-align" id="oldPw"
+                                       required
+                                       placeholder="请输入旧密码">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
                                 <label class="float-left" for="newPw">新&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
                                 <input type="password" class="float-left form-control child-vertical-align" id="newPw"
                                        required
-                                       placeholder="请输入旧密码">
+                                       placeholder="请输入新密码">
                             </div>
                         </div>
                         <br/>
@@ -58,12 +67,12 @@
                                 <label class="float-left" for="checkPw">确认新密码：</label>
                                 <input type="password" class="float-left form-control child-vertical-align" id="checkPw"
                                        required
-                                       placeholder="请输入新密码">
+                                       placeholder="请确认新密码">
                             </div>
                         </div>
                         <br/>
                         <button class="btn btn-default radius-none"
-                                th:onclick="'editPw(\''+${session.currentUser.username}+'\')'">提交修改
+                                th:onclick="'editPw()'">提交修改
                         </button>
                     </div>
                 </div>
@@ -78,29 +87,6 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/adminlte.min.js"></script>
-<script>
-    function editPw(username) {
-        var newPw = $("#newPw").val();
-        var checkPw = $("#checkPw").val();
-        if (newPw != checkPw) {
-            alert("请确认密码一致");
-            return;
-        }
-        var json = {
-            "username": username,
-            "password": checkPw
-        }
-        $.ajax({
-            url: "/user",
-            type: "PUT",
-            contentType: "application/json",
-            traditional: true,
-            data: JSON.stringify(json),
-            success: function (d) {
-                alert(d.msg);
-            }
-        })
-    }
-</script>
+<script src="/js/user.js"></script>
 </body>
 </html>

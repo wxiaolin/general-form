@@ -1,10 +1,13 @@
 package com.haibao.system.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.haibao.system.domain.enums.SessionContext;
 import com.haibao.business.domain.vo.Result;
 import com.haibao.system.domain.entity.User;
 import com.haibao.system.domain.enums.ResultCode;
 import com.haibao.system.service.UserService;
+import com.haibao.utils.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
@@ -15,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Map;
 
 /**
  * @Author: caot
@@ -50,23 +55,30 @@ public class UserController {
 
     /**
      * 用户自主维护个人信息
-     * @param user
+     * @param map
      * @return
      */
     @ResponseBody
     @RequestMapping(method = RequestMethod.PUT)
-    public Result doEdit(@RequestBody User user) {
+    public Result doEdit(@RequestBody Map<String, String> map) throws JsonProcessingException {
         Logger logger = Logger.getLogger(this.getClass());
-        logger.debug("进入doEdit()，"+user.toString());
-        if (null != user.getUsername() && null != user.getPassword()) {
-            Session session = SecurityUtils.getSubject().getSession();
-            User currentUser = (User) session.getAttribute(SessionContext.CURRENT_USER.string());
-            user.setId(currentUser.getId());
-            userService.editUser(user);
-            logger.info("账号信息更新成功，"+user.toString());
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(map);
+        logger.debug("进入doEdit()，"+json);
+        Session session = SecurityUtils.getSubject().getSession();
+        User currentUser = (User) session.getAttribute(SessionContext.CURRENT_USER.string());
+        String oldPw = map.get("oldPw");
+        if (!oldPw.equals(currentUser.getPassword())){
+            return new Result(true, ResultCode.ERROR_400.code(), "原密码错误", null);
+        }
+        String newPw = map.get("newPw");
+        if (!StringUtils.isEmpty(newPw) && 7 < newPw.length()) {
+            currentUser.setPassword(newPw);
+            userService.editUser(currentUser);
+            logger.info("账号信息更新成功，"+currentUser.toString());
             return new Result(true, ResultCode.SUCCESS.code(), ResultCode.SUCCESS.msg(), null);
         } else {
-            logger.info("账号信息更新失败，"+user.toString());
+            logger.info("账号信息更新失败，"+currentUser);
             return new Result(false, ResultCode.ERROR_400.code(), "账号信息更新失败", null);
         }
     }
