@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>表格列表-通用表格系统</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/ionicons.min.css">
+    <link rel="stylesheet" href="/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/css/skins/skin-blue.min.css">
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+
+    </style>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header" th:replace="common/header::header">
+
+    </header>
+    <aside class="main-sidebar" th:replace="common/sidebar::sidebar">
+
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                表格一览
+                <small></small>
+            </h1>
+        </section>
+        <section class="content container-fluid">
+            <div class="box box-danger direct-chat direct-chat-danger">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">系统公告</div>
+                    <div class="panel-body">
+                        <p>公告内容</p>
+                    </div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="col-md-8">表格名称</th>
+                            <th class="col-md-2">发布日期</th>
+                            <th class="col-md-2">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!--/*@thymesVar id="formList" type="java.util.List"*/-->
+                        <tr th:each="form : ${formList}">
+                            <!--/*@thymesVar id="name" type="java.lang.String"*/-->
+                            <td><a th:href="@{${form.id}}" th:text="${form.name}"></a></td>
+                            <!--/*@thymesVar id="createTime" type="java.util.Date"*/-->
+                            <td th:text="${#dates.format(form.createTime,'yyyy/MM/dd')}">&nbsp;</td>
+                            <td>
+                                <!--<span th:if=""></span>-->
+                                <span><a th:href="@{${form.id}}">查看</a></span>
+                                <span shiro:hasRole="form manager"><a th:href="@{'/form/maker/'+${form.id}}" >编辑</a></span>
+                                <span shiro:hasRole="form manager"><a href="#" th:onclick="'delForm('+${form.id}+')'">删除</a></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="form" class="box-footer">
+                    <ul class="pagination">
+                        <!--<li><a href="#">&laquo;</a></li>-->
+                        <li th:each="i : ${#numbers.sequence(1,pageObj.pageMax+2)}"
+                            th:class="${(i)-1==pageObj.currentPage?'active':null}"
+                            th:switch="${i}">
+                            <!--/* i==1时输出《 */-->
+                            <a class="radius-none"
+                               th:case="1" th:text="'&laquo;'"
+                               th:href="@{${pageObj.currentPage==1?'#':('?page='+((pageObj.currentPage)-1))}}"></a>
+                            <!--/* i==max时输出 */-->
+                            <a class="radius-none"
+                               th:case="${pageObj.pageMax+2}" th:text="'&raquo;'"
+                               th:href="@{${pageObj.currentPage==pageObj.pageMax?'#':('?page='+((pageObj.currentPage)+1))}}"></a>
+                            <!--/*  */-->
+                            <a th:case="*" th:text="${(i)-1}" th:href="@{'?page='+${(i)-1}}"></a>
+                        </li>
+                        <!--<li><a href="#">&raquo;</a></li>-->
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="main-footer" th:replace="common/footer::footer">
+
+    </footer>
+
+    <div class="control-sidebar-bg"></div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/adminlte.min.js"></script>
+<script src="/js/form.js"></script>
+</body>
+
+</html>

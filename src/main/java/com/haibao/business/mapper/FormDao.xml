@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haibao.business.dao.FormDao">
+  <resultMap id="BaseResultMap" type="com.haibao.business.domain.entity.Form">
+      <id property="id" column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="name" column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="define" column="define" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="fstatus" column="fstatus" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="fdesc" column="fdesc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <result property="deptId" column="dept_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="type" column="type" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="creator" column="creator" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="createTime" column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <result property="updater" column="updater" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <result property="updateTime" column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, define, fstatus, fdesc, dept_id, type, creator, create_time, updater, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_form
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectCount" resultType="java.lang.Integer">
+    select
+    count(id)
+    from t_form
+    where fstatus != 0
+  </select>
+  <select id="selectLimit" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_form
+    where fstatus != 0
+    order by create_time desc
+    limit #{offset},#{rowCount}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    update t_form
+    set fstatus = 0
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="com.haibao.business.domain.entity.Form">
+    insert into t_form
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="fstatus != null">
+        fstatus,
+      </if>
+      <if test="fdesc != null">
+        fdesc,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="define != null">
+        define,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="fstatus != null">
+        #{fstatus,jdbcType=INTEGER},
+      </if>
+      <if test="fdesc != null">
+        #{fdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="define != null">
+        #{define,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibao.business.domain.entity.Form">
+    update t_form
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="fstatus != null">
+        fstatus = #{fstatus,jdbcType=INTEGER},
+      </if>
+      <if test="fdesc != null">
+        fdesc = #{fdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="define != null">
+        define = #{define,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+    and fstatus != 0
+  </update>
+</mapper>

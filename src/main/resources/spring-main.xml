@@ -3,15 +3,35 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:cache="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
-">
+       http://www.springframework.org/schema/cache
+       http://www.springframework.org/schema/cache/spring-cache.xsd">
     <!--引入配置属性文件 -->
     <context:property-placeholder location="classpath*:jdbc.properties"/>
-    <context:component-scan base-package="com.haibao.service"/>
+    <context:component-scan base-package="com.haibao.system.service"/>
+    <context:component-scan base-package="com.haibao.business.service"/>
+    <context:component-scan base-package="com.haibao.system.cache"/>
 
-    <bean id="cacheManager" class="org.springframework.cache.concurrent.ConcurrentMapCacheManager" />
+    <!--缓存配置-->
+    <!--启用缓存注解功能-->
+    <cache:annotation-driven cache-manager="cacheManager"/>
+    <!--spring自己的基于java.util.concurrent.ConcurrentHashMap实现的缓存管理器（该功能是从Spring3.1开始提供）-->
+    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean name="classes" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+                <bean name="depts" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+                <bean name="districts" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+                <bean name="majors" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+                <bean name="nations" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+            </set>
+        </property>
+    </bean>
+
+    <!--<bean id="cacheManager" class="org.springframework.cache.concurrent.ConcurrentMapCacheManager" />-->
 
 </beans>

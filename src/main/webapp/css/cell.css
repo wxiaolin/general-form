@@ -1,0 +1,77 @@
+/* bootstrap自带 */
+/*.text-left{*/
+/*text-align: left;*/
+/*}*/
+
+.input-group-btn {
+    width: auto;
+    margin-right: 4px;
+}
+
+#form-dotted-area {
+    max-height: 41px;
+    overflow: hidden;
+}
+
+.cells-wrapper > textarea {
+    resize: none;
+    overflow-y: hidden;
+    border-color: #000000;
+}
+
+.cells-wrapper > textarea, input {
+    float: left;
+}
+
+.form {
+    width: 840px;
+    height: 1200px;
+}
+
+.form-title {
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
+    border-style: dotted;
+}
+
+.cell {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 16px;
+    /*text-align: center;*/
+}
+
+.cell-normal {
+
+}
+
+.cell-middle {
+    height: 110px;
+    display: table-cell;
+    vertical-align: middle
+}
+
+.cell-big {
+    height: 220px;
+}
+
+.cell-bigger {
+    height: 330px;
+}
+
+.cell-biggest {
+    height: 440px;
+}
+
+.cell-not-border {
+    border-style: none;
+}
+
+.cell-dotted {
+    padding-bottom: 0;
+    border-style: dotted;
+}

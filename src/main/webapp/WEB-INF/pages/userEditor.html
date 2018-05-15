@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>账号信息维护-通用表格系统</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/ionicons.min.css">
+    <link rel="stylesheet" href="/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/css/skins/skin-blue.min.css">
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header" th:replace="common/header::header">
+    </header>
+    <aside class="main-sidebar" th:replace="common/sidebar::sidebar">
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                账号信息维护
+                <small></small>
+            </h1>
+        </section>
+        <section class="content container-fluid">
+            <div class="box box-danger direct-chat direct-chat-danger">
+                <div class="panel panel-default">
+                    <div class="panel-heading">账号信息</div>
+                    <div class="panel-body">
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="username">用户名：</label>
+                                <input type="text" class="float-left form-control child-vertical-align"
+                                       id="username" th:value="${session.currentUser.username}" readonly>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="newPw">旧&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+                                <input type="password" class="float-left form-control child-vertical-align" id="oldPw"
+                                       required
+                                       placeholder="请输入旧密码">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="newPw">新&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+                                <input type="password" class="float-left form-control child-vertical-align" id="newPw"
+                                       required
+                                       placeholder="请输入新密码">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="form-inline">
+                            <div class="form-group parent-relative">
+                                <label class="float-left" for="checkPw">确认新密码：</label>
+                                <input type="password" class="float-left form-control child-vertical-align" id="checkPw"
+                                       required
+                                       placeholder="请确认新密码">
+                            </div>
+                        </div>
+                        <br/>
+                        <button class="btn btn-default radius-none"
+                                th:onclick="'editPw()'">提交修改
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="main-footer" th:replace="common/footer::footer">
+    </footer>
+    <div class="control-sidebar-bg"></div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/adminlte.min.js"></script>
+<script src="/js/user.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 package com.haibao.init.db;
 
-import com.haibao.model.po.District;
+import com.haibao.business.domain.entity.District;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.core.io.ClassPathResource;
@@ -12,9 +12,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
 /**
- * Created by haibao on 2018/3/3.
+ * 初始化行政区域表
+ * Created on 2018/3/18.
+ * @author haibao
  */
 public class DistrictInit {
     public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException {
@@ -23,8 +24,10 @@ public class DistrictInit {
         Sheet sheet = workbook.getSheetAt(0);
         Iterator<Row> rowIterator = sheet.iterator();
         List<District> districtList = new ArrayList<>();
-        Integer belong = null;
         rowIterator.next();
+        final int belongCountry = 0;
+        int belongProv = 0;
+        int belongCity = 0;
         while (rowIterator.hasNext()) {
             Row row = rowIterator.next();
             Iterator<Cell> cellIterator = row.cellIterator();
@@ -39,17 +42,18 @@ public class DistrictInit {
                 switch (cell0.getCellType()) {
                     case Cell.CELL_TYPE_NUMERIC:{
                         double code = cell0.getNumericCellValue();
-                        district.setDid(Integer.valueOf((int) code));
+                        district.setId(Integer.valueOf((int) code));
                     }break;
                     case Cell.CELL_TYPE_STRING:{
                         String code = cell0.getStringCellValue().substring(0, 6);
-                        district.setDid(Integer.valueOf(Integer.valueOf(code)));
+                        district.setId(Integer.valueOf(Integer.valueOf(code)));
                     }
                 }
-                district.setDname(cell3.getStringCellValue().trim());
-                district.setBelong(belong);
-                district.setDrank((byte) 2);
-                district.setCreator(1);
+                district.setName(cell3.getStringCellValue().trim());
+                district.setBelong(belongCity);
+                // 2 县级行政区
+                district.setRank( 2);
+                districtList.add(district);
             }
             if (row.getLastCellNum() == 3) {
                 cell0 = row.getCell(0);
@@ -57,18 +61,19 @@ public class DistrictInit {
                 switch (cell0.getCellType()) {
                     case Cell.CELL_TYPE_NUMERIC:{
                         double code = cell0.getNumericCellValue();
-                        district.setDid(Integer.valueOf((int) code));
+                        district.setId(Integer.valueOf((int) code));
                     }break;
                     case Cell.CELL_TYPE_STRING:{
                         String code = cell0.getStringCellValue().substring(0, 6);
-                        district.setDid(Integer.valueOf(Integer.valueOf(code)));
+                        district.setId(Integer.valueOf(Integer.valueOf(code)));
                     }
                 }
-                district.setDname(cell2.getStringCellValue().trim());
-                district.setBelong(belong);
-                district.setDrank((byte) 1);
-                district.setCreator(1);
-                belong = district.getDid();
+                district.setName(cell2.getStringCellValue().trim());
+                district.setBelong(belongProv);
+                district.setRank( 1);
+                // 1 市级行政区
+                districtList.add(district);
+                belongCity = district.getId();
             }
             if (row.getLastCellNum() == 2) {
                 cell0 = row.getCell(0);
@@ -76,20 +81,21 @@ public class DistrictInit {
                 switch (cell0.getCellType()) {
                     case Cell.CELL_TYPE_NUMERIC:{
                         double code = cell0.getNumericCellValue();
-                        district.setDid(Integer.valueOf((int) code));
+                        district.setId(Integer.valueOf((int) code));
                     }break;
                     case Cell.CELL_TYPE_STRING:{
                         String code = cell0.getStringCellValue().substring(0, 6);
-                        district.setDid(Integer.valueOf(Integer.valueOf(code)));
+                        district.setId(Integer.valueOf(Integer.valueOf(code)));
                     }
                 }
-                district.setDname(cell1.getStringCellValue().trim());
-                district.setBelong(0);
-                district.setDrank((byte) 0);
-                district.setCreator(1);
-                belong = district.getDid();
+                district.setName(cell1.getStringCellValue().trim());
+                district.setBelong(belongCountry);
+                // 0，省级行政区
+                district.setRank( 0);
+                districtList.add(district);
+                belongProv = district.getId();
             }
-            districtList.add(district);
+
         }
         String url = "jdbc:mysql://120.77.148.101:3306/general_form_system_db?useServerPrepStmts=true&rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf-8";
         String user = "haibao";
@@ -103,9 +109,9 @@ public class DistrictInit {
                     " values (?,?,?,?,?) ";
         statement = connection.prepareStatement(sql);
         for (District d : districtList) {
-            statement.setInt(1,d.getDid());
-            statement.setString(2,d.getDname());
-            statement.setByte(3,d.getDrank());
+            statement.setInt(1,d.getId());
+            statement.setString(2,d.getName());
+            statement.setInt(3,d.getRank());
             statement.setInt(4,d.getBelong());
             statement.setInt(5,1);
             statement.addBatch();

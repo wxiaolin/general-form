@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+">
+    <description>Shiro Configuration</description>
+    <!-- Shiro Filter -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login"/>
+        <property name="successUrl" value="/index"/>
+        <property name="unauthorizedUrl" value="/error/error"/>
+        <property name="filterChainDefinitions">
+            <value>
+                / = anon
+                /index.html = anon
+                /form/list = anon
+                /form/maker = roles[form manager]
+                /form/* = anon
+                /login = anon
+                /css/** = anon
+                /js/admin.js = roles[admin]
+                /js/** = anon
+                /fonts/** = anon
+                /img/** = anon
+                /admin/** = roles[admin]
+                /logout = logout
+                /** = authc
+            </value>
+        </property>
+    </bean>
+    <!-- securityManager -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="userRealm"/>
+    </bean>
+    <!-- 自定义Realm实现 -->
+    <bean id="userRealm" class="com.haibao.system.shiro.UserRealm"/>
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+</beans>

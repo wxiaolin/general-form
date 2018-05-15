@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>用户状态管理-通用表格系统</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/ionicons.min.css">
+    <link rel="stylesheet" href="/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/css/skins/skin-blue.min.css">
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header" th:replace="common/header::header">
+
+    </header>
+    <aside class="main-sidebar" th:replace="common/sidebar::sidebar">
+
+    </aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                帐号状态管理
+                <small></small>
+            </h1>
+        </section>
+        <section class="content container-fluid">
+            <div class="box box-danger direct-chat direct-chat-danger">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">系统用户一览</div>
+                    <div class="panel-body form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control float-left" id="queryUsername" placeholder="输入要查找的用户">
+                        </div>
+                        <button class="btn btn-default radius-none" onclick="searchUsers()">搜索</button>
+                        <button class="btn btn-default radius-none" onclick="searchUsersWithAuthc()">查看有权限的用户</button>
+                    </div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="col-md-1">用户ID</th>
+                            <th class="col-md-1">用户名</th>
+                            <th class="col-md-1">状态</th>
+                            <th class="col-md-2">角色</th>
+                            <th class="col-md-7">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="user : ${userList}">
+                            <td><span th:text="${user.id}"></span></td>
+                            <td><span th:text="${user.username}"></span></td>
+                            <td th:switch="${user.astatus}">
+                                <span th:case="0" th:text="'冻结'"></span>
+                                <span th:case="1" th:text="'正常'"></span>
+                                <span th:case="*" th:text="'非法，请联系技术人员'"></span>
+                            </td>
+                            <td>
+                                <span th:each="role,roleStat : ${user.roles}">
+                                    <span th:text="${role.role}"></span>
+                                    <span th:if="${!roleStat.last}" th:text="','"></span>
+                                </span>
+                            </td>
+                            <td>
+                                <span>
+                                    <a href="#" th:onclick="'resetPw('+${user.id}+')'">[重置密码]</a>
+                                </span>
+                                <span th:if="${user.astatus==0}">
+                                    <a href="#" th:onclick="'changeState('+${user.id}+',1)'">[解冻]</a>
+                                </span>
+                                <span th:if="${user.astatus==1}">
+                                    <a href="#" th:onclick="'changeState('+${user.id}+',0)'">[冻结]</a>
+                                </span>
+                                <span th:if="${user.roles.size()==1}">
+                                    <a href="#" th:onclick="'addRole('+${user.id}+',3)'">[授权表格管理员]</a>
+                                </span>
+                                <span th:if="${user.roles.size()==2}">
+                                    <a href="#" th:onclick="'delRole('+${user.id}+',3)'">[取消授权]</a>
+                                </span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--分页按钮-->
+                <div id="form" class="box-footer">
+                    <ul class="pagination">
+                        <!--<li><a href="#">&laquo;</a></li>-->
+                        <li th:each="i : ${#numbers.sequence(1,pageObj.pageMax+2)}"
+                            th:class="${(i)-1==pageObj.currentPage?'active':null}"
+                            th:switch="${i}">
+                            <!--/* i==1时输出《 */-->
+                            <a class="radius-none"
+                               th:case="1" th:text="'&laquo;'"
+                               th:href="@{${pageObj.currentPage==1?'#':('?page='+((pageObj.currentPage)-1))}}"></a>
+                            <!--/* i==max时输出 */-->
+                            <a class="radius-none"
+                               th:case="${pageObj.pageMax+2}" th:text="'&raquo;'"
+                               th:href="@{${pageObj.currentPage==pageObj.pageMax?'#':('?page='+((pageObj.currentPage)+1))}}"></a>
+                            <!--/*  */-->
+                            <a th:case="*" th:text="${(i)-1}" th:href="@{'?page='+${(i)-1}}"></a>
+                        </li>
+                        <!--<li><a href="#">&raquo;</a></li>-->
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="main-footer" th:replace="common/footer::footer">
+
+    </footer>
+
+    <div class="control-sidebar-bg"></div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/adminlte.min.js"></script>
+<script src="/js/form.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>

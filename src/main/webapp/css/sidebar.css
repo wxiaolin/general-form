@@ -1,0 +1,8 @@
+.user-panel .pull-right .login-font {
+    font-weight: 600;
+}
+
+.user-panel .pull-right .login-font:hover {
+    font-weight: 600;
+    color: #fff;
+}

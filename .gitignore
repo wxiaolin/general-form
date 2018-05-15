@@ -2,3 +2,8 @@ target/
 .idea/
 .settings/
 src/main/resources/jdbc.properties
+.classpath
+.project
+src/main/resources/专业班级表.xlsx
+generalformsystem.iml
+*.log*
